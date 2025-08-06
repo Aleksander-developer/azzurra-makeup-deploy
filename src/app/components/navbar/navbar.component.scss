@@ -1,8 +1,8 @@
     /* src/app/shared/components/navbar/navbar.component.scss */
 
     // Importa le variabili globali dal tuo file _variables.scss usando @use
-    @use '../../../../styles/variables' as vars;
-    @use '../../../../styles/mixins' as mixins;
+    @use '../../../styles/variables' as vars;
+    @use '../../../styles/mixins' as mixins;
 
     // Variabili specifiche della navbar (se non sono globali)
     $brand-link-color: vars.$color-white; // Usa il tuo bianco
@@ -13,7 +13,7 @@
       align-items: center;
 
       // --- NUOVI STILI PER LO SFONDO CON IMMAGINE ---
-      background-image: url('../../../../assets/sfondo.png'); // Percorso alla tua immagine
+      background-image: url('../../../assets/sfondo.png'); // Percorso alla tua immagine
       background-size: 150px auto; // Rendi l'immagine piccola (es. 150px di larghezza, altezza automatica)
       background-repeat: repeat; // Ripeti l'immagine per coprire lo sfondo
       background-position: center center; // Centra l'immagine iniziale
