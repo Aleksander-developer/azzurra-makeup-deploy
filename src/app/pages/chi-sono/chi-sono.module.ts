@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ChiSonoRoutingModule } from './chi-sono-routing.module';
 import { ChiSonoComponent } from './chi-sono.component';
+import { MaterialModule } from '../../material/material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ChiSonoComponent } from './chi-sono.component';
   ],
   imports: [
     CommonModule,
-    ChiSonoRoutingModule
+    ChiSonoRoutingModule,
+    MaterialModule
   ]
 })
 export class ChiSonoModule { }

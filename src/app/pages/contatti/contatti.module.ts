@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ContattiRoutingModule } from './contatti-routing.module';
 import { ContattiComponent } from './contatti.component';
+import { MaterialModule } from '../../material/material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { ContattiComponent } from './contatti.component';
   ],
   imports: [
     CommonModule,
-    ContattiRoutingModule
+    ContattiRoutingModule,
+    MaterialModule,
+    HttpClientModule
   ]
 })
 export class ContattiModule { }
