@@ -1,7 +1,7 @@
 // src/app/pages/portfolio/portfolio.component.ts
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core'; // <-- AGGIUNTO Inject, PLATFORM_ID
+import { isPlatformBrowser } from '@angular/common'; // <-- AGGIUNTO isPlatformBrowser
 import { Subscription } from 'rxjs';
-
 import {
   trigger,
   transition,
@@ -45,10 +45,21 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   errorMessage: string | null = null;
   private portfolioSubscription: Subscription | undefined;
 
-  constructor(private portfolioService: PortfolioService) {}
+  // <-- MODIFICATO il costruttore per iniettare PLATFORM_ID
+  constructor(
+    private portfolioService: PortfolioService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
-    this.loadPortfolioItems();
+    // <-- AGGIUNTO il controllo per eseguire la chiamata solo nel browser
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadPortfolioItems();
+    } else {
+      // Sul server, non facciamo la chiamata API.
+      // Possiamo impostare isLoading a false per evitare un caricamento infinito nel HTML renderizzato.
+      this.isLoading = false;
+    }
   }
 
   ngOnDestroy(): void {
@@ -84,4 +95,3 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     return 'assets/placeholder.jpg';
   }
 }
-
