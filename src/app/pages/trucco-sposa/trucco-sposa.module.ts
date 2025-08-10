@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TruccoSposaRoutingModule } from './trucco-sposa-routing.module';
 import { TruccoSposaComponent } from './trucco-sposa.component';
+import { MaterialModule } from '../../material/material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { TruccoSposaComponent } from './trucco-sposa.component';
   ],
   imports: [
     CommonModule,
-    TruccoSposaRoutingModule
+    TruccoSposaRoutingModule,
+    MaterialModule
   ]
 })
 export class TruccoSposaModule { }
