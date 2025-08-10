@@ -5,6 +5,7 @@ import { FooterComponent } from '../components/footer/footer.component';
 import { WhyChooseMeComponent } from '../components/why-choose-me/why-choose-me.component';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
+import { ConfirmationDialogComponent } from './dialogs/confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -13,6 +14,7 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     FooterComponent,
     WhyChooseMeComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     FooterComponent,
     WhyChooseMeComponent,
-    MaterialModule
+    MaterialModule,
+    ConfirmationDialogComponent
   ]
 })
 export class SharedModule { }
