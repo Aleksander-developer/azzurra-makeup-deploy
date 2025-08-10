@@ -1,5 +1,5 @@
 // src/environments/environment.prod.ts
 export const environment = {
   production: true,
-  apiUrl: 'https://3npmcryhp6.eu-central-1.awsapprunner.com' // <-- AGGIORNATO CON L'URL DEL TUO BACKEND IN PROD
+  apiUrl: 'https://azzurra-makeup-be-1046780610179.europe-west1.run.app' // <-- AGGIORNATO CON L'URL DEL TUO BACKEND IN PROD
 };

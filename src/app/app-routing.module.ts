@@ -14,6 +14,7 @@ const routes: Routes = [
     canActivate: [AuthGuard], // <-- PROTEGGI LA ROTTA ADMIN
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
+  { path: 'servizi', loadChildren: () => import('./pages/servizi/servizi.module').then(m => m.ServiziModule) },
 ];
 
 @NgModule({
