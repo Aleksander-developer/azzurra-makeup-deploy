@@ -58,6 +58,7 @@
           },
           "configurations": {
             "production": {
+              "localize": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -73,6 +74,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "localize": true,
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
@@ -125,3 +127,4 @@
     }
   }
 }
+
