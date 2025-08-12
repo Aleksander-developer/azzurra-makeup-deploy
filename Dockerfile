@@ -22,4 +22,4 @@ EXPOSE 8080
 
 # Avvia il server Node.js
 # Controlla la cartella 'dist' dopo il build per essere sicuro del percorso
-CMD [ "node", "dist/azzurra-makeup-deploy/server/main.mjs" ]
+CMD [ "node", "dist/azzurra-makeup-deploy/server/server.mjs" ]
