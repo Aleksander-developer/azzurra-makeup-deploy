@@ -43,12 +43,7 @@
               "@angular/material/prebuilt-themes/rose-red.css",
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "ssr": {
-              "entry": "server.ts"
-            },
-            "prerender": false
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -111,29 +106,20 @@
         "prerender": {
           "builder": "@angular-devkit/build-angular:prerender",
           "options": {
+            "browserTarget": "azzurra-makeup-deploy:build:production",
+            "serverTarget": "azzurra-makeup-deploy:server:production",
             "routes": [
               "/it",
               "/it/home",
               "/en",
               "/en/home"
             ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "azzurra-makeup-deploy:build:production",
-              "serverTarget": "azzurra-makeup-deploy:server:production"
-            },
-            "development": {
-              "browserTarget": "azzurra-makeup-deploy:build:development",
-              "serverTarget": "azzurra-makeup-deploy:server:development"
-            }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "outputPath": "src/locale"
+            "browserTarget": "azzurra-makeup-deploy:build"
           }
         },
         "test": {
