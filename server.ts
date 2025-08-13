@@ -1,56 +1,88 @@
+// server.ts
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
 import express from 'express';
-import { fileURLToPath } from 'node:url';
-import { dirname, join, resolve } from 'node:path';
-import AppServerModule from './src/main.server';
+// Non useremo più fileURLToPath e dirname direttamente per i percorsi di build
+// import { fileURLToPath } from 'node:url';
+import { join } from 'node:path'; // Usiamo solo join
+import { LOCALE_ID } from '@angular/core';
 
-// The Express app is exported so that it can be used by serverless Functions.
-export function app(): express.Express {
+export async function app(): Promise<express.Express> {
   const server = express();
-  const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../browser');
-  const indexHtml = join(serverDistFolder, 'index.server.html');
+
+  const { AppServerModule } = await import('./src/main.server');
+
+  // ***** MODIFICHE QUI: Percorsi per Cloud Run *****
+  // Cloud Run esegue il server da /usr/src/app (come definito nel Dockerfile)
+  // I file del browser sono in /usr/src/app/browser
+  // I file del server sono in /usr/src/app/server
+  const currentDir = process.cwd(); // Ottiene la directory di lavoro corrente del processo Node.js
+  const browserDistFolder = join(currentDir, 'browser'); // Il tuo Dockerfile copia in /usr/src/app/browser
+  const serverDistFolder = join(currentDir, 'server');   // Il tuo Dockerfile copia in /usr/src/app/server
+
+  console.log('📁 currentDir:', currentDir);
+  console.log('📁 serverDistFolder:', serverDistFolder);
+  console.log('📁 browserDistFolder:', browserDistFolder);
+  // *************************************************
+
+  const supportedLocales = ['it', 'en'];
+  const defaultLocale = 'it';
 
   const commonEngine = new CommonEngine();
-
   server.set('view engine', 'html');
-  server.set('views', browserDistFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
-  // Serve static files from /browser
-  server.get('**', express.static(browserDistFolder, {
+  // Serve gli asset globali dalla root della cartella browser
+  server.use(express.static(browserDistFolder, {
     maxAge: '1y',
-    index: 'index.html',
   }));
 
-  // All regular routes use the Angular engine
-  server.get('**', (req, res, next) => {
-    const { protocol, originalUrl, baseUrl, headers } = req;
+  // Serve gli asset specifici della lingua
+  supportedLocales.forEach((locale) => {
+    const localePath = join(browserDistFolder, locale); // Usiamo join qui
+    server.use(`/${locale}`, express.static(localePath, {
+      maxAge: '1y',
+    }));
+  });
 
-    commonEngine
-      .render({
-        bootstrap: AppServerModule,
-        documentFilePath: indexHtml,
-        url: `${protocol}://${headers.host}${originalUrl}`,
-        publicPath: browserDistFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
-      })
-      .then((html) => res.send(html))
-      .catch((err) => next(err));
+  // SSR per ogni lingua
+  supportedLocales.forEach((locale) => {
+    const localePath = join(browserDistFolder, locale); // Usiamo join qui
+    const indexHtml = join(localePath, 'index.html'); // Usiamo join qui
+
+    server.get(`/${locale}*`, async (req, res, next) => {
+      try {
+        console.log(`🔄 SSR rendering ${req.originalUrl} → ${indexHtml}`);
+        const html = await commonEngine.render({
+          bootstrap: AppServerModule,
+          documentFilePath: indexHtml,
+          url: req.originalUrl,
+          publicPath: localePath,
+          providers: [
+            { provide: APP_BASE_HREF, useValue: `/${locale}/` },
+            { provide: LOCALE_ID, useValue: locale }
+          ],
+        });
+        res.send(html);
+      } catch (err) {
+        console.error(`❌ SSR error for ${req.originalUrl}:`, err);
+        next(err);
+      }
+    });
+  });
+
+  // Redirect dalla root alla lingua predefinita
+  server.get('/', (req, res) => {
+    res.redirect(`/${defaultLocale}`);
   });
 
   return server;
 }
 
-function run(): void {
-  const port = process.env['PORT'] || 4000;
-
-  // Start up the Node server
-  const server = app();
+async function run(): Promise<void> {
+  const port = process.env['PORT'] || 8080;
+  const server = await app();
   server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    console.log(`✅ Angular SSR multilingua avviato su http://localhost:${port}`);
   });
 }
 
