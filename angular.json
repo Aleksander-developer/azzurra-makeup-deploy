@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/azzurra-makeup-deploy",
+            "outputPath": "dist/azzurra-makeup-deploy/browser",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -47,7 +47,8 @@
             "server": "src/main.server.ts",
             "ssr": {
               "entry": "server.ts"
-            }
+            },
+            "prerender": false
           },
           "configurations": {
             "production": {
@@ -67,6 +68,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "localize": ["it", "en"],
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
@@ -106,10 +108,32 @@
           },
           "defaultConfiguration": "production"
         },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/it",
+              "/it/home",
+              "/en",
+              "/en/home"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "azzurra-makeup-deploy:build:production",
+              "serverTarget": "azzurra-makeup-deploy:server:production"
+            },
+            "development": {
+              "browserTarget": "azzurra-makeup-deploy:build:development",
+              "serverTarget": "azzurra-makeup-deploy:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "azzurra-makeup-deploy:build"
+            "outputPath": "src/locale"
           }
         },
         "test": {
