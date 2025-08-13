@@ -1,31 +1,56 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+/* tsconfig.json - Root configuration for Angular SSR + i18n */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    /* Output directory for compiled JS */
     "outDir": "./dist/out-tsc",
+
+    /* Strict type checking */
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+
+    /* Performance & compatibility */
     "skipLibCheck": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+
+    /* Debugging */
     "sourceMap": true,
     "declaration": false,
+
+    /* Angular decorators support */
     "experimentalDecorators": true,
-    "moduleResolution": "bundler",
+
+    /* Module resolution for SSR and modern builds */
+    "moduleResolution": "node",
+
+    /* Reduce bundle size using TS helpers */
     "importHelpers": true,
+
+    /* Target modern JavaScript */
     "target": "ES2022",
     "module": "ES2022",
+
+    /* Supported libraries */
     "lib": [
       "ES2022",
       "dom"
+    ],
+
+    /* Node.js + Angular i18n typings */
+    "types": [
+      "node",
+      "@angular/localize"
     ]
   },
   "angularCompilerOptions": {
+    /* Disable legacy message IDs for i18n */
     "enableI18nLegacyMessageIdFormat": false,
+
+    /* Strict Angular template & DI checks */
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
