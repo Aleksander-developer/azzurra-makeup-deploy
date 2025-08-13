@@ -106,8 +106,8 @@
         "prerender": {
           "builder": "@angular-devkit/build-angular:prerender",
           "options": {
-            "browserTarget": "azzurra-makeup-deploy:build:production",
-            "serverTarget": "azzurra-makeup-deploy:server:production",
+            "buildTarget": "azzurra-makeup-deploy:build:production",
+            "serverBuildTarget": "azzurra-makeup-deploy:server:production",
             "routes": [
               "/it",
               "/it/home",
