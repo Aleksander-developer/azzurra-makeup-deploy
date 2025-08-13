@@ -117,11 +117,16 @@
           }
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "azzurra-makeup-deploy:build"
-          }
+        "builder": "@angular-devkit/build-angular:extract-i18n",
+        "options": {
+          "buildTarget": "azzurra-makeup-deploy:build:development"
         },
+        "configurations": {
+          "production": {
+            "buildTarget": "azzurra-makeup-deploy:build:production"
+          }
+        }
+      },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
