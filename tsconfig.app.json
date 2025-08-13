@@ -12,10 +12,17 @@
   "files": [
     "src/main.ts",
     "src/main.server.ts",
-    "server.ts",
     "server.ts"
   ],
   "include": [
     "src/**/*.d.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "i18n": {
+      "sourceLocale": "it",
+      "locales": {
+        "en": "src/locale/messages.en.xlf"
+      }
+    }
+  }
 }

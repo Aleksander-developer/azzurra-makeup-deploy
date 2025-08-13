@@ -43,41 +43,30 @@
               "@angular/material/prebuilt-themes/rose-red.css",
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
-          },
-          "i18n": {
-            "sourceLocale": "it",
-            "locales": {
-              "en": "src/locale/messages.en.xlf"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
-              "localize": true,
+              "localize": ["it", "en"],
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1MB",
-                  "maximumError": "2MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "5MB"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "10kB",
-                  "maximumError": "15kB"
+                  "maximumError": "20kB"
                 }
               ],
               "outputHashing": "all"
             },
             "development": {
-              "localize": true,
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -94,10 +83,29 @@
           },
           "defaultConfiguration": "development"
         },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/azzurra-makeup-deploy/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "sourceMap": false
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "outputPath": "src/locale"
+            "buildTarget": "azzurra-makeup-deploy:build"
           }
         },
         "test": {
@@ -123,8 +131,16 @@
             "scripts": []
           }
         }
+      },
+      "i18n": {
+        "sourceLocale": "it",
+        "locales": {
+          "en": "src/locale/messages.en.xlf"
+        }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
-

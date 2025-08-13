@@ -1,0 +1,28 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/server",
+    "target": "es2022", // MODIFICATO: Assicurati che il target sia moderno per coerenza
+    "module": "es2022", // MODIFICATO: Questo è il cambiamento chiave per supportare import.meta.url e 'bundler'
+    "types": [
+      "node" // Necessario per il contesto Node.js del server
+    ]
+    // Non è necessario aggiungere "bundler" qui esplicitamente,
+    // Angular CLI lo gestirà correttamente con "module": "es2022"
+  },
+  "files": [
+    "server.ts",        // Il tuo file Express server
+    "src/main.server.ts" // Il punto di ingresso dell'applicazione Angular per SSR
+  ],
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.ts",
+    // Puoi aggiungere altri tipi di file se necessario, ad esempio:
+    // "src/**/*.json"
+  ],
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.spec.ts"
+  ]
+}
