@@ -10,6 +10,15 @@ import { LOCALE_ID } from '@angular/core';
 export async function app(): Promise<express.Express> {
   const server = express();
 
+  server.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'"
+  );
+  next();
+});
+
+
   const { AppServerModule } = await import('./src/main.server');
 
   // ***** MODIFICHE QUI: Percorsi per Cloud Run *****
@@ -17,8 +26,8 @@ export async function app(): Promise<express.Express> {
   // I file del browser sono in /usr/src/app/browser
   // I file del server sono in /usr/src/app/server
   const currentDir = process.cwd(); // Ottiene la directory di lavoro corrente del processo Node.js
-  const browserDistFolder = join(currentDir, 'browser'); // Il tuo Dockerfile copia in /usr/src/app/browser
-  const serverDistFolder = join(currentDir, 'server');   // Il tuo Dockerfile copia in /usr/src/app/server
+  const browserDistFolder = join(__dirname, '..', 'browser'); // Il tuo Dockerfile copia in /usr/src/app/browser
+  const serverDistFolder = __dirname;   // Il tuo Dockerfile copia in /usr/src/app/server
 
   console.log('📁 currentDir:', currentDir);
   console.log('📁 serverDistFolder:', serverDistFolder);
