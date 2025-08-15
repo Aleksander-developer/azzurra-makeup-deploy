@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-# Esegui lo script di build SSR che abbiamo definito in package.json
+# Esegui lo script di build SSR
 RUN npm run build:ssr
 
 # Fase 2: Immagine di produzione
@@ -16,7 +16,7 @@ COPY --from=builder /app/package*.json ./
 RUN npm install --omit=dev
 
 # Copia l'intera cartella di build
-COPY --from-builder /app/dist/azzurra-makeup-deploy ./dist/azzurra-makeup-deploy
+COPY --from=builder /app/dist/azzurra-makeup-deploy ./dist/azzurra-makeup-deploy
 
 EXPOSE 8080
 
