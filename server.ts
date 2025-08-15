@@ -1,63 +1,75 @@
-import 'zone.js/node';
-import express, { Request, Response } from 'express';
-import { join } from 'path';
-import { existsSync } from 'fs';
+import { APP_BASE_HREF } from '@angular/common';
+import { CommonEngine } from '@angular/ssr';
+import express from 'express';
+import { join } from 'node:path';
+import { LOCALE_ID } from '@angular/core';
+import {AppServerModule} from './src/main.server';
 
-// Percorsi base
-const DIST_FOLDER = join(process.cwd(), 'dist/azzurra-makeup-deploy');
-const BROWSER_FOLDER = join(DIST_FOLDER, 'browser');
+export function app(): express.Express {
+  const server = express();
+  const distFolder = join(process.cwd(), 'dist/azzurra-makeup-deploy/browser');
 
-// Funzione helper per capire la lingua dalla URL
-function getLocaleFromUrl(url: string): 'it' | 'en' {
-  if (url.startsWith('/en')) return 'en';
-  return 'it'; // default
-}
+  const commonEngine = new CommonEngine();
+  server.set('view engine', 'html');
+  server.set('views', distFolder);
 
-async function bootstrap() {
-  const app = express();
+  const supportedLocales = ['it', 'en'];
+  const defaultLocale = 'it';
 
-  // Middleware per servire file statici (browser)
-  app.use(express.static(BROWSER_FOLDER, {
-    maxAge: '1y',
-    index: false
-  }));
+  // Redirect intelligente basato sulla lingua del browser
+  server.get('/', (req, res) => {
+    const acceptLanguageHeader = req.headers['accept-language'];
+    let preferredLocale = defaultLocale;
 
-  // Middleware SSR per tutte le rotte
-  app.get('*', async (req: Request, res: Response) => {
-    try {
-      const locale = getLocaleFromUrl(req.url);
-      const serverMainPath = join(DIST_FOLDER, 'server', locale, 'main.js');
-
-      if (!existsSync(serverMainPath)) {
-        console.warn(`⚠️ SSR file not found for locale ${locale}`);
-        res.status(404).send(`SSR file not found for locale ${locale}`);
-        return;
+    if (acceptLanguageHeader) {
+      const browserLangs = acceptLanguageHeader.split(',').map(lang => lang.split(';')[0].toLowerCase().slice(0, 2));
+      const foundLang = browserLangs.find(lang => supportedLocales.includes(lang));
+      if (foundLang) {
+        preferredLocale = foundLang;
       }
-
-      // Import dinamico del bundle server specifico per la lingua
-      const { app: angularApp } = await import(serverMainPath);
-
-      if (typeof angularApp !== 'function') {
-        console.error('❌ Angular SSR export "app" is not a function');
-        res.status(500).send('Internal Server Error');
-        return;
-      }
-
-      // Esecuzione SSR
-      angularApp(req, res);
-
-    } catch (err) {
-      console.error('❌ SSR rendering error:', err);
-      res.status(500).send('Internal Server Error');
     }
+    
+    res.redirect(301, `/${preferredLocale}`);
   });
 
-  // Porta del server
+  // Servi gli asset specifici della lingua (es. /it/main.js)
+  supportedLocales.forEach((locale) => {
+    server.use(`/${locale}`, express.static(join(distFolder, locale), {
+      maxAge: '1y',
+    }));
+  });
+
+  // Gestisci il rendering SSR per ogni lingua
+  supportedLocales.forEach((locale) => {
+    server.get(`/${locale}/*`, (req, res, next) => {
+      const { protocol, originalUrl, headers } = req;
+      const indexHtml = join(distFolder, locale, 'index.html');
+
+      commonEngine
+        .render({
+          bootstrap: AppServerModule,
+          documentFilePath: indexHtml,
+          url: `${protocol}://${headers.host}${originalUrl}`,
+          publicPath: join(distFolder, locale),
+          providers: [
+            { provide: APP_BASE_HREF, useValue: `/${locale}/` },
+            { provide: LOCALE_ID, useValue: locale },
+          ],
+        })
+        .then((html) => res.send(html))
+        .catch((err) => next(err));
+    });
+  });
+  
+  return server;
+}
+
+function run(): void {
   const port = process.env['PORT'] || 4000;
-  app.listen(port, () => {
-    console.log(`✅ SSR server listening on http://localhost:${port}`);
+  const server = app();
+  server.listen(port, () => {
+    console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
 
-// Avvio del server
-bootstrap();
+run();

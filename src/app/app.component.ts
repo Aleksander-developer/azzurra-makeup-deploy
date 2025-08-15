@@ -25,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   showScrollButton: boolean = false;
   scrollButtonBottom: number = 30;
   isButtonOverFooter: boolean = false;
+  private routerSubscription: Subscription | undefined;
 
   @ViewChild('footerRef') footerRef!: ElementRef;
 
@@ -35,21 +36,30 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private router: Router,
   ) {
     if (isPlatformBrowser(this.platformId)) {
-      this.document.documentElement.lang = 'it'; // puoi aggiornare dinamicamente se necessario
+      // Imposta la lingua di default. Verrà aggiornata dinamicamente.
+      this.document.documentElement.lang = 'it';
     }
   }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.router.events.pipe(
-        filter(event => event instanceof NavigationEnd)
-      ).subscribe(() => {
+      // Sottoscrizione agli eventi del router
+      this.routerSubscription = this.router.events.pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+      ).subscribe((event: NavigationEnd) => {
+        // Scrolla in cima ad ogni cambio pagina
         window.scrollTo(0, 0);
+        
+        // AGGIUNTO: Aggiorna i tag hreflang per il SEO
+        this.updateHreflangTags(event.urlAfterRedirects);
       });
     }
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    // Rimuovi la sottoscrizione per evitare memory leak
+    this.routerSubscription?.unsubscribe();
+  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -95,5 +105,45 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         behavior: 'smooth'
       });
     }
+  }
+
+  // --- LOGICA HREFLANG AGGIUNTA QUI ---
+  private updateHreflangTags(currentUrl: string): void {
+    this.removeExistingHreflangTags();
+
+    const head = this.document.getElementsByTagName('head')[0];
+    const origin = this.document.location.origin;
+
+    const pathWithoutLocale = currentUrl.replace(/^\/(it|en)/, '');
+
+    // Crea il link per l'italiano
+    const linkIt = this.document.createElement('link');
+    linkIt.setAttribute('rel', 'alternate');
+    linkIt.setAttribute('hreflang', 'it');
+    linkIt.setAttribute('href', `${origin}/it${pathWithoutLocale}`);
+    head.appendChild(linkIt);
+
+    // Crea il link per l'inglese
+    const linkEn = this.document.createElement('link');
+    linkEn.setAttribute('rel', 'alternate');
+    linkEn.setAttribute('hreflang', 'en');
+    linkEn.setAttribute('href', `${origin}/en${pathWithoutLocale}`);
+    head.appendChild(linkEn);
+    
+    // Crea il link x-default
+    const linkXDefault = this.document.createElement('link');
+    linkXDefault.setAttribute('rel', 'alternate');
+    linkXDefault.setAttribute('hreflang', 'x-default');
+    linkXDefault.setAttribute('href', `${origin}/it${pathWithoutLocale}`);
+    head.appendChild(linkXDefault);
+
+    // Aggiorna dinamicamente la lingua del tag <html>
+    const currentLang = currentUrl.startsWith('/en') ? 'en' : 'it';
+    this.document.documentElement.lang = currentLang;
+  }
+
+  private removeExistingHreflangTags(): void {
+    const existingLinks = this.document.querySelectorAll('link[rel="alternate"]');
+    existingLinks.forEach(link => link.remove());
   }
 }
