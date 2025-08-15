@@ -98,7 +98,6 @@
               "sourceMap": false
             },
             "development": {
-              "localize": ["it", "en"],
               "optimization": false,
               "sourceMap": true
             }
