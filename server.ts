@@ -1,98 +1,51 @@
-// server.ts
-import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr';
-import express from 'express';
-// Non useremo più fileURLToPath e dirname direttamente per i percorsi di build
-// import { fileURLToPath } from 'node:url';
-import { join } from 'node:path'; // Usiamo solo join
-import { LOCALE_ID } from '@angular/core';
+import 'zone.js/node';
+import express, { Request, Response } from 'express';
+import { join } from 'path';
+import { existsSync } from 'fs';
 
-export async function app(): Promise<express.Express> {
-  const server = express();
+// Percorsi base
+const DIST_FOLDER = join(process.cwd(), 'dist/azzurra-makeup-deploy');
+const BROWSER_FOLDER = join(DIST_FOLDER, 'browser');
 
-  server.use((req, res, next) => {
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'"
-  );
-  next();
-});
+// Funzione helper per capire la lingua
+function getLocaleFromUrl(url: string): 'it' | 'en' {
+  if (url.startsWith('/en')) return 'en';
+  return 'it'; // default
+}
 
+async function bootstrap() {
+  const app = express();
 
-  const { AppServerModule } = await import('./src/main.server');
-
-  // ***** MODIFICHE QUI: Percorsi per Cloud Run *****
-  // Cloud Run esegue il server da /usr/src/app (come definito nel Dockerfile)
-  // I file del browser sono in /usr/src/app/browser
-  // I file del server sono in /usr/src/app/server
-  const currentDir = process.cwd(); // Ottiene la directory di lavoro corrente del processo Node.js
-  const browserDistFolder = join(__dirname, '..', 'browser'); // Il tuo Dockerfile copia in /usr/src/app/browser
-  const serverDistFolder = __dirname;   // Il tuo Dockerfile copia in /usr/src/app/server
-
-  console.log('📁 currentDir:', currentDir);
-  console.log('📁 serverDistFolder:', serverDistFolder);
-  console.log('📁 browserDistFolder:', browserDistFolder);
-  // *************************************************
-
-  const supportedLocales = ['it', 'en'];
-  const defaultLocale = 'it';
-
-  const commonEngine = new CommonEngine();
-  server.set('view engine', 'html');
-
-  // Serve gli asset globali dalla root della cartella browser
-  server.use(express.static(browserDistFolder, {
+  // File statici (browser)
+  app.use(express.static(BROWSER_FOLDER, {
     maxAge: '1y',
+    index: false
   }));
 
-  // Serve gli asset specifici della lingua
-  supportedLocales.forEach((locale) => {
-    const localePath = join(browserDistFolder, locale); // Usiamo join qui
-    server.use(`/${locale}`, express.static(localePath, {
-      maxAge: '1y',
-    }));
-  });
+  // SSR per tutte le route
+  app.get('*', async (req: Request, res: Response) => {
+    try {
+      const locale = getLocaleFromUrl(req.url);
+      const serverMainPath = join(DIST_FOLDER, 'server', locale, 'main.js');
 
-  // SSR per ogni lingua
-  supportedLocales.forEach((locale) => {
-    const localePath = join(browserDistFolder, locale); // Usiamo join qui
-    const indexHtml = join(localePath, 'index.html'); // Usiamo join qui
-
-    server.get(`/${locale}*`, async (req, res, next) => {
-      try {
-        console.log(`🔄 SSR rendering ${req.originalUrl} → ${indexHtml}`);
-        const html = await commonEngine.render({
-          bootstrap: AppServerModule,
-          documentFilePath: indexHtml,
-          url: req.originalUrl,
-          publicPath: localePath,
-          providers: [
-            { provide: APP_BASE_HREF, useValue: `/${locale}/` },
-            { provide: LOCALE_ID, useValue: locale }
-          ],
-        });
-        res.send(html);
-      } catch (err) {
-        console.error(`❌ SSR error for ${req.originalUrl}:`, err);
-        next(err);
+      if (!existsSync(serverMainPath)) {
+        res.status(404).send(`SSR file not found for locale ${locale}`);
+        return;
       }
-    });
+
+      const { app: angularApp } = await import(serverMainPath);
+      angularApp(req, res);
+    } catch (err) {
+      console.error('SSR rendering error:', err);
+      res.status(500).send('Internal Server Error');
+    }
   });
 
-  // Redirect dalla root alla lingua predefinita
-  server.get('/', (req, res) => {
-    res.redirect(`/${defaultLocale}`);
-  });
-
-  return server;
-}
-
-async function run(): Promise<void> {
-  const port = process.env['PORT'] || 8080;
-  const server = await app();
-  server.listen(port, () => {
-    console.log(`✅ Angular SSR multilingua avviato su http://localhost:${port}`);
+  // Porta
+  const port = process.env ['PORT'] || 4000;
+  app.listen(port, () => {
+    console.log(`✅ SSR server listening on http://localhost:${port}`);
   });
 }
 
-run();
+bootstrap();

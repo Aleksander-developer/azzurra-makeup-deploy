@@ -5,7 +5,7 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 # Questo comando costruisce l'app per la produzione con SSR
-RUN npm run build
+RUN npm run build:ssr
 
 # Fase 2: Creazione dell'immagine di produzione
 FROM node:20-slim
@@ -22,4 +22,4 @@ EXPOSE 8080
 
 # Avvia il server Node.js
 # Controlla la cartella 'dist' dopo il build per essere sicuro del percorso
-CMD [ "node", "dist/azzurra-makeup-deploy/server/server.mjs" ]
+CMD [ "node", "dist/azzurra-makeup-deploy/server/main.js" ]
