@@ -1,6 +1,14 @@
 # Fase 1: Build dell'applicazione
 FROM node:20-slim as builder
+
+# Install system deps for native npm modules
+RUN apt-get update && apt-get install -y python3 make g++ git && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
+
+# Install Angular CLI globally
+RUN npm install -g @angular/cli@18
+
 COPY package*.json ./
 RUN npm install
 COPY . .
