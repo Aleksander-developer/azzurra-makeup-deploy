@@ -9,6 +9,10 @@ export function app(): express.Express {
   const server = express();
   const distFolder = join(process.cwd(), 'dist/azzurra-makeup-deploy/browser');
 
+    // <-- AGGIUNGI QUESTA RIGA QUI -->
+  // Servi la cartella 'assets' dalla radice per tutte le lingue
+  server.use('/assets', express.static(join(distFolder, 'it/assets'), { maxAge: '1y' }));
+
   const commonEngine = new CommonEngine();
   server.set('view engine', 'html');
   server.set('views', distFolder);
