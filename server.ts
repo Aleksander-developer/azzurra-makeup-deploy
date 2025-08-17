@@ -9,16 +9,26 @@ export function app(): express.Express {
   const server = express();
   const distFolder = join(process.cwd(), 'dist/azzurra-makeup-deploy/browser');
 
-    // <-- AGGIUNGI QUESTA RIGA QUI -->
-  // Servi la cartella 'assets' dalla radice per tutte le lingue
-  server.use('/assets', express.static(join(distFolder, 'it/assets'), { maxAge: '1y' }));
-
   const commonEngine = new CommonEngine();
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
   const supportedLocales = ['it', 'en'];
   const defaultLocale = 'it';
+
+  // --- NUOVA REGOLA PER GLI ASSET ---
+  // Intercetta tutte le richieste a /assets e servile dalla cartella assets della lingua di default.
+  // Dato che gli asset sono identici per tutte le lingue, possiamo usare 'it' come fonte.
+  server.use('/assets', express.static(join(distFolder, defaultLocale, 'assets'), {
+    maxAge: '1y'
+  }));
+
+  // Servi gli altri file statici specifici della lingua (es. /it/main.js)
+  supportedLocales.forEach((locale) => {
+    server.use(`/${locale}`, express.static(join(distFolder, locale), {
+      maxAge: '1y',
+    }));
+  });
 
   // Redirect intelligente basato sulla lingua del browser
   server.get('/', (req, res) => {
