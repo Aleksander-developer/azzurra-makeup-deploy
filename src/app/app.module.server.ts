@@ -1,3 +1,5 @@
+// src/app.module.server.ts
+
 import { NgModule, NgZone } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
 import { ɵNoopNgZone } from '@angular/core'; // Importa NoopNgZone
@@ -11,7 +13,8 @@ import { AppComponent } from './app.component';
     ServerModule,
   ],
   providers: [
-    // Aggiungendo questo provider, risolvi l'errore NG0908
+    // Questa riga è la soluzione all'errore NG0908.
+    // Dice ad Angular di non usare le funzionalità del browser sul server.
     { provide: NgZone, useClass: ɵNoopNgZone }
   ],
   bootstrap: [AppComponent],
