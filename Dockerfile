@@ -21,4 +21,4 @@ COPY --from=builder /app/dist/azzurra-makeup-deploy ./dist/azzurra-makeup-deploy
 EXPOSE 8080
 
 # Avvia il server usando il percorso corretto e universale
-CMD [ "node", "dist/azzurra-makeup-deploy/server/it/main.js" ]
+CMD [ "node", "dist/azzurra-makeup-deploy/server/main.js" ]
