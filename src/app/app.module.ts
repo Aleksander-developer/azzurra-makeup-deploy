@@ -32,7 +32,6 @@ import { ApiKeyInterceptor } from './interceptors/api-key.interceptor';
     AuthService,
     // provideHttpClient(withFetch()), // <-- 4. RIMUOVI questa riga
     provideClientHydration(),
-    provideAnimationsAsync(),
     Title,
     Meta,
     // <-- 5. AGGIUNGI questo provider per attivare l'interceptor

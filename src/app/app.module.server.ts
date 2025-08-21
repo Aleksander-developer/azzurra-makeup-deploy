@@ -16,7 +16,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     // Questa riga è la soluzione all'errore NG0908.
-    { provide: NgZone, useClass: ɵNoopNgZone }
+    { provide: NgZone, 
+      useClass: ɵNoopNgZone }
   ],
   bootstrap: [AppComponent],
 })
