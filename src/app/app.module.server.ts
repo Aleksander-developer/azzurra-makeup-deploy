@@ -6,11 +6,13 @@ import { ɵNoopNgZone } from '@angular/core'; // Importa NoopNgZone
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     AppModule,
     ServerModule,
+    NoopAnimationsModule
   ],
   providers: [
     // Questa riga è la soluzione all'errore NG0908.
