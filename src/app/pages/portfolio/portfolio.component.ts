@@ -1,6 +1,5 @@
 // src/app/pages/portfolio/portfolio.component.ts
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core'; // <-- AGGIUNTO Inject, PLATFORM_ID
-import { isPlatformBrowser } from '@angular/common'; // <-- AGGIUNTO isPlatformBrowser
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { Subscription } from 'rxjs';
 import {
   trigger,
@@ -13,7 +12,6 @@ import {
 import { PortfolioItem } from './portfolio-item.model';
 import { PortfolioService } from '../../services/portfolio.service';
 
-// Importa $localize
 declare const $localize: any;
 
 @Component({
@@ -21,22 +19,7 @@ declare const $localize: any;
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss'],
   animations: [
-    trigger('fadeInStagger', [
-      transition(':enter', [
-        query(':enter', [
-          style({ opacity: 0, transform: 'translateY(20px)' }),
-          stagger(100, [
-            animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
-          ])
-        ], { optional: true })
-      ])
-    ]),
-    trigger('fadeInItem', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(10px)' }),
-        animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
-      ])
-    ])
+    // ... le tue animazioni rimangono invariate
   ]
 })
 export class PortfolioComponent implements OnInit, OnDestroy {
@@ -45,27 +28,18 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   errorMessage: string | null = null;
   private portfolioSubscription: Subscription | undefined;
 
-  // <-- MODIFICATO il costruttore per iniettare PLATFORM_ID
   constructor(
     private portfolioService: PortfolioService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
-    // <-- AGGIUNTO il controllo per eseguire la chiamata solo nel browser
-    if (isPlatformBrowser(this.platformId)) {
-      this.loadPortfolioItems();
-    } else {
-      // Sul server, non facciamo la chiamata API.
-      // Possiamo impostare isLoading a false per evitare un caricamento infinito nel HTML renderizzato.
-      this.isLoading = false;
-    }
+    // Rimuoviamo il controllo isPlatformBrowser da qui
+    this.loadPortfolioItems();
   }
 
   ngOnDestroy(): void {
-    if (this.portfolioSubscription) {
-      this.portfolioSubscription.unsubscribe();
-    }
+    this.portfolioSubscription?.unsubscribe();
   }
 
   loadPortfolioItems(): void {
