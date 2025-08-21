@@ -1,3 +1,4 @@
+// src/app/api-key.interceptor.ts
 import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -12,7 +13,7 @@ export class ApiKeyInterceptor implements HttpInterceptor {
     // Esegui questo codice solo nel browser
     if (isPlatformBrowser(this.platformId)) {
       // La tua chiave API. NOTA: In un'app reale, questa dovrebbe venire da una variabile d'ambiente
-      const apiKey = '493947727933171'; // <-- INSERISCI QUI LA TUA VERA API KEY
+      const apiKey = 'azzu-best-makeup-artist-241217dic'; // <-- INSERISCI QUI LA TUA VERA API KEY
 
       // Clona la richiesta e aggiungi il nuovo header
       const authReq = req.clone({

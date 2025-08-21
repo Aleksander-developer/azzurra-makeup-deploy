@@ -95,8 +95,7 @@
           "options": {
             "outputPath": "dist/azzurra-makeup-deploy/server",
             "main": "server.ts",
-            "tsConfig": "tsconfig.server.json",
-            "localize": ["it", "en"]
+            "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
             "production": {
