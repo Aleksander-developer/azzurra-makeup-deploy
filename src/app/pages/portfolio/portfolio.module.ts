@@ -5,6 +5,7 @@ import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { MaterialModule } from '../../material/material.module';
 import { RouterModule } from '@angular/router';
 import { PortfolioComponent } from './portfolio.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { PortfolioComponent } from './portfolio.component';
     CommonModule,
     PortfolioRoutingModule,
     RouterModule,
+    SharedModule,
     MaterialModule
   ]
 })
