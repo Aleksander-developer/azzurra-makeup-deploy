@@ -9,7 +9,7 @@
          i18n-alt="@@homeHeroImageAlt"
          class="hero-image"
          *ngIf="heroImages.length > 0"
-         onerror="this.src='assets/placeholder.jpg'"
+         onerror="this.src='../../../assets/logo.png'"
          [@imageFade]="currentIndex"> <!-- Applica l'animazione qui -->
     <div *ngIf="heroImages.length === 0" class="no-image-placeholder" i18n="@@homeNoImagePlaceholder">
       Immagine non disponibile
