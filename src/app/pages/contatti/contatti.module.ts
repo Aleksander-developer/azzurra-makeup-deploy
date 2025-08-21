@@ -5,6 +5,7 @@ import { ContattiRoutingModule } from './contatti-routing.module';
 import { ContattiComponent } from './contatti.component';
 import { MaterialModule } from '../../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     ContattiRoutingModule,
+    SharedModule,
     MaterialModule,
     HttpClientModule
   ]
