@@ -16,17 +16,18 @@ export function app(): express.Express {
   const supportedLocales = ['it', 'en'];
   const defaultLocale = 'it';
 
-  // --- NUOVA REGOLA PER GLI ASSET ---
-  // Intercetta tutte le richieste a /assets e servile dalla cartella assets della lingua di default.
-  // Dato che gli asset sono identici per tutte le lingue, possiamo usare 'it' come fonte.
-  server.use('/assets', express.static(join(distFolder, defaultLocale, 'assets'), {
-    maxAge: '1y'
+  // --- REGOLA CORRETTA PER GLI ASSET ---
+  // Gli asset non sono tradotti, quindi li serviamo direttamente dalla cartella comune
+  server.use('/assets', express.static(join(distFolder, 'assets'), {
+    maxAge: '1y',
+    index: false
   }));
 
-  // Servi gli altri file statici specifici della lingua (es. /it/main.js)
+  // Gestisci anche richieste tipo /it/assets/... o /en/assets/...
   supportedLocales.forEach((locale) => {
-    server.use(`/${locale}`, express.static(join(distFolder, locale), {
+    server.use(`/${locale}/assets`, express.static(join(distFolder, 'assets'), {
       maxAge: '1y',
+      index: false
     }));
   });
 
