@@ -1,10 +1,9 @@
-// src/app/components/navbar/navbar.component.ts
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +15,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService, // Changed to public to be accessible in the template if needed
     @Inject(DOCUMENT) private document: Document,
     @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router
@@ -26,7 +25,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.authService.isLoggedIn$.pipe(takeUntil(this.destroy$))
       .subscribe((status: boolean) => {
         this.isLoggedIn = status;
-        // Questo log non causa il loop, ma ne è un sintomo
         console.log('Stato di login aggiornato nella navbar:', this.isLoggedIn);
       });
   }
@@ -42,12 +40,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   changeLanguage(lang: string): void {
-    console.log(`Richiesta cambio lingua a: ${lang}`);
     if (isPlatformBrowser(this.platformId)) {
       const currentUrl = this.document.location.pathname;
       const pathWithoutLocale = currentUrl.replace(/^\/(it|en)/, '');
-      
-      this.document.location.href = `/${lang}${pathWithoutLocale}`;
+      this.document.location.href = `/${lang}${pathWithoutLocale || '/'}`;
     }
   }
 }

@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+// Importa solo i TUOI componenti condivisi
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { WhyChooseMeComponent } from '../components/why-choose-me/why-choose-me.component';
-import { MaterialModule } from '../material/material.module';
-import { RouterModule } from '@angular/router';
 import { ConfirmationDialogComponent } from './dialogs/confirmation-dialog/confirmation-dialog.component';
 
-
+// Importa il tuo modulo che gestisce tutto Angular Material
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -19,15 +21,17 @@ import { ConfirmationDialogComponent } from './dialogs/confirmation-dialog/confi
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule // Importa MaterialModule qui
   ],
   exports: [
-    // Aggiungi qui i componenti che vuoi rendere utilizzabili all'esterno
+    // Esporta i TUOI componenti che vuoi usare nel resto dell'app
     NavbarComponent,
     FooterComponent,
     WhyChooseMeComponent,
-    MaterialModule,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+
+    // Esporta MaterialModule così gli altri moduli non devono importarlo di nuovo
+    MaterialModule
   ]
 })
 export class SharedModule { }
