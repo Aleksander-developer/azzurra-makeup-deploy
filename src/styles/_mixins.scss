@@ -8,6 +8,13 @@
   align-items: center;
 }
 
+// NUOVO MIXIN: per allineare elementi con spazio in mezzo
+@mixin flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 // Mixin per lo stile delle "card"
 @mixin card-style($padding: vars.$spacing-md, $shadow: vars.$color-shadow-medium) {
   background-color: vars.$color-white;

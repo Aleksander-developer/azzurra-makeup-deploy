@@ -3,8 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { environment } from '../../../environments/environment.prod';
-
+import { environment } from '../../../environments/environment'; // Usa l'ambiente corretto
 
 @Component({
   selector: 'app-contatti',
@@ -17,8 +16,7 @@ export class ContattiComponent implements OnInit {
   errorMessage: string = '';
   isLoading: boolean = false;
 
-  // URL del backend, preso dall'ambiente
-  private backendUrl = environment.apiUrl; // <-- USA environment.apiUrl
+  private backendUrl = environment.apiUrl;
 
   constructor(
     private fb: FormBuilder,
@@ -43,42 +41,22 @@ export class ContattiComponent implements OnInit {
       this.isLoading = true;
       const formData = this.contactForm.value;
 
-      console.log('Invio dati:', formData);
-
-      // Invia la richiesta POST al tuo backend su Render
-      // Assicurati che il tuo backend su Render abbia un endpoint /api/contatti che accetta richieste POST
-      this.http.post(`${this.backendUrl}/api/contatti`, formData).subscribe({
+      // L'endpoint sarà /b-api/contatti se usi il proxy, o /api/contatti
+      this.http.post(`${this.backendUrl}/contatti`, formData).subscribe({
         next: () => {
-          this.successMessage = 'Messaggio inviato con successo!'; // Testo fisso
-          this.snackBar.open(this.successMessage, 'Chiudi', { duration: 3000 });
-
-          // Logica di reset del form
-          this.contactForm.reset({
-            nome: '',
-            email: '',
-            cellulare: '',
-            messaggio: ''
+          this.successMessage = 'Messaggio inviato con successo!';
+          this.snackBar.open(this.successMessage, 'Chiudi', { duration: 3000, panelClass: ['success'] });
+          this.contactForm.reset();
+          // Pulisce lo stato di validazione del form
+          Object.keys(this.contactForm.controls).forEach(key => {
+            this.contactForm.get(key)?.setErrors(null) ;
+            this.contactForm.get(key)?.markAsUntouched();
           });
-
-          // Resetta lo stato dei controlli per rimuovere le classi di validazione
-          setTimeout(() => {
-            Object.keys(this.contactForm.controls).forEach(key => {
-              const control = this.contactForm.get(key);
-              control?.markAsPristine();
-              control?.markAsUntouched();
-              control?.updateValueAndValidity({ emitEvent: false });
-            });
-            this.contactForm.markAsPristine();
-            this.contactForm.markAsUntouched();
-            this.contactForm.updateValueAndValidity({ emitEvent: false });
-          }, 0);
-
-          setTimeout(() => this.successMessage = '', 5000);
         },
         error: (error) => {
           console.error('Errore invio messaggio:', error);
-          this.errorMessage = 'Errore durante l\'invio del messaggio. Riprova.'; // Testo fisso
-          this.snackBar.open('Errore durante l\'invio. Riprova.', 'Chiudi', { duration: 5000 });
+          this.errorMessage = 'Errore durante l\'invio del messaggio. Riprova.';
+          this.snackBar.open(this.errorMessage, 'Chiudi', { duration: 5000, panelClass: ['error'] });
         },
         complete: () => {
           this.isLoading = false;
@@ -86,8 +64,8 @@ export class ContattiComponent implements OnInit {
       });
     } else {
       this.contactForm.markAllAsTouched();
-      this.errorMessage = 'Per favore, compila correttamente tutti i campi obbligatori.'; // Testo fisso
-      this.snackBar.open(this.errorMessage, 'Chiudi', { duration: 5000 });
+      this.errorMessage = 'Per favore, compila correttamente tutti i campi obbligatori.';
+      this.snackBar.open(this.errorMessage, 'Chiudi', { duration: 5000, panelClass: ['error'] });
     }
   }
 }

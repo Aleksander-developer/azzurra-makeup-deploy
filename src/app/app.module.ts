@@ -36,11 +36,11 @@ import { FileToUrlPipe } from './pipes/file-to-url.pipe';
     // provideAnimationsAsync(), // <-- RIMOSSO: Questa riga era la causa dell'errore
     Title,
     Meta,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: ApiKeyInterceptor,
-    //   multi: true
-    // }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiKeyInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

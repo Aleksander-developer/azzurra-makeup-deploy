@@ -1,0 +1,37 @@
+<div class="reviews-section-container" *ngIf="!isLoading && reviews.length > 0">
+  <h2 class="section-title">Dicono di Me</h2>
+  
+  <div class="carousel-wrapper">
+    <div class="review-card" *ngFor="let review of reviews; let i = index" [class.active]="i === currentIndex">
+      <div class="review-header">
+        <img [src]="review.reviewer.profilePhotoUrl" alt="Foto profilo di {{ review.reviewer.displayName }}" class="reviewer-photo">
+        <div class="reviewer-info">
+          <span class="reviewer-name">{{ review.reviewer.displayName }}</span>
+          <div class="star-rating">
+            <mat-icon *ngFor="let star of getStars(review.starRatingNumber)">star</mat-icon>
+            <mat-icon *ngFor="let star of getEmptyStars(review.starRatingNumber)">star_border</mat-icon>
+          </div>
+        </div>
+        <img src="assets/google-logo.svg" alt="Logo Google" class="google-logo">
+      </div>
+      <p class="review-comment">"{{ review.comment }}"</p>
+      <div class="review-reply" *ngIf="review.reviewReply">
+        <span class="reply-author">Risposta di Azzurra:</span>
+        <p class="reply-text">"{{ review.reviewReply.comment }}"</p>
+      </div>
+    </div>
+
+    <!-- Controlli -->
+    <button mat-icon-button class="carousel-control prev" (click)="prevReview()" *ngIf="reviews.length > 1">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button mat-icon-button class="carousel-control next" (click)="nextReview()" *ngIf="reviews.length > 1">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+  <!-- Punti di navigazione -->
+  <div class="carousel-dots" *ngIf="reviews.length > 1">
+    <span *ngFor="let review of reviews; let i = index" class="dot" [class.active]="i === currentIndex" (click)="goToReview(i)"></span>
+  </div>
+</div>
