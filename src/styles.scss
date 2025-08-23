@@ -125,5 +125,26 @@ main {
   flex-grow: 1;
 }
 
-// <-- RIMOSSO: Blocco duplicato da fine file
-// <-- RIMOSSO: Commento del linter da fine file
+// ===================================================================
+// == Stili per le Notifiche SnackBar (AGGIUNTI) ==
+// ===================================================================
+
+// Stile per la notifica di successo (verde)
+.success .mdc-snackbar__surface {
+  background-color: vars.$color-success !important; // Usa il tuo colore per il successo
+  color: vars.$color-white !important;
+
+  .mat-mdc-button.mat-mdc-button-base {
+    color: vars.$color-white !important; // Colore del pulsante "Chiudi"
+  }
+}
+
+// Stile per la notifica di errore (rosso)
+.error .mdc-snackbar__surface {
+  background-color: vars.$color-warn !important; // Usa il tuo colore per l'errore
+  color: vars.$color-white !important;
+  
+  .mat-mdc-button.mat-mdc-button-base {
+    color: vars.$color-white !important; // Colore del pulsante "Chiudi"
+  }
+}
