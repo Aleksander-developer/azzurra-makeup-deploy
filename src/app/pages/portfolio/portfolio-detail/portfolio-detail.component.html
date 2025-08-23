@@ -1,0 +1,23 @@
+<div class="detail-container">
+  <ng-container *ngIf="portfolioItem$ | async as item; else loading">
+    
+    <div class="album-header">
+      <h1>{{ item.title }}</h1>
+      <p class="subtitle">{{ item.subtitle }}</p>
+      <p class="description">{{ item.description }}</p>
+      <a routerLink="/portfolio" class="back-link">&larr; Torna al Portfolio</a>
+    </div>
+
+    <div class="image-gallery">
+      <div class="image-wrapper" *ngFor="let image of item.images">
+        <img [src]="image.src" [alt]="image.alt || item.title">
+        <p class="image-description" *ngIf="image.description">{{ image.description }}</p>
+      </div>
+    </div>
+
+  </ng-container>
+
+  <ng-template #loading>
+    <p>Caricamento dell'album...</p>
+  </ng-template>
+</div>

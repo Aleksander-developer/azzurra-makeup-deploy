@@ -2,426 +2,11 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="it" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="portfolioManagerTitleLabel" datatype="html">
-        <source>Titolo</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerTitlePlaceholder" datatype="html">
-        <source>Es: Trucco Sposa Classico</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerTitleRequired" datatype="html">
-        <source>Il titolo è obbligatorio.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerSubtitleLabel" datatype="html">
-        <source>Sottotitolo</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerSubtitlePlaceholder" datatype="html">
-        <source>Es: Look naturale e luminoso</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerDescriptionLabel" datatype="html">
-        <source>Descrizione</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerDescriptionPlaceholder" datatype="html">
-        <source>Descrivi il lavoro...</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerCategoryLabel" datatype="html">
-        <source>Categoria</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerCategoryPlaceholder" datatype="html">
-        <source>Seleziona una categoria</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">27</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerCategoryBride" datatype="html">
-        <source>Sposa</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">28</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerCategoryCeremony" datatype="html">
-        <source>Cerimonia</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerCategoryEvents" datatype="html">
-        <source>Eventi</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerCategoryEditorial" datatype="html">
-        <source>Editoriale</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">31</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerCategoryCourse" datatype="html">
-        <source>Corso</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerCategoryRequired" datatype="html">
-        <source>La categoria è obbligatoria.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerImagesTitle" datatype="html">
-        <source>Immagini del Portfolio</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerSelectImagesButton" datatype="html">
-        <source> Seleziona Immagini </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">43,45</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerImageCount" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ imagesFormArray.length }}"/> immagini selezionate (max 10) </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">46,48</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerRemoveImageAria" datatype="html">
-        <source>Rimuovi immagine</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">55</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerImageDescriptionLabel" datatype="html">
-        <source>Descrizione Immagine</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">60</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerImageDescriptionPlaceholder" datatype="html">
-        <source>Descrizione breve</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">61</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerImageAltTextLabel" datatype="html">
-        <source>Testo Alternativo (Alt)</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">64</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerImageAltTextPlaceholder" datatype="html">
-        <source>Testo per accessibilità</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">65</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerNoImagesSelected" datatype="html">
-        <source> Seleziona almeno un&apos;immagine. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">69,71</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerSubmitButton" datatype="html">
-        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="loop&lt;/mat"/>loop<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt; &lt;!-- Icona di caricamento --&gt;"/> <x id="INTERPOLATION" equiv-text="{{ submitButtonLabel }}"/> </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">76,78</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerClearFormButton" datatype="html">
-        <source> Annulla </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">79,81</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerExistingWorksTitle" datatype="html">
-        <source>Lavori Esistenti</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerLoading" datatype="html">
-        <source>Caricamento portfolio...</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">101</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerNoItems" datatype="html">
-        <source> Nessun elemento del portfolio trovato. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">103,105</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerTableTitleHeader" datatype="html">
-        <source> Titolo </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">112</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerTableCategoryHeader" datatype="html">
-        <source> Categoria </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">118</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerTableActionsHeader" datatype="html">
-        <source> Azioni </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">124</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerTableEditAria" datatype="html">
-        <source>Modifica</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">126</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioManagerTableDeleteAria" datatype="html">
-        <source>Elimina</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">129</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerFormEditTitle" datatype="html">
-        <source>Modifica Lavoro</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">87</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerFormAddTitle" datatype="html">
-        <source>Aggiungi Nuovo Lavoro</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">88</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerSaveChangesButton" datatype="html">
-        <source>Salva Modifiche</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">94</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerAddWorkButton" datatype="html">
-        <source>Aggiungi Lavoro</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">95</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerMaxImagesWarning" datatype="html">
-        <source>Massimo 10 immagini consentite per portfolio.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">109</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="commonCloseButton" datatype="html">
-        <source>Chiudi</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">109</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">181</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">241</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">254</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">290</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">319</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">327</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">341</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">350</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">364</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">383</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">391</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerLoadError" datatype="html">
-        <source>Errore nel caricamento degli elementi del portfolio.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">181</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerLoadErrorMessage" datatype="html">
-        <source>Errore nel caricamento: <x id="PH" equiv-text="err.message || &apos;Errore sconosciuto.&apos;"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">185</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerFormReset" datatype="html">
-        <source>Form resettato.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">241</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerFormInvalid" datatype="html">
-        <source>Per favor, compila tutti i campi obbligatori.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">254</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerNoImagesError" datatype="html">
-        <source>Devi aggiungere almeno un&apos;immagine al portfolio.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">288</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerUpdateSuccess" datatype="html">
-        <source>Elemento portfolio aggiornato con successo!</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">317</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerNoNewImagesError" datatype="html">
-        <source>Devi selezionare almeno un&apos;immagine per un nuovo elemento.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">325</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerAddSuccess" datatype="html">
-        <source>Elemento portfolio aggiunto con successo!</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">339</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerOperationError" datatype="html">
-        <source>Errore durante l&apos;operazione sul portfolio: <x id="PH" equiv-text="error.message || &apos;Errore sconosciuto.&apos;"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">348</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerInvalidIdError" datatype="html">
-        <source>Impossibile eliminare: ID elemento non valido.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">364</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerDeleteConfirm" datatype="html">
-        <source>Sei sicuro di voler eliminare questo elemento del portfolio?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">373</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerDeleteSuccess" datatype="html">
-        <source>Elemento portfolio eliminato con successo!</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">381</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="adminPortfolioManagerDeleteError" datatype="html">
-        <source>Errore durante l&apos;eliminazione dell&apos;elemento del portfolio: <x id="PH" equiv-text="err.message || &apos;Errore sconosciuto.&apos;"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
-          <context context-type="linenumber">389</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="scrollToTopAria" datatype="html">
         <source>Scroll to top</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footerEmailAria" datatype="html">
@@ -471,132 +56,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
           <context context-type="linenumber">32,36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navHome" datatype="html">
-        <source>Home</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navBrideMakeup" datatype="html">
-        <source>Trucco Sposa</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navPortfolio" datatype="html">
-        <source>Portfolio</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">8</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navAdminPortfolio" datatype="html">
-        <source>Admin Portfolio</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navServices" datatype="html">
-        <source>Servizi</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navContacts" datatype="html">
-        <source>Contatti</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navAboutMe" datatype="html">
-        <source>Chi Sono</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navLogin" datatype="html">
-        <source>Login</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navLogout" datatype="html">
-        <source>Logout</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navHomeMobile" datatype="html">
-        <source>Home</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">52</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navBrideMakeupMobile" datatype="html">
-        <source>Trucco Sposa</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">53</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navPortfolioMobile" datatype="html">
-        <source>Portfolio</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">54</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navAdminPortfolioMobile" datatype="html">
-        <source>Admin Portfolio</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navServicesMobile" datatype="html">
-        <source>Servizi</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">57</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navContactsMobile" datatype="html">
-        <source>Contatti</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">58</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navAboutMeMobile" datatype="html">
-        <source>Chi Sono</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">59</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navLoginMobile" datatype="html">
-        <source>Login</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">63</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="navLogoutMobile" datatype="html">
-        <source>Logout</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="chiSonoTitle" datatype="html">
@@ -841,161 +300,77 @@
         <source>Azzurra Angius Make-up Artist</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeNoImagePlaceholder" datatype="html">
         <source> Immagine non disponibile </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">14,16</context>
+          <context context-type="linenumber">10,12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homePreviousImageAria" datatype="html">
         <source>Immagine precedente</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeNextImageAria" datatype="html">
         <source>Immagine successiva</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeHeroTitle" datatype="html">
         <source>Azzurra Angius</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeHeroSubtitle" datatype="html">
         <source>MAKE-UP ARTIST</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeBookNowButton" datatype="html">
         <source> Prenota Ora </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">38,40</context>
+          <context context-type="linenumber">29,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeDescriptionSpecialized" datatype="html">
         <source>Sono una Make-up Artist specializzata in trucco sposa e cerimonia, con una profonda passione per l&apos;arte del make-up che mi spinge a ricercare costantemente le ultime tendenze e tecniche.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeDescriptionHairstyle" datatype="html">
         <source>Offro anche servizi di Hair Stylist per completare il tuo look, garantendo un&apos;armonia perfetta tra trucco e acconciatura.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeLookingForServiceQuestion" datatype="html">
         <source>Stai cercando un servizio di make-up e hair styling che ti faccia sentire unica e radiosa?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeServiceDescriptionPart1" datatype="html">
         <source> Con la mia esperienza e la mia attenzione ai dettagli, trasformo i tuoi desideri in realtà, valorizzando la tua bellezza naturale e creando un look che ti rispecchi appieno. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">53,55</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeServiceDescriptionPart2" datatype="html">
-        <source> Che sia per il giorno del tuo matrimonio, un evento speciale o un servizio fotografico, ti garantisco un&apos;esperienza personalizzata e un risultato impeccabile. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">56,58</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeNoStressPrivacy" datatype="html">
-        <source> Niente stress, solo bellezza e privacy. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">59,61</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeGoalBeautiful" datatype="html">
-        <source> Il mio obiettivo è farti sentire bella, sicura di te e a tuo agio, in ogni occasione. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">62,64</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeGuaranteesTitle" datatype="html">
-        <source>Le mie Garanzie per Te</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">69</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeGuaranteeQualityProductsTitle" datatype="html">
-        <source>Prodotti di Qualità Superiore</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">73</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeGuaranteeQualityProductsDescription" datatype="html">
-        <source>Utilizzo solo prodotti professionali delle migliori marche, per garantire durata e resa impeccabile, rispettando la tua pelle.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">74</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeGuaranteePunctualityTitle" datatype="html">
-        <source>Puntualità e Organizzazione</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">78</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeGuaranteePunctualityDescription" datatype="html">
-        <source>La tua tranquillità è la mia priorità. Sono sempre puntuale e organizzo ogni dettaglio per un servizio senza intoppi.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">79</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeGuaranteePersonalizedLookTitle" datatype="html">
-        <source>Look Personalizzato</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">83</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeGuaranteePersonalizedLookDescription" datatype="html">
-        <source>Ogni volto è unico. Insieme creeremo il look perfetto che esalti la tua bellezza naturale e si adatti al tuo stile.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">84</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeGuaranteeDedicatedAssistanceTitle" datatype="html">
-        <source>Assistenza Dedicata</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">88</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="homeGuaranteeDedicatedAssistanceDescription" datatype="html">
-        <source>Dalla prima consulenza al giorno dell&apos;evento, sarò al tuo fianco per ogni esigenza, offrendo supporto e consigli professionali.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">89</context>
+          <context context-type="linenumber">40,42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="loginAreaRiservataTitle" datatype="html">
@@ -1103,165 +478,11 @@
           <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="portfolioDetailGoBackAria" datatype="html">
-        <source>Torna indietro</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailBackToPortfolio" datatype="html">
-        <source>Torna al Portfolio</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailLoading" datatype="html">
-        <source>Caricamento dettagli portfolio...</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailErrorMessage" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{ errorMessage }}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailCategoryChip" datatype="html">
-        <source>Categoria: <x id="INTERPOLATION" equiv-text="{{ portfolioItem.category }}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailOpenFullscreenAria" datatype="html">
-        <source>Apri immagine a schermo intero</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailPrevImageAria" datatype="html">
-        <source>Immagine precedente</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">44</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailImageCounter" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{ currentImageIndex + 1 }}"/> di <x id="INTERPOLATION_1" equiv-text="{{ portfolioItem.images.length }}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">47</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailNextImageAria" datatype="html">
-        <source>Immagine successiva</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">48</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailCloseFullscreenAria" datatype="html">
-        <source>Chiudi galleria a schermo intero</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">67</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailPrevFullscreenAria" datatype="html">
-        <source>Immagine precedente a schermo intero</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">70</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailNextFullscreenAria" datatype="html">
-        <source>Immagine successiva a schermo intero</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">78</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailIdNotFound" datatype="html">
-        <source>ID portfolio non fornito.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.ts</context>
-          <context context-type="linenumber">41</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailItemNotFound" datatype="html">
-        <source>Elemento portfolio non trovato.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.ts</context>
-          <context context-type="linenumber">68</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioDetailLoadError" datatype="html">
-        <source>Errore nel caricamento dell&apos;elemento: <x id="PH" equiv-text="err.message || &apos;Errore sconosciuto.&apos;"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.ts</context>
-          <context context-type="linenumber">73</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioTitle" datatype="html">
-        <source>Il Mio Portfolio</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioSubtitle" datatype="html">
-        <source>Scopri i miei lavori più recenti e le trasformazioni che ho realizzato.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioLoading" datatype="html">
-        <source>Caricamento portfolio...</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">8</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioErrorMessage" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{ errorMessage }}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioCategoryChip" datatype="html">
-        <source>Categoria: <x id="INTERPOLATION" equiv-text="{{ item.category }}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioViewDetailsButton" datatype="html">
-        <source> Vedi Dettagli <x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>arrow_forward<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">28,30</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="portfolioNoItemsMessage" datatype="html">
-        <source>Nessun lavoro nel portfolio da visualizzare.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="portfolioLoadError" datatype="html">
-        <source>Errore nel caricamento degli elementi del portfolio: <x id="PH" equiv-text="err.message || &apos;Errore sconosciuto.&apos;"/></source>
+        <source>Errore nel caricamento del portfolio. Riprova più tardi.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.ts</context>
-          <context context-type="linenumber">83</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="serviziTitle" datatype="html">

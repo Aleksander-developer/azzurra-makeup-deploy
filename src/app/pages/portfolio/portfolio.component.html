@@ -1,1 +1,35 @@
-<p>portfolio works!</p>
+<div class="portfolio-container">
+  <h1>Il Mio Portfolio</h1>
+
+  <ng-container *ngIf="portfolioItems$ | async as items; else loading">
+    
+    <div class="portfolio-grid" *ngIf="items.length > 0; else noItems">
+      
+      <div class="portfolio-card" *ngFor="let item of items">
+        
+        <img [src]="item.coverImageUrl || (item.images && item.images.length > 0 ? item.images[0].src : 'assets/placeholder.png')"
+             [alt]="item.title"
+             class="card-img"
+             onerror="this.src='assets/placeholder.png'">
+        
+        <div class="card-body">
+          <h3 class="card-title">{{ item.title }}</h3>
+          <p class="card-subtitle">{{ item.subtitle }}</p>
+          
+          <a [routerLink]="['/portfolio', item.id]" class="btn-view">Visualizza</a>
+        </div>
+      </div>
+
+    </div>
+    
+    <ng-template #noItems>
+      <p>Nessun album da mostrare al momento.</p>
+    </ng-template>
+
+  </ng-container>
+
+  <ng-template #loading>
+    <p>Caricamento degli album...</p>
+  </ng-template>
+
+</div>
