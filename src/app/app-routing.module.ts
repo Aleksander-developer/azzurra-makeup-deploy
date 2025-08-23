@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   // Rotta di default che reindirizza alla home
@@ -14,7 +15,11 @@ const routes: Routes = [
   { path: 'contatti', loadChildren: () => import('./pages/contatti/contatti.module').then(m => m.ContattiModule) },
   { path: 'servizi', loadChildren: () => import('./pages/servizi/servizi.module').then(m => m.ServiziModule) },
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
-  // { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+{
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [AuthGuard] // <-- PROTECT THIS ROUTE
+  },
 
   // Rotta per pagina non trovata (deve essere l'ultima)
   { path: '**', component: PageNotFoundComponent }

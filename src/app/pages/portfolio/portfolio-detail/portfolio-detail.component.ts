@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PortfolioItem } from '../portfolio-item.model';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { PortfolioService } from '../../../services/portfolio.service';
+import { PortfolioItem } from '../portfolio-item.model';
+import { PortfolioService } from '../../../services/portfolio.service'; // Assicurati che il percorso sia corretto
 
 @Component({
   selector: 'app-portfolio-detail',
@@ -12,22 +12,25 @@ import { PortfolioService } from '../../../services/portfolio.service';
 })
 export class PortfolioDetailComponent implements OnInit {
 
+  // Creiamo un Observable che conterrà i dati del singolo album
   public portfolioItem$!: Observable<PortfolioItem>;
 
   constructor(
-    private route: ActivatedRoute,
-    private portfolioService: PortfolioService
+    private route: ActivatedRoute, // ActivatedRoute ci permette di leggere i parametri dall'URL
+    private portfolioService: PortfolioService // Il nostro servizio per recuperare i dati
   ) { }
 
   ngOnInit(): void {
-    // Recuperiamo l'ID dalla rotta e usiamo switchMap per chiamare il servizio
+    // Usiamo un approccio reattivo per recuperare i dati
     this.portfolioItem$ = this.route.paramMap.pipe(
       switchMap(params => {
-        const id = params.get('id');
+        const id = params.get('id'); // Estrae l'ID dall'URL (es. '123')
         if (!id) {
-          // Gestisci caso in cui l'ID non è presente, magari reindirizzando
-          throw new Error('ID non trovato');
+          // Se per qualche motivo l'ID non c'è, gestiamo il caso
+          // Potremmo reindirizzare o mostrare un errore
+          throw new Error('ID dell\'album non trovato nell\'URL.');
         }
+        // Usiamo l'ID per chiamare il servizio e recuperare i dati dell'album
         return this.portfolioService.getPortfolioItemById(id);
       })
     );

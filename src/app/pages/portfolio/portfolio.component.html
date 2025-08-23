@@ -16,7 +16,7 @@
           <h3 class="card-title">{{ item.title }}</h3>
           <p class="card-subtitle">{{ item.subtitle }}</p>
           
-          <a [routerLink]="['/portfolio', item.id]" class="btn-view">Visualizza</a>
+          <a *ngIf="item._id" [routerLink]="['/portfolio', item._id]" class="btn-view">Visualizza</a>
         </div>
       </div>
 

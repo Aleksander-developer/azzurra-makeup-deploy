@@ -2,7 +2,7 @@
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { map, delay, catchError } from 'rxjs/operators';
+import { map, delay, catchError, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private _isLoggedIn = new BehaviorSubject<boolean>(false);
-  isLoggedIn$ = this._isLoggedIn.asObservable();
+  isLoggedIn$ = this._isLoggedIn.asObservable().pipe(
+    shareReplay(1)
+  );
 
   private readonly MOCK_EMAIL = 'azzurraangius95@gmail.com';
   private readonly MOCK_PASSWORD = 'AzzuBestMakeupArtist';

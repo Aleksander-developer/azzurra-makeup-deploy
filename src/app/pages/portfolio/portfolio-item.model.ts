@@ -9,7 +9,7 @@ export interface PortfolioImage {
 }
 
 export interface PortfolioItem {
-  id?: string;
+  _id?: string;
   title: string;
   subtitle?: string;
   description?: string;
