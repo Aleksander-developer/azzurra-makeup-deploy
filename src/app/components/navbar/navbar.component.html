@@ -1,62 +1,62 @@
 <mat-toolbar color="primary" class="toolbar-custom">
   <div class="nav-links-container desktop-links">
-    <a mat-button routerLink="/home">Home</a>
-    <a mat-button routerLink="/trucco-sposa">Trucco Sposa</a>
-    <a mat-button routerLink="/portfolio">Portfolio</a>
-    <a mat-button *ngIf="isLoggedIn" routerLink="/admin">Admin Portfolio</a>
+    <a mat-button routerLink="/home" i18n="@@navHomeLink">Home</a>
+    <a mat-button routerLink="/trucco-sposa" i18n="@@navSposaLink">Trucco Sposa</a>
+    <a mat-button routerLink="/portfolio" i18n="@@navPortfolioLink">Portfolio</a>
+    <a mat-button *ngIf="isLoggedIn" routerLink="/admin" i18n="@@navAdminLink">Admin Portfolio</a>
   </div>
 
   <a routerLink="/home" class="brand-link">Azzurra Angius</a>
 
   <div class="nav-links-container desktop-links">
-    <a mat-button routerLink="/servizi">Servizi</a>
-    <a mat-button routerLink="/contatti">Contatti</a>
-    <a mat-button routerLink="/chi-sono">Chi Sono</a>
+    <a mat-button routerLink="/servizi" i18n="@@navServicesLink">Servizi</a>
+    <a mat-button routerLink="/contatti" i18n="@@navContactsLink">Contatti</a>
+    <a mat-button routerLink="/chi-sono" i18n="@@navAboutLink">Chi Sono</a>
 
     <ng-container *ngIf="!isLoggedIn">
-      <a mat-stroked-button color="accent" routerLink="/login">Login</a>
+      <a mat-stroked-button color="accent" routerLink="/login" i18n="@@navLoginLink">Login</a>
     </ng-container>
     <ng-container *ngIf="isLoggedIn">
-      <button mat-stroked-button color="accent" (click)="logout()">Logout</button>
+      <button mat-stroked-button color="accent" (click)="logout()" i18n="@@navLogoutButton">Logout</button>
     </ng-container>
 
     <div class="language-selector desktop-lang-selector">
       <button mat-icon-button (click)="changeLanguage('it')">
-        <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1754553629/it_di2ix0.png" alt="Bandiera Italiana" class="flag-icon">
+        <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1754553629/it_di2ix0.png" alt="Bandiera Italiana" class="flag-icon" i18n-alt="@@itFlagAlt">
       </button>
       <button mat-icon-button (click)="changeLanguage('en')">
-        <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1754553629/en_bkfvkw.png" alt="English Flag" class="flag-icon">
+        <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1754553629/en_bkfvkw.png" alt="English Flag" class="flag-icon" i18n-alt="@@enFlagAlt">
       </button>
     </div>
   </div>
 
-  <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button" i18n-aria-label="@@navMenuButtonAria" aria-label="Menu">
     <mat-icon>menu</mat-icon>
   </button>
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="/home">Home</button>
-  <button mat-menu-item routerLink="/trucco-sposa">Trucco Sposa</button>
-  <button mat-menu-item routerLink="/portfolio">Portfolio</button>
-  <button mat-menu-item *ngIf="isLoggedIn" routerLink="/admin">Admin Portfolio</button>
-  <button mat-menu-item routerLink="/servizi">Servizi</button>
-  <button mat-menu-item routerLink="/contatti">Contatti</button>
-  <button mat-menu-item routerLink="/chi-sono">Chi Sono</button>
+  <button mat-menu-item routerLink="/home" i18n="@@navHomeLink">Home</button>
+  <button mat-menu-item routerLink="/trucco-sposa" i18n="@@navSposaLink">Trucco Sposa</button>
+  <button mat-menu-item routerLink="/portfolio" i18n="@@navPortfolioLink">Portfolio</button>
+  <button mat-menu-item *ngIf="isLoggedIn" routerLink="/admin" i18n="@@navAdminLink">Admin Portfolio</button>
+  <button mat-menu-item routerLink="/servizi" i18n="@@navServicesLink">Servizi</button>
+  <button mat-menu-item routerLink="/contatti" i18n="@@navContactsLink">Contatti</button>
+  <button mat-menu-item routerLink="/chi-sono" i18n="@@navAboutLink">Chi Sono</button>
   
   <ng-container *ngIf="!isLoggedIn">
-    <button mat-menu-item routerLink="/login">Login</button>
+    <button mat-menu-item routerLink="/login" i18n="@@navLoginLink">Login</button>
   </ng-container>
   <ng-container *ngIf="isLoggedIn">
-    <button mat-menu-item (click)="logout()">Logout</button>
+    <button mat-menu-item (click)="logout()" i18n="@@navLogoutButton">Logout</button>
   </ng-container>
 
   <div class="language-selector mobile-lang-selector">
-    <button mat-menu-item (click)="changeLanguage('it')">
-      <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1754553629/it_di2ix0.png" alt="Bandiera Italiana" class="flag-icon-menu">
+    <button mat-menu-item (click)="changeLanguage('it')" i18n-aria-label="@@itFlagAria" aria-label="Bandiera Italiana">
+      <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1754553629/it_di2ix0.png" alt="Bandiera Italiana" class="flag-icon-menu" i18n-alt="@@itFlagAlt">
     </button>
-    <button mat-menu-item (click)="changeLanguage('en')">
-      <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1754553629/en_bkfvkw.png" alt="English Flag" class="flag-icon-menu">
+    <button mat-menu-item (click)="changeLanguage('en')" i18n-aria-label="@@enFlagAria" aria-label="English Flag">
+      <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1754553629/en_bkfvkw.png" alt="English Flag" class="flag-icon-menu" i18n-alt="@@enFlagAlt">
     </button>
   </div>
 </mat-menu>
