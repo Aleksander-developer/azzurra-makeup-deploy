@@ -16,11 +16,13 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FileToUrlPipe } from './pipes/file-to-url.pipe';
+import { CookieConsentComponent } from './components/cookie-consent/cookie-consent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CookieConsentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,5 @@
+<!-- src/app/components/cookie-consent/cookie-consent.component.html -->
+ <div class="cookie-banner" *ngIf="showBanner">
+    <p i18n="@@cookieConsentMessage">Questo sito utilizza i cookie per migliorare l'esperienza utente. <a href="/privacy-policy">Maggiori informazioni</a>.</p>
+    <button (click)="acceptConsent()" i18n="@@cookieConsentButton">Accetta e continua</button>
+</div>

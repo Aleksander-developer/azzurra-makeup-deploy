@@ -1,0 +1,52 @@
+@use '../../../styles/variables' as vars;
+@use '../../../styles/mixins' as mixins;
+
+.cookie-banner {
+  // Posizionamento e aspetto di base
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(vars.$color-text-dark, 0.95);
+  color: vars.$color-white;
+  padding: vars.$spacing-lg vars.$spacing-md;
+  text-align: center;
+  font-family: vars.$font-family-primary;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px vars.$color-shadow-medium;
+
+  // Usa il mixin per l'allineamento
+  @include mixins.flex-center;
+  flex-direction: column;
+  gap: vars.$spacing-md;
+
+  @media (min-width: vars.$breakpoint-md) {
+    @include mixins.flex-between-center;
+    flex-direction: row;
+    padding: vars.$spacing-lg vars.$spacing-xxl;
+  }
+
+  p {
+    margin: 0;
+    font-size: vars.$font-size-base;
+    line-height: vars.$line-height-base;
+    flex-grow: 1;
+
+    a {
+      color: vars.$color-accent;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  button {
+    // Usa il mixin per lo stile del pulsante
+    @include mixins.beauty-button;
+    
+    // Override delle variabili se necessario
+    background-color: vars.$color-accent;
+    color: vars.$color-white;
+  }
+}
