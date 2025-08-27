@@ -1,4 +1,4 @@
-// src/environments/environment.prod.ts
+// src/environments/environment.prod.tss
 export const environment = {
   production: true,
   // apiUrl: 'http://localhost:8080/b-api'
