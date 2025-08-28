@@ -8,7 +8,7 @@ export class ApiKeyInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // La tua chiave API. NOTA: In un'app reale, questa dovrebbe venire da una variabile d'ambiente
-    const apiKey = 'azzu-best-makeup-artist-241217dic'; // <-- Assicurati che sia la chiave corretta
+    const apiKey = 'azzu-best-makeup-artist-241217dic';
 
     // Clona la richiesta e aggiungi il nuovo header
     const authReq = req.clone({
