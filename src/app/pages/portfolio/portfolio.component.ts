@@ -1,3 +1,5 @@
+// src/app/pages/portfolio/portfolio.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { PortfolioItem } from './portfolio-item.model';
 import { Observable } from 'rxjs';

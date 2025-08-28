@@ -1,3 +1,5 @@
+// src/app/services/portfolio.service.ts
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; // Non serve più HttpHeaders
 import { Observable, throwError } from 'rxjs';

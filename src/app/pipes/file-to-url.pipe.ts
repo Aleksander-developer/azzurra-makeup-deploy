@@ -1,3 +1,5 @@
+// src//app/pipes/file-to-url.pipe.ts
+
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
