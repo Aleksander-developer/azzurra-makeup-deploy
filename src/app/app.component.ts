@@ -14,6 +14,7 @@ import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -42,6 +43,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
+    console.log('Env attuale:', environment);
+
     if (isPlatformBrowser(this.platformId)) {
       // Sottoscrizione agli eventi del router
       this.routerSubscription = this.router.events.pipe(
