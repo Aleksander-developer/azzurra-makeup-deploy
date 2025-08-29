@@ -30,7 +30,7 @@ export class PortfolioManagementComponent implements OnInit {
   newImageFiles: File[] = [];
   existingImages: PortfolioImage[] = [];
 
-  // Gestione galleria fullscreen
+  // Gestione galleria fullscreenn
   isGalleryVisible = false;
   currentImageIndex = 0;
 
