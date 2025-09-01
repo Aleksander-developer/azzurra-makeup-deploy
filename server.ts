@@ -1,9 +1,10 @@
+// server.ts (SSR Angular + Proxy)
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
 import express from 'express';
 import { join } from 'node:path';
 import { LOCALE_ID } from '@angular/core';
-import {AppServerModule} from './src/main.server';
+import { AppServerModule } from './src/main.server';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 
 export function app(): express.Express {
@@ -14,65 +15,65 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
-  // URL del backend (locale o produzione)
-  const BACKEND_URL = process.env ['NODE_ENV'] === 'production'
-    ? 'https://azzurra-makeup-be-1046780610179.europe-west1.run.app'
-    : 'http://localhost:8080';
+  // URL backend
+  const BACKEND_URL =
+    process.env['NODE_ENV'] === 'production'
+      ? 'https://azzurra-makeup-be-1046780610179.europe-west1.run.app'
+      : 'http://localhost:8080';
 
-  // Configurazione del proxy
-  // Le richieste a '/api' saranno inoltrate al backend
+  // Proxy frontend → backend
   server.use(
     '/b-api',
     createProxyMiddleware({
       target: BACKEND_URL,
       changeOrigin: true,
-      pathRewrite: { '^/b-api': '/api' }, // Rimuovi il prefisso '/api' prima di inoltrare
+      pathRewrite: { '^/b-api': '/api' }
     })
   );
-
 
   const supportedLocales = ['it', 'en'];
   const defaultLocale = 'it';
 
-  // --- REGOLA CORRETTA PER GLI ASSET ---
-  // Gli asset non sono tradotti, quindi li serviamo direttamente dalla cartella comune
-  server.use('/assets', express.static(join(distFolder, 'assets'), {
-    maxAge: '1y',
-    index: false
-  }));
+  // Assets non localizzati
+  server.use(
+    '/assets',
+    express.static(join(distFolder, 'assets'), { maxAge: '1y', index: false })
+  );
 
-  // Gestisci anche richieste tipo /it/assets/... o /en/assets/...
   supportedLocales.forEach((locale) => {
-    server.use(`/${locale}/assets`, express.static(join(distFolder, 'assets'), {
-      maxAge: '1y',
-      index: false
-    }));
+    server.use(
+      `/${locale}/assets`,
+      express.static(join(distFolder, 'assets'), { maxAge: '1y', index: false })
+    );
   });
 
-  // Redirect intelligente basato sulla lingua del browser
+  // Redirect lingua
   server.get('/', (req, res) => {
     const acceptLanguageHeader = req.headers['accept-language'];
     let preferredLocale = defaultLocale;
 
     if (acceptLanguageHeader) {
-      const browserLangs = acceptLanguageHeader.split(',').map(lang => lang.split(';')[0].toLowerCase().slice(0, 2));
-      const foundLang = browserLangs.find(lang => supportedLocales.includes(lang));
-      if (foundLang) {
-        preferredLocale = foundLang;
-      }
+      const browserLangs = acceptLanguageHeader
+        .split(',')
+        .map((lang) => lang.split(';')[0].toLowerCase().slice(0, 2));
+      const foundLang = browserLangs.find((lang) =>
+        supportedLocales.includes(lang)
+      );
+      if (foundLang) preferredLocale = foundLang;
     }
-    
+
     res.redirect(301, `/${preferredLocale}`);
   });
 
-  // Servi gli asset specifici della lingua (es. /it/main.js)
+  // Asset specifici per lingua (es. /it/main.js)
   supportedLocales.forEach((locale) => {
-    server.use(`/${locale}`, express.static(join(distFolder, locale), {
-      maxAge: '1y',
-    }));
+    server.use(
+      `/${locale}`,
+      express.static(join(distFolder, locale), { maxAge: '1y' })
+    );
   });
 
-  // Gestisci il rendering SSR per ogni lingua
+  // SSR per ogni lingua
   supportedLocales.forEach((locale) => {
     server.get(`/${locale}/*`, (req, res, next) => {
       const { protocol, originalUrl, headers } = req;
@@ -86,14 +87,14 @@ export function app(): express.Express {
           publicPath: join(distFolder, locale),
           providers: [
             { provide: APP_BASE_HREF, useValue: `/${locale}/` },
-            { provide: LOCALE_ID, useValue: locale },
-          ],
+            { provide: LOCALE_ID, useValue: locale }
+          ]
         })
         .then((html) => res.send(html))
         .catch((err) => next(err));
     });
   });
-  
+
   return server;
 }
 
@@ -101,7 +102,7 @@ function run(): void {
   const port = process.env['PORT'] || 4201;
   const server = app();
   server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    console.log(`✅ Node Express server listening on http://localhost:${port}`);
   });
 }
 
