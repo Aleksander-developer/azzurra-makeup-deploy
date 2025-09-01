@@ -22,11 +22,11 @@ export function app(): express.Express {
   // Configurazione del proxy
   // Le richieste a '/api' saranno inoltrate al backend
   server.use(
-    '/api',
+    '/b-api',
     createProxyMiddleware({
       target: BACKEND_URL,
       changeOrigin: true,
-      pathRewrite: { '^/api': '/api' }, // Rimuovi il prefisso '/api' prima di inoltrare
+      pathRewrite: { '^/b-api': '/api' }, // Rimuovi il prefisso '/api' prima di inoltrare
     })
   );
 
