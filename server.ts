@@ -4,6 +4,7 @@ import express from 'express';
 import { join } from 'node:path';
 import { LOCALE_ID } from '@angular/core';
 import {AppServerModule} from './src/main.server';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 
 export function app(): express.Express {
   const server = express();
@@ -12,6 +13,23 @@ export function app(): express.Express {
   const commonEngine = new CommonEngine();
   server.set('view engine', 'html');
   server.set('views', distFolder);
+
+  // URL del backend (locale o produzione)
+  const BACKEND_URL = process.env ['NODE_ENV'] === 'production'
+    ? 'https://azzurra-makeup-be-1046780610179.europe-west1.run.app'
+    : 'http://localhost:8080';
+
+  // Configurazione del proxy
+  // Le richieste a '/api' saranno inoltrate al backend
+  server.use(
+    '/api',
+    createProxyMiddleware({
+      target: BACKEND_URL,
+      changeOrigin: true,
+      pathRewrite: { '^/api': '/api' }, // Rimuovi il prefisso '/api' prima di inoltrare
+    })
+  );
+
 
   const supportedLocales = ['it', 'en'];
   const defaultLocale = 'it';
