@@ -131,12 +131,21 @@ export class PortfolioManagementComponent implements OnInit {
       formData.append(key, this.portfolioForm.get(key)?.value || '');
     });
 
-    const imagesMetadata = [
-      ...this.existingImages,
-      ...this.newImageFiles.map(() => ({ isNew: true }))
-    ];
-    formData.append('imagesMetadata', JSON.stringify(imagesMetadata));
-    this.newImageFiles.forEach(file => formData.append('images', file, file.name));
+    // 🔹 In fase di creazione: tutte le immagini sono nuove
+    if (!this.isEditing) {
+      this.newImageFiles.forEach(file => formData.append('images', file, file.name));
+    }
+
+    // 🔹 In fase di aggiornamento:
+    // - backend mantiene automaticamente quelle che restano
+    // - se l’utente ha tolto alcune immagini esistenti, le passiamo aggiornate
+    if (this.isEditing && this.selectedItemId) {
+      // Passiamo le immagini rimaste (serve per dire quali conservare)
+      formData.append('existingImages', JSON.stringify(this.existingImages));
+
+      // Aggiungiamo le nuove
+      this.newImageFiles.forEach(file => formData.append('images', file, file.name));
+    }
 
     const action = this.isEditing && this.selectedItemId
       ? this.portfolioService.updatePortfolioItem(this.selectedItemId, formData)
