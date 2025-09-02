@@ -5,7 +5,15 @@ import express from 'express';
 import { join } from 'node:path';
 import { LOCALE_ID } from '@angular/core';
 import { AppServerModule } from './src/main.server';
-import { createProxyMiddleware } from 'http-proxy-middleware';
+
+import {
+  createProxyMiddleware,
+  Options,
+  RequestHandler
+} from 'http-proxy-middleware';
+import { Request, Response } from 'express';
+import { IncomingMessage } from 'http';
+import { ClientRequest } from 'node:http';
 
 export function app(): express.Express {
   const server = express();
@@ -22,14 +30,21 @@ export function app(): express.Express {
       : 'http://localhost:8080';
 
   // Proxy frontend → backend
-  server.use(
-    '/b-api',
-    createProxyMiddleware({
-      target: BACKEND_URL,
-      changeOrigin: true,
-      pathRewrite: { '^/b-api': '/api' }
-    })
-  );
+server.use(
+  '/b-api',
+  createProxyMiddleware({
+    target: BACKEND_URL,
+    changeOrigin: true,
+    pathRewrite: { '^/b-api': '' },
+    onProxyReq: (proxyReq: ClientRequest, req: Request, res: Response) => {
+      console.log('[Proxy] →', proxyReq.getHeader('host'), proxyReq.path);
+    },
+    onError: (err: any, req: Request, res: Response) => {
+      console.error('[Proxy Error]', err);
+    }
+  } as any) // 👈 qui forziamo a any solo questo blocco
+);
+
 
   const supportedLocales = ['it', 'en'];
   const defaultLocale = 'it';

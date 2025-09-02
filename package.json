@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:dev:ssr": "ng build && ng run azzurra-makeup-deploy:server",
+
+    "build:dev:ssr": "ng build --configuration development && ng run azzurra-makeup-deploy:server:development",
     "serve:dev:ssr": "node dist/azzurra-makeup-deploy/server/main.js",
     "start:dev:ssr": "npm run build:dev:ssr && npm run serve:dev:ssr",
     "build:prod:ssr": "ng build --configuration production && ng run azzurra-makeup-deploy:server:production",
