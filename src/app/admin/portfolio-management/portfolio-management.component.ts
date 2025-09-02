@@ -13,24 +13,19 @@ import { PortfolioService } from '../../services/portfolio.service';
   styleUrls: ['./portfolio-management.component.scss']
 })
 export class PortfolioManagementComponent implements OnInit {
-  // Stati per la UI
   isLoading = true;
   isFormVisible = false;
   isEditing = false;
-  
-  // Dati
+
   portfolioItems: PortfolioItem[] = [];
   selectedItemId: string | null = null;
-  
-  // Form reattivo
+
   portfolioForm: FormGroup;
   public categories: string[] = ['Trucco Sposa', 'Eventi', 'Shooting Fotografico', 'Lezione'];
 
-  // Gestione delle immagini
   newImageFiles: File[] = [];
   existingImages: PortfolioImage[] = [];
 
-  // Gestione galleria fullscreenn
   isGalleryVisible = false;
   currentImageIndex = 0;
 
@@ -59,15 +54,13 @@ export class PortfolioManagementComponent implements OnInit {
         this.portfolioItems = items;
         this.isLoading = false;
       },
-      error: (err) => {
-        console.error('Errore nel caricamento degli album', err);
+      error: () => {
         this.isLoading = false;
         this.showNotification('Errore nel caricamento dei dati.', 'error');
       }
     });
   }
 
-  // --- Gestione del Form ---
   openCreateForm(): void {
     this.isEditing = false;
     this.isFormVisible = true;
@@ -98,22 +91,25 @@ export class PortfolioManagementComponent implements OnInit {
     if (inputFile) inputFile.value = '';
   }
 
-  // --- Gestione Immagini ---
+  // --- Gestione immagini ---
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (!input.files) return;
     const files = Array.from(input.files);
+
     if (files.length > 5) {
-      this.showNotification('Puoi selezionare un massimo di 5 foto alla volta.', 'error');
+      this.showNotification('Puoi selezionare al massimo 5 foto alla volta.', 'error');
       input.value = '';
       return;
     }
+
     const totalImages = this.existingImages.length + this.newImageFiles.length + files.length;
     if (totalImages > 10) {
-      this.showNotification(`Puoi caricare al massimo 10 foto per album.`, 'error');
+      this.showNotification('Puoi avere al massimo 10 foto per album.', 'error');
       input.value = '';
       return;
     }
+
     this.newImageFiles.push(...files);
     input.value = '';
   }
@@ -126,32 +122,33 @@ export class PortfolioManagementComponent implements OnInit {
     this.newImageFiles.splice(index, 1);
   }
 
-  // --- Azioni CRUD ---
+  // --- Submit form ---
   onSubmit(): void {
     if (this.portfolioForm.invalid) return;
+
     const formData = new FormData();
     Object.keys(this.portfolioForm.controls).forEach(key => {
-        formData.append(key, this.portfolioForm.get(key)?.value || '');
+      formData.append(key, this.portfolioForm.get(key)?.value || '');
     });
+
     const imagesMetadata = [
       ...this.existingImages,
       ...this.newImageFiles.map(() => ({ isNew: true }))
     ];
     formData.append('imagesMetadata', JSON.stringify(imagesMetadata));
     this.newImageFiles.forEach(file => formData.append('images', file, file.name));
-    
+
     const action = this.isEditing && this.selectedItemId
       ? this.portfolioService.updatePortfolioItem(this.selectedItemId, formData)
       : this.portfolioService.addPortfolioItem(formData);
-      
+
     action.subscribe({
       next: () => {
         this.showNotification(`Album ${this.isEditing ? 'aggiornato' : 'creato'} con successo!`, 'success');
         this.loadItems();
         this.closeForm();
       },
-      error: (err) => {
-        console.error('Errore nel salvataggio', err);
+      error: () => {
         this.showNotification('Errore durante il salvataggio.', 'error');
       }
     });
@@ -159,21 +156,20 @@ export class PortfolioManagementComponent implements OnInit {
 
   deleteItem(id: string | undefined): void {
     if (!id) return;
-    if (confirm('Sei sicuro di voler eliminare questo album? L\'azione è irreversibile.')) {
+    if (confirm('Sei sicuro di voler eliminare questo album?')) {
       this.portfolioService.deletePortfolioItem(id).subscribe({
         next: () => {
           this.showNotification('Album eliminato con successo!', 'success');
           this.portfolioItems = this.portfolioItems.filter(item => item._id !== id);
         },
-        error: (err) => {
-          console.error('Errore durante l\'eliminazione', err);
+        error: () => {
           this.showNotification('Errore durante l\'eliminazione.', 'error');
         }
       });
     }
   }
 
-  // --- Galleria Fullscreen ---
+  // --- Galleria ---
   openGallery(index: number): void {
     this.currentImageIndex = index;
     this.isGalleryVisible = true;
@@ -199,7 +195,6 @@ export class PortfolioManagementComponent implements OnInit {
     }
   }
 
-  // --- Notifiche ---
   private showNotification(message: string, panelClass: 'success' | 'error'): void {
     this.snackBar.open(message, 'Chiudi', {
       duration: 3000,
