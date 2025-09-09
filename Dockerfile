@@ -6,7 +6,7 @@ RUN npm install
 COPY . .
 # Esegui lo script di build SSR
 # CORREZIONE QUI: Usa lo script corretto per la produzione
-RUN npm run build:prod:ssr
+RUN npm run build:ssr
 
 # Fase 2: Immagine di produzione
 FROM node:20-slim
