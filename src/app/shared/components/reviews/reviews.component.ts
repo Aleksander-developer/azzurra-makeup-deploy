@@ -1,3 +1,5 @@
+// src/app/shared/componentns/reviews/reviews.component.ts
+
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription, interval } from 'rxjs';

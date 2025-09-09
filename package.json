@@ -8,12 +8,13 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
 
-    "build:dev:ssr": "ng build --configuration development && ng run azzurra-makeup-deploy:server:development",
-    "serve:dev:ssr": "node dist/azzurra-makeup-deploy/server/main.js",
-    "start:dev:ssr": "npm run build:dev:ssr && npm run serve:dev:ssr",
-    "build:prod:ssr": "ng build --configuration production && ng run azzurra-makeup-deploy:server:production",
-    "serve:prod:ssr": "cross-env NODE_ENV=production node dist/azzurra-makeup-deploy/server/main.js",
-    "start:prod:ssr": "npm run build:prod:ssr && npm run serve:prod:ssr"
+    "build:ssr": "ng build && ng run azzurra-makeup-deploy:server",
+    
+    "serve:ssr:dev": "cross-env BACKEND_URL=http://localhost:4000 node dist/azzurra-makeup-deploy/server/main.js",
+    "start:ssr:dev": "npm run build:ssr && npm run serve:ssr:dev",
+
+    "serve:ssr:prod": "cross-env NODE_ENV=production node dist/azzurra-makeup-deploy/server/main.js",
+    "start:ssr:prod": "npm run build:ssr && npm run serve:ssr:prod"
   },
   "private": true,
   "dependencies": {

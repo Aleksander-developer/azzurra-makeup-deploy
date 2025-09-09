@@ -88,7 +88,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "azzurra-makeup-deploy:build:production"
+              "buildTarget": "azzurra-makeup-deploy:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
               "buildTarget": "azzurra-makeup-deploy:build:development"
@@ -129,16 +130,16 @@
           }
         },
         "extract-i18n": {
-        "builder": "@angular-devkit/build-angular:extract-i18n",
-        "options": {
-          "buildTarget": "azzurra-makeup-deploy:build:development"
-        },
-        "configurations": {
-          "production": {
-            "buildTarget": "azzurra-makeup-deploy:build:production"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "azzurra-makeup-deploy:build:development"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "azzurra-makeup-deploy:build:production"
+            }
           }
-        }
-      },
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {

@@ -19,3 +19,4 @@ export interface PortfolioItem {
   createdAt?: Date;
   updatedAt?: Date;
 }
+

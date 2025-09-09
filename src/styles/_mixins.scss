@@ -1,21 +1,26 @@
-// Usa il file delle variabili con un namespace "vars"
-@use 'variables' as vars;
+/* src/styles/_mixins.scss */
 
-// Mixin per centrare elementi con Flexbox
+/* Usa il file delle variabili con un namespace "vars" */
+@use 'variables' as vars;
+@use 'sass:color';
+
+/* --- Mixin Base --- */
+
+/* Flex center */
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-// NUOVO MIXIN: per allineare elementi con spazio in mezzo
+/* Flex space-between + center */
 @mixin flex-between-center {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-// Mixin per lo stile delle "card"
+/* Stile card */
 @mixin card-style($padding: vars.$spacing-md, $shadow: vars.$color-shadow-medium) {
   background-color: vars.$color-white;
   border-radius: vars.$border-radius-lg;
@@ -28,12 +33,14 @@
   }
 }
 
-// Mixin per testo responsive
+/* Testo responsive */
 @mixin responsive-text($min-font, $max-font, $min-vw: 320px, $max-vw: 1200px) {
-  font-size: calc(#{$min-font} + (#{$max-font} - #{$min-font}) * ((100vw - #{$min-vw}) / (#{$max-vw} - #{$min-vw})));
+  font-size: calc(
+    #{$min-font} + (#{$max-font} - #{$min-font}) * ((100vw - #{$min-vw}) / (#{$max-vw} - #{$min-vw}))
+  );
 }
 
-// Mixin per titoli eleganti
+/* Titoli eleganti */
 @mixin elegant-heading {
   font-family: vars.$font-family-secondary;
   font-weight: bold;
@@ -42,7 +49,7 @@
   letter-spacing: 0.08em;
 }
 
-// Mixin per pulsante beauty
+/* Pulsante beauty */
 @mixin beauty-button($bg-color: vars.$color-accent, $text-color: vars.$color-white) {
   background-color: $bg-color;
   color: $text-color;
@@ -54,11 +61,12 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: background-color vars.$transition-speed-normal vars.$transition-ease,
-              transform vars.$transition-speed-normal vars.$transition-ease;
+  transition: 
+    background-color vars.$transition-speed-normal vars.$transition-ease,
+    transform vars.$transition-speed-normal vars.$transition-ease;
 
   &:hover {
-    background-color: darken($bg-color, 10%);
+    background-color: color.scale($bg-color, $lightness: -10%);
     transform: translateY(-2px);
   }
 
@@ -67,7 +75,7 @@
   }
 }
 
-// Mixin per pulsante primario
+/* Pulsante primario */
 @mixin primary-button {
   background-color: vars.$color-primary;
   color: vars.$color-white;
@@ -79,7 +87,8 @@
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 
   &:hover {
-    background-color: darken(vars.$color-primary, 10%);
+    background-color: color.scale(vars.$color-primary, $lightness: -10%);
     transform: scale(1.05);
   }
 }
+

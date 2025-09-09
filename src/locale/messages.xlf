@@ -2,6 +2,189 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="it" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="187187500641108332" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="isEditing ? &apos;Modifica Album&apos; : &apos;Crea Nuovo Album&apos; }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1817007949945200502" datatype="html">
+        <source>Annulla</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2013822666195236432" datatype="html">
+        <source>Titolo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7175039986319353352" datatype="html">
+        <source> Titolo obbligatorio </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5413759816167001447" datatype="html">
+        <source>Sottotitolo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5923041569817566400" datatype="html">
+        <source>Categoria</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">129</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7840958099804918180" datatype="html">
+        <source> Categoria obbligatoria </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">38,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9179334982462659411" datatype="html">
+        <source>Descrizione</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5818581585044060480" datatype="html">
+        <source>Immagini (max 10)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="imagePreviewAlt" datatype="html">
+        <source>Anteprima Immagine</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="248655586590571804" datatype="html">
+        <source>Rimuovi immagine</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3065074117287232981" datatype="html">
+        <source>Apri galleria</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6296931944064169916" datatype="html">
+        <source>Aggiungi Immagini (max 5 alla volta)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5752432530268031280" datatype="html">
+        <source>Salva Modifiche</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2772953184728644359" datatype="html">
+        <source>Crea Album</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1225477643060404831" datatype="html">
+        <source>Gestione Portfolio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8635360268067744266" datatype="html">
+        <source>Vedi Sito Pubblico</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7900410206247864910" datatype="html">
+        <source>Aggiungi Nuovo Album</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8251183381928583243" datatype="html">
+        <source>Azioni</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7698065300662927590" datatype="html">
+        <source>Modifica album</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">138</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1806540735481148248" datatype="html">
+        <source>Elimina album</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5227530908704807473" datatype="html">
+        <source>Nessun album trovato.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">152</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2975782050227077734" datatype="html">
+        <source>Chiudi galleria</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">166</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3870653586220828070" datatype="html">
+        <source>Immagine precedente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">177</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6966345253547886199" datatype="html">
+        <source>Immagine successiva</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/portfolio-management/portfolio-management.component.html</context>
+          <context context-type="linenumber">193</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="scrollToTopAria" datatype="html">
         <source>Scroll to top</source>
         <context-group purpose="location">

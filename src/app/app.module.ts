@@ -9,14 +9,10 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material/material.module';
 import { AuthService } from './services/auth.service';
-import { ApiKeyInterceptor } from './interceptors/api-key.interceptor';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PortfolioComponent } from './pages/portfolio/portfolio.component';
-import { HomeComponent } from './pages/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FileToUrlPipe } from './pipes/file-to-url.pipe';
 import { CookieConsentComponent } from './components/cookie-consent/cookie-consent.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,12 +34,9 @@ import { CookieConsentComponent } from './components/cookie-consent/cookie-conse
     // provideAnimationsAsync(), // <-- RIMOSSO: Questa riga era la causa dell'errore
     Title,
     Meta,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiKeyInterceptor,
-      multi: true
-    }
+      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

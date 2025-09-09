@@ -1,0 +1,68 @@
+<!-- // src/app/pages/register/register.component.html -->
+
+<section class="register-container">
+  <h1 class="page-title">
+    <mat-icon class="title-icon">person_add</mat-icon> <span i18n="@@registerNewUserTitle">Registrazione</span>
+  </h1>
+  <p class="page-subtitle" i18n="@@registerNewUserSubtitle">Crea un nuovo account per accedere all'area riservata.</p>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+    <!-- Campo Email -->
+    <mat-form-field appearance="outline">
+      <mat-label i18n="@@registerEmailLabel">Email</mat-label>
+      <input matInput type="email" formControlName="email" i18n-placeholder="@@registerEmailPlaceholder" placeholder="Inserisci la tua email" required>
+      <mat-error *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        <span *ngIf="registerForm.get('email')?.errors?.['required']" i18n="@@registerEmailRequired">L'email è obbligatoria.</span>
+        <span *ngIf="registerForm.get('email')?.errors?.['email']" i18n="@@registerEmailInvalid">Inserisci un'email valida.</span>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Campo Password -->
+    <mat-form-field appearance="outline">
+      <mat-label i18n="@@registerPasswordLabel">Password</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" i18n-placeholder="@@registerPasswordPlaceholder" placeholder="Crea la tua password" required>
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button" i18n-aria-label="@@registerTogglePasswordVisibilityAria" aria-label="Nascondi o mostra password">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        <span *ngIf="registerForm.get('password')?.errors?.['required']" i18n="@@registerPasswordRequired">La password è obbligatoria.</span>
+        <span *ngIf="registerForm.get('password')?.errors?.['minlength']" i18n="@@registerPasswordMinLength">La password deve contenere almeno 6 caratteri.</span>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Campo Conferma Password -->
+    <mat-form-field appearance="outline">
+      <mat-label i18n="@@registerConfirmPasswordLabel">Conferma Password</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="confirmPassword" i18n-placeholder="@@registerConfirmPasswordPlaceholder" placeholder="Conferma la password" required>
+      <mat-error *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+        <span *ngIf="registerForm.get('confirmPassword')?.errors?.['required']" i18n="@@registerConfirmPasswordRequired">Devi confermare la password.</span>
+      </mat-error>
+      <!-- Messaggio di errore per il mismatch della password -->
+      <mat-error *ngIf="registerForm.errors?.['mismatch'] && registerForm.get('confirmPassword')?.touched" i18n="@@registerPasswordMismatch">
+        Le password non corrispondono.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Messaggio di errore o successo dall'API -->
+    <div *ngIf="errorMessage" class="error-message-ui">
+      <mat-icon>error_outline</mat-icon> <span i18n="@@registerErrorMessageApi">{{ errorMessage }}</span>
+    </div>
+    <div *ngIf="successMessage" class="success-message">
+      <mat-icon>check_circle_outline</mat-icon> <span i18n="@@registerSuccessMessageApi">{{ successMessage }}</span>
+    </div>
+
+    <!-- Bottone di Registrazione -->
+    <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid || isLoading">
+      <span *ngIf="!isLoading" i18n="@@registerButton">Registrati</span>
+      <span *ngIf="isLoading" class="button-loading-content">
+        <mat-spinner [diameter]="20"></mat-spinner>
+        <span i18n="@@registerButtonLoading">Registrazione in corso...</span>
+      </span>
+    </button>
+  </form>
+
+  <div class="info-section">
+    <!-- SOLUZIONE: Traduzione dell'intera frase in un unico blocco -->
+    <p i18n="@@registerAlreadyHaveAccountText">Hai già un account? <a routerLink="/login">Accedi qui</a>.</p>
+  </div>
+</section>

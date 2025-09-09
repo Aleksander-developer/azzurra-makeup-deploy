@@ -12,7 +12,7 @@
   padding: 2.5rem;
   background-color: vars.$color-white;
   border-radius: vars.$border-radius-xl;
-  box-shadow: 0 10px 40px rgba(vars.$color-vibrant-fuchsia, 0.15);
+  box-shadow: vars.$card-shadow;
   text-align: center;
 }
 
@@ -56,9 +56,12 @@
 
   .reviewer-info {
     text-align: left;
-    .reviewer-name { font-weight: 600; }
+
+    .reviewer-name {
+      font-weight: 600;
+    }
   }
-  
+
   .google-logo {
     width: 60px;
     margin-left: auto;
@@ -67,7 +70,8 @@
 
 .star-rating {
   display: flex;
-  color: #fbbc05; // Giallo Google
+  color: #fbbc05;
+
   mat-icon { font-size: 18px; width: 18px; height: 18px; }
 }
 
@@ -83,7 +87,7 @@
 }
 
 .review-reply {
-  background-color: rgba(vars.$color-light-pink-bg, 0.5);
+  background-color: rgba(236, 179, 209, 0.5); // usa rgba standard
   border-radius: vars.$border-radius-md;
   padding: 1rem;
   text-align: left;
@@ -94,6 +98,7 @@
     font-size: 0.9rem;
     color: vars.$color-dark-purple-text;
   }
+
   .reply-text {
     font-style: italic;
     font-size: 0.95rem;
@@ -105,12 +110,25 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(vars.$color-white, 0.8);
+  background-color: rgba(255,255,255,0.8);
   box-shadow: vars.$card-shadow;
   z-index: 10;
-  
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
   &.prev { left: -15px; }
   &.next { right: -15px; }
+
+  &:hover {
+    background-color: rgba(255,255,255,1);
+    transform: translateY(-50%) scale(1.1);
+    transition: all vars.$transition-speed-normal vars.$transition-ease;
+  }
 }
 
 .carousel-dots {
@@ -124,11 +142,55 @@
     background-color: vars.$color-border;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all vars.$transition-speed-normal vars.$transition-ease;
 
     &.active {
       background-color: vars.$color-vibrant-fuchsia;
       transform: scale(1.2);
     }
   }
+}
+
+/* --- Responsive --- */
+@include vars.respond-to(xs) {
+  .reviews-section-container { padding: 1rem; }
+  .section-title { font-size: 1.4rem; }
+  .review-comment { font-size: 0.8rem; }
+  .review-reply { font-size: 0.75rem; }
+  .star-rating mat-icon { font-size: 12px; width: 12px; height: 12px; }
+  .carousel-control { width: 25px; height: 25px; }
+}
+
+@include vars.respond-to(sm) {
+  .reviews-section-container { padding: 1.5rem; }
+  .section-title { font-size: 1.6rem; }
+  .review-comment { font-size: 0.95rem; }
+  .review-reply { font-size: 0.8rem; }
+  .star-rating mat-icon { font-size: 14px; width: 14px; height: 14px; }
+  .carousel-control { width: 30px; height: 30px; }
+}
+
+@include vars.respond-to(md) {
+  .reviews-section-container { padding: 2rem; }
+  .section-title { font-size: 1.8rem; }
+  .review-comment { font-size: 1rem; }
+  .review-reply { font-size: 0.85rem; }
+  .star-rating mat-icon { font-size: 16px; width: 16px; height: 16px; }
+  .carousel-control { width: 35px; height: 35px; }
+}
+
+@include vars.respond-to(lg) {
+  .reviews-section-container { padding: 2.2rem; }
+  .section-title { font-size: 2rem; }
+  .review-comment { font-size: 1.05rem; }
+  .review-reply { font-size: 0.9rem; }
+  .star-rating mat-icon { font-size: 17px; width: 17px; height: 17px; }
+}
+
+@include vars.respond-to(xl) {
+  .reviews-section-container { padding: 3rem; }
+  .section-title { font-size: 2.4rem; }
+  .review-comment { font-size: 1.2rem; }
+  .review-reply { font-size: 1rem; }
+  .star-rating mat-icon { font-size: 20px; width: 20px; height: 20px; }
 }

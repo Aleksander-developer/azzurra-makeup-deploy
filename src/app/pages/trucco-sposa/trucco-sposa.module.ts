@@ -1,3 +1,5 @@
+// src/app/pages/trucco-sposa/trucco-sposa.module.ts
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

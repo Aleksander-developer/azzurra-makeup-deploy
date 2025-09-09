@@ -1,6 +1,6 @@
-/* src/app/pages/home/home.component.scss */
 @use '../../../styles/variables' as vars;
 @use '../../../styles/mixins' as mixins;
+@use 'sass:color';
 
 :host {
   display: block;
@@ -13,9 +13,10 @@
 /* --- Sezione Hero --- */
 .hero-section {
   display: flex;
+  flex-direction: row; /* Default: affiancati */
   width: 100%;
-  min-height: calc(100vh - 80px);
-  padding-top: 80px;
+  min-height: calc(100vh - 80px); /* Altezza minima, gestita dinamicamente */
+  padding-top: calc(80px + vars.$spacing-xxl); /* Spazio navbar + padding extra */
   box-sizing: border-box;
   background: linear-gradient(135deg, vars.$color-light-pink-bg 0%, vars.$color-background-light 100%);
   border-bottom: 2px solid vars.$color-primary;
@@ -27,16 +28,16 @@
     overflow: hidden;
     border: 8px solid vars.$color-white;
     box-shadow: 0 0 0 2px vars.$color-primary,
-                0 0 0 10px rgba(vars.$color-accent, 0.2),
-                0 15px 30px rgba(0, 0, 0, 0.3);
+      0 0 0 10px rgba(vars.$color-accent, 0.2),
+      0 15px 30px rgba(0, 0, 0, 0.3);
     border-radius: vars.$border-radius-xl;
     transition: all 0.5s vars.$transition-ease;
 
     &:hover {
       transform: translateY(-5px) scale(1.01);
       box-shadow: 0 0 0 2px vars.$color-primary,
-                  0 0 0 15px rgba(vars.$color-accent, 0.4),
-                  0 20px 40px rgba(0, 0, 0, 0.4);
+        0 0 0 15px rgba(vars.$color-accent, 0.4),
+        0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
     .no-image-placeholder {
@@ -82,8 +83,12 @@
         height: 30px;
       }
 
-      &.prev { left: 10px; }
-      &.next { right: 10px; }
+      &.prev {
+        left: 10px;
+      }
+      &.next {
+        right: 10px;
+      }
     }
 
     .carousel-dots {
@@ -177,7 +182,7 @@
   max-width: 800px;
   margin: 0 auto vars.$spacing-xxl auto;
   box-shadow: 0 8px 20px rgba(vars.$color-vibrant-fuchsia, 0.2);
-  
+
   h5 {
     font-size: 1.5rem;
     margin-bottom: vars.$spacing-md;
@@ -196,7 +201,7 @@
     margin-top: vars.$spacing-md;
     font-weight: 700;
     font-size: 1.1rem;
-    color: darken(vars.$color-vibrant-fuchsia, 5%);
+    color: color.scale(vars.$color-vibrant-fuchsia, $lightness: -5%);
   }
 }
 
@@ -214,7 +219,7 @@
     .guarantee-item {
       flex: 1 1 220px;
       max-width: 250px;
-      
+
       mat-icon {
         font-size: 48px;
         width: 48px;
@@ -239,47 +244,113 @@
   padding: vars.$spacing-xl 0;
 }
 
-/* --- Responsive --- */
-@media (max-width: vars.$breakpoint-lg) {
+/* --- Responsive usando mixin respond-to --- */
+@include vars.respond-to(xxl) {
   .hero-section {
-    flex-direction: column;
-    height: auto;
-    padding-top: 80px;
+    min-height: 90vh;
+  }
+}
 
-    .hero-image-container {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      max-height: 60vh;
-      border-width: 6px;
+@include vars.respond-to(xl) {
+  .hero-section {
+    padding-top: calc(60px + vars.$spacing-xxl);
+  }
+  .hero-text-content {
+    .hero-title {
+      font-size: 3rem;
     }
-
-    .hero-text-content {
-      width: 100%;
-      padding: vars.$spacing-xl vars.$spacing-md;
-      align-items: center;
-      text-align: center;
-
-      .hero-title { font-size: 3rem; }
-      .hero-subtitle { font-size: 1.5rem; }
+    .hero-subtitle {
+      font-size: 1.5rem;
     }
   }
 }
 
-@media (max-width: vars.$breakpoint-md) {
+@include vars.respond-to(lg) {
   .hero-section {
+    padding-top: calc(60px + vars.$spacing-lg);
+  }
+}
+
+/* A partire da 'md' e giù, impiliamo e diamo un'altezza fissa al contenitore dell'immagine */
+@include vars.respond-to(md) {
+  .hero-section {
+    flex-direction: column; /* Cambia a impilato */
+    padding-top: calc(50px + vars.$spacing-md);
+
     .hero-image-container {
-      aspect-ratio: 4 / 3;
+      height: 350px; /* Altezza fissa per l'immagine */
+      border-width: 6px;
+      border-radius: vars.$border-radius-lg;
+
+      .carousel-button {
+        width: 40px;
+        height: 40px;
+
+        mat-icon {
+          font-size: 24px;
+        }
+      }
     }
-    .hero-text-content {
-      .hero-title { font-size: 2.5rem; }
-      .hero-subtitle { font-size: 1.2rem; }
+  }
+  .hero-text-content {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: vars.$spacing-lg;
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+    .book-now-button {
+      font-size: 1.1rem;
+      padding: vars.$spacing-sm vars.$spacing-xl;
     }
   }
   .main-content-wrapper {
     padding: vars.$spacing-md;
   }
+  .animated-block {
+    padding: vars.$spacing-lg;
+  }
   .guarantees-block .guarantees-list {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+/* Regole per 'sm' (che sovrascrivono 'md' dove necessario) */
+@include vars.respond-to(sm) {
+  .hero-section {
+    .hero-image-container {
+      height: 300px; /* Riduzione altezza per 'sm' */
+    }
+    .hero-text-content {
+      .hero-title {
+        font-size: 2rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+/* Regole per 'xs' (che sovrascrivono 'sm' dove necessario) */
+@include vars.respond-to(xs) {
+  .hero-section {
+    .hero-image-container {
+      height: 250px; /* Riduzione altezza per 'xs' */
+    }
+    .hero-text-content {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .hero-subtitle {
+        font-size: 0.9rem;
+      }
+    }
   }
 }

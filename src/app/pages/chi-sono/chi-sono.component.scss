@@ -1,27 +1,28 @@
 @use '../../../styles/variables' as vars;
 @use '../../../styles/mixins' as mixins;
+@use 'sass:color';
 
-// Contenitore principale per gestire il padding dalla navbar fissa
+
+/* Contenitore principale per gestire il padding dalla navbar fissa */
 .chi-sono-page {
-  padding-top: 64px; // Altezza della navbar
+  padding-top: 64px; /*Altezza della navbar*/
 }
 
 .chi-sono-container {
-  padding: 2rem;
+  padding: vars.$spacing-xxl;
   max-width: 1100px;
-  margin: 2rem auto;
+  margin: vars.$spacing-xxl auto;
   text-align: center;
 }
 
-// Titolo principale della pagina
+/* Titolo principale della pagina */
 .page-title {
   @include mixins.elegant-heading;
   font-size: 2.8rem;
   color: vars.$color-vibrant-fuchsia;
   margin-bottom: vars.$spacing-sm;
-  // FIX: Aggiunto flexbox per allineare correttamente l'icona
   @include mixins.flex-center;
-  gap: 1rem;
+  gap: vars.$spacing-md;
 
   .title-icon {
     font-size: 2.8rem;
@@ -33,23 +34,23 @@
 .page-subtitle {
   font-size: 1.2rem;
   color: vars.$color-text-light;
-  margin-bottom: 3rem;
+  margin-bottom: vars.$spacing-xxl;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
 }
 
-// Sezione "About Me" con immagine e testo
+/* Sezione "About Me" con immagine e testo */
 .about-me-section {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: vars.$spacing-xxl;
   background-color: vars.$color-white;
   border-radius: vars.$border-radius-xl;
-  padding: 2.5rem;
-  margin-bottom: 3rem;
-  box-shadow: 0 10px 40px rgba(vars.$color-vibrant-fuchsia, 0.1);
+  padding: vars.$spacing-xl;
+  margin-bottom: vars.$spacing-xxl;
+  box-shadow: vars.$card-shadow;
   text-align: left;
 
   .about-me-image-container {
@@ -72,35 +73,35 @@
 
   .section-heading {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: vars.$spacing-lg;
     color: vars.$color-dark-purple-text;
   }
 
   p {
     font-size: 1.05rem;
     line-height: 1.7;
-    margin-bottom: 1rem;
+    margin-bottom: vars.$spacing-md;
     color: vars.$color-text-dark;
   }
 }
 
-// Sezione "Formazione e Qualifiche"
+/* Sezione "Formazione e Qualifiche" */
 .qualifications-section {
   background-color: rgba(vars.$color-light-pink-bg, 0.5);
   border-radius: vars.$border-radius-lg;
-  padding: 2.5rem;
-  margin-bottom: 3rem;
+  padding: vars.$spacing-xl;
+  margin-bottom: vars.$spacing-xxl;
 
   .section-heading {
     font-size: 2rem;
     color: vars.$color-dark-purple-text;
-    margin-bottom: 2rem;
+    margin-bottom: vars.$spacing-xxl;
   }
 
   .qualifications-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: vars.$spacing-xl;
     max-width: 900px;
     margin: 0 auto;
   }
@@ -108,10 +109,10 @@
   .qualification-item {
     display: flex;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: vars.$spacing-lg;
     text-align: left;
     background-color: vars.$color-white;
-    padding: 1.5rem;
+    padding: vars.$spacing-md;
     border-radius: vars.$border-radius-md;
     box-shadow: vars.$card-shadow;
 
@@ -132,9 +133,9 @@
   }
 }
 
-// Sezione Call to Action
+/* Sezione Call to Action */
 .cta-section {
-  @include mixins.card-style(2.5rem);
+  @include mixins.card-style(vars.$spacing-xl);
   background: linear-gradient(135deg, vars.$color-primary, vars.$color-vibrant-fuchsia);
   color: vars.$color-white;
   box-shadow: 0 10px 30px rgba(vars.$color-primary, 0.3);
@@ -147,7 +148,7 @@
 
   p {
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: vars.$spacing-xl;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -160,26 +161,50 @@
   }
 }
 
-// Responsive
-@media (max-width: vars.$breakpoint-lg) {
-  .about-me-section {
-    flex-direction: column;
-    .about-me-content {
-      text-align: center;
-    }
-  }
-  .qualifications-section .qualifications-grid {
-    grid-template-columns: 1fr;
-  }
+/* --- Responsive usando mixin respond-to --- */
+
+/* Breakpoint xxl */
+@include vars.respond-to(xxl) {
+  .about-me-section { gap: vars.$spacing-xl; }
 }
 
-@media (max-width: vars.$breakpoint-md) {
-  .chi-sono-container {
-    padding: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  .page-title { font-size: 2.2rem; .title-icon { font-size: 2.2rem; }}
+/* Breakpoint xl */
+@include vars.respond-to(xl) {
+  .chi-sono-container { padding: vars.$spacing-lg; }
+  .page-title { font-size: 2.5rem; .title-icon { font-size: 2.5rem; } }
   .page-subtitle { font-size: 1.1rem; }
-  .about-me-section, .qualifications-section, .cta-section { padding: 1.5rem; }
+  .about-me-section, .qualifications-section, .cta-section { padding: vars.$spacing-lg; }
+  .about-me-section .section-heading, .qualifications-section .section-heading, .cta-section h2 { font-size: 2rem; }
+}
+
+/* Breakpoint lg */
+@include vars.respond-to(lg) {
+  .about-me-section { 
+    flex-direction: column; 
+    .about-me-content { text-align: center; } 
+  }
+  .qualifications-section .qualifications-grid { grid-template-columns: 1fr; }
+}
+
+/* Breakpoint md */
+@include vars.respond-to(md) {
+  .chi-sono-container { padding: vars.$spacing-md; margin-top: vars.$spacing-md; }
+  .page-title { font-size: 2.2rem; .title-icon { font-size: 2.2rem; } }
+  .page-subtitle { font-size: 1rem; }
+  .about-me-section, .qualifications-section, .cta-section { padding: vars.$spacing-md; }
   .about-me-section .section-heading, .qualifications-section .section-heading, .cta-section h2 { font-size: 1.8rem; }
+}
+
+/* Breakpoint sm */
+@include vars.respond-to(sm) {
+  .page-title { font-size: 2rem; .title-icon { font-size: 2rem; } }
+  .page-subtitle { font-size: 0.95rem; }
+  .about-me-section .about-me-image-container { max-width: 250px; }
+}
+
+/* Breakpoint xs */
+@include vars.respond-to(xs) {
+  .page-title { font-size: 1.8rem; .title-icon { font-size: 1.8rem; } }
+  .page-subtitle { font-size: 0.9rem; }
+  .about-me-section .about-me-image-container { max-width: 200px; }
 }

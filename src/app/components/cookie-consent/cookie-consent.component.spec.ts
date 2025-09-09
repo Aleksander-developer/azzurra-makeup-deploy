@@ -1,3 +1,5 @@
+// src/app/components/cookie-consent/cookie-consent.component.spec.ts
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CookieConsentComponent } from './cookie-consent.component';

@@ -1,6 +1,8 @@
+// src/styles.scss
+
 /* You can add global styles to this file, and also import other style files */
 
-// Importa le tue variabili e mixin
+/*Importa le tue variabili e mixin Sass*/
 @use './styles/variables' as vars;
 @use './styles/mixins' as mixins;
 

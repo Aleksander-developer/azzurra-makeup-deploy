@@ -1,3 +1,5 @@
+// src/app/components/why-choose-me/why-choose-me.component.ts
+
 import { Component } from '@angular/core';
 
 @Component({

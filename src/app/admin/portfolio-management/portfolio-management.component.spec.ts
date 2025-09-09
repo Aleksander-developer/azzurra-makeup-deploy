@@ -1,3 +1,5 @@
+// src/app/admin/portfolio-management/portfolio-management.component.spec.ts
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PortfolioManagementComponent } from './portfolio-management.component';

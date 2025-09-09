@@ -1,18 +1,105 @@
-/* src/app/shared/components/confirmation-dialog/confirmation-dialog.component.scss */
+@use '../../../../styles/variables' as vars;
+@use '../../../../styles/mixins' as mixins;
+@use 'sass:color';
 
-// Puoi aggiungere stili specifici per il dialogo qui, se necessario.
-// Ad esempio, per personalizzare il testo o i bottoni.
-// Per ora, useremo gli stili predefiniti di Angular Material.
+:host {
+  display: block;
+}
 
 h2 {
-  color: #3f51b5; // Colore blu per il titolo
+  color: vars.$color-primary; /* Usa il colore principale del progetto */
+  font-family: vars.$font-family-secondary;
+  font-size: 1.8rem;
+  margin-bottom: vars.$spacing-md;
+  text-align: center;
 }
 
 p {
-  color: #333; // Colore testo scuro
+  color: vars.$color-text-dark;
+  font-family: vars.$font-family-primary;
+  font-size: 1rem;
+  margin-bottom: vars.$spacing-lg;
+  text-align: center;
 }
 
-mat-dialog-actions button {
-  min-width: 80px;
+mat-dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: vars.$spacing-md;
+  flex-wrap: wrap;
+
+  button {
+    min-width: 80px;
+    padding: vars.$spacing-xs vars.$spacing-sm;
+    border-radius: vars.$border-radius-md;
+    font-family: vars.$font-family-primary;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &.mat-primary {
+      background-color: vars.$color-primary;
+      color: vars.$color-white;
+
+      &:disabled {
+        background-color: vars.$color-border;
+        color: vars.$color-text-light;
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+    }
+
+    &.mat-warn {
+      background-color: vars.$error-color;
+      color: vars.$color-white;
+
+      &:disabled {
+        background-color: vars.$color-border;
+        color: vars.$color-text-light;
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+    }
+  }
 }
 
+/* --- Responsive con mixin centralizzati --- */
+@include vars.respond-to(xxl) {
+  h2 { font-size: 2.2rem; }
+  p { font-size: 1.2rem; }
+}
+
+@include vars.respond-to(xl) {
+  h2 { font-size: 2rem; }
+  p { font-size: 1.1rem; }
+}
+
+@include vars.respond-to(lg) {
+  h2 { font-size: 1.9rem; }
+  p { font-size: 1rem; }
+}
+
+@include vars.respond-to(md) {
+  h2 { font-size: 1.7rem; }
+  p { font-size: 0.95rem; }
+  mat-dialog-actions { gap: vars.$spacing-sm; }
+}
+
+@include vars.respond-to(sm) {
+  h2 { font-size: 1.5rem; }
+  p { font-size: 0.9rem; }
+  mat-dialog-actions button { min-width: 70px; padding: vars.$spacing-xs; }
+}
+
+@include vars.respond-to(xs) {
+  h2 { font-size: 1.3rem; }
+  p { font-size: 0.85rem; }
+  mat-dialog-actions { flex-direction: column; gap: vars.$spacing-xs; }
+  mat-dialog-actions button { width: 100%; }
+}

@@ -1,3 +1,5 @@
+// src/app/pages/trucco-sposa/trucco-sposa-routing.module.ts
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TruccoSposaComponent } from './trucco-sposa.component';

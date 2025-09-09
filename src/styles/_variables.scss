@@ -70,8 +70,25 @@ $transition-speed-normal: 0.3s;
 $transition-speed-slow: 0.5s;
 $transition-ease: ease-in-out;
 
-// Breakpoints (se usati nei mixin o direttamente)
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
+// Mappa dei breakpoint
+$breakpoints: (
+  xs: 320px,
+  sm: 480px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px
+);
+
+// Mixin per media query
+@mixin respond-to($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+  @if $size {
+    @media (max-width: $size) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' non trovato!";
+  }
+}
+

@@ -1,16 +1,15 @@
-/* src/app/pages/servizi/servizi.component.scss */
-
 @use '../../../styles/variables' as vars;
 @use '../../../styles/mixins' as mixins;
+@use 'sass:color';
 
 .servizi-page {
-  padding-top: 64px; // Spazio per la navbar fissa
+  padding-top: 64px; 
 }
 
 .servizi-container {
-  padding: 2rem;
+  padding: vars.$spacing-xl;
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: vars.$spacing-xxl auto;
   text-align: center;
 }
 
@@ -28,18 +27,19 @@
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  line-height: vars.$line-height-base;
 }
 
 /* --- Card in Evidenza (Trucco Sposa) --- */
 .service-highlight-card {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: vars.$spacing-lg;
   background: vars.$color-white;
   border-radius: vars.$border-radius-xl;
-  padding: 2rem;
+  padding: vars.$spacing-xl;
   margin-bottom: 4rem;
-  box-shadow: 0 10px 30px rgba(vars.$color-vibrant-fuchsia, 0.15);
+  box-shadow: vars.$card-shadow;
   text-align: left;
 
   .highlight-image-container {
@@ -60,6 +60,7 @@
 
   .highlight-title {
     font-size: 2.2rem;
+    color: vars.$color-dark-purple-text;
   }
 }
 
@@ -67,25 +68,24 @@
 .other-services-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: vars.$spacing-xxl;
 }
 
 .service-card {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: vars.$spacing-lg;
   background-color: vars.$color-white;
   box-shadow: vars.$card-shadow;
   border-radius: vars.$border-radius-lg;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(vars.$color-vibrant-fuchsia, 0.1);
   }
 
-  // Alterna immagine a destra per elementi dispari
   &.image-right {
     flex-direction: row-reverse;
   }
@@ -102,7 +102,7 @@
     object-fit: cover;
     transition: transform 0.4s ease;
   }
-  
+
   &:hover .service-image {
     transform: scale(1.05);
   }
@@ -110,21 +110,49 @@
 
 .service-card-content-wrapper {
   flex: 1 1 55%;
-  padding: 2rem;
+  padding: vars.$spacing-xl;
   text-align: left;
 
-  mat-card-title { font-size: 1.8rem; }
-  mat-card-subtitle { margin-bottom: 1rem; }
-  mat-card-actions { padding: 1rem 0 0 0; }
+  mat-card-title { 
+    font-size: 1.8rem; 
+    color: vars.$color-dark-purple-text;
+  }
+  mat-card-subtitle { margin-bottom: vars.$spacing-md; }
+  mat-card-actions { padding: vars.$spacing-sm 0 0 0; }
 }
 
 /* --- Responsive --- */
-@media (max-width: vars.$breakpoint-lg) {
+@include vars.respond-to(xxl) { }
+@include vars.respond-to(xl) { }
+
+@include vars.respond-to(lg) {
   .service-highlight-card, .service-card {
-    flex-direction: column !important; // Forza layout a colonna
-    
+    flex-direction: column !important;
+
     .highlight-content, .service-card-content-wrapper {
       text-align: center;
     }
   }
 }
+
+@include vars.respond-to(md) {
+  .servizi-container { padding: vars.$spacing-lg; }
+  .page-title { font-size: 2.5rem; }
+  .page-subtitle { font-size: 1.1rem; }
+  .service-card-content-wrapper, .highlight-content { padding: vars.$spacing-lg; }
+}
+
+@include vars.respond-to(sm) {
+  .servizi-container { padding: vars.$spacing-md; }
+  .page-title { font-size: 2.2rem; }
+  .page-subtitle { font-size: 1rem; }
+  .service-card-content-wrapper, .highlight-content { padding: vars.$spacing-md; }
+}
+
+@include vars.respond-to(xs) {
+  .servizi-container { padding: vars.$spacing-sm; }
+  .page-title { font-size: 2rem; }
+  .page-subtitle { font-size: 0.95rem; }
+  .service-card-content-wrapper, .highlight-content { padding: vars.$spacing-sm; }
+}
+

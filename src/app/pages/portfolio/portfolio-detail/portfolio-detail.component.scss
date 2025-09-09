@@ -1,19 +1,18 @@
-// src/app/pages/portfolio/portfolio-detail.component.scss
-
 @use '../../../../styles/variables' as vars;
 @use '../../../../styles/mixins' as mixins;
+@use 'sass:color';
 
-// Contenitore principale che spinge tutto il contenuto sotto la navbar fissa
+/*Contenitore principale che spinge tutto il contenuto sotto la navbar fissa */
 .detail-page {
-  padding-top: 64px; // Altezza della tua navbar
+  padding-top: 64px;
   min-height: calc(100vh - 64px);
 }
 
 .detail-container {
-  padding: 2rem;
+  padding: vars.$spacing-xl;
   max-width: 1200px;
   margin: 0 auto;
-  animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.5s vars.$transition-ease;
 }
 
 @keyframes fadeIn {
@@ -23,44 +22,56 @@
 
 .album-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: vars.$spacing-xxl;
 
   .back-link {
-    @include mixins.flex-center; // Usa il tuo mixin se disponibile
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+    @include mixins.flex-center;
+    gap: vars.$spacing-xs;
+    margin: 0 auto vars.$spacing-xl auto;
     text-decoration: none;
     color: vars.$color-primary;
     font-weight: 500;
     width: fit-content;
-    margin: 0 auto 2rem auto;
   }
 
-  h1 { font-size: 2.8rem; }
-  .subtitle { font-size: 1.4rem; color: #6c757d; }
-  .description { max-width: 800px; margin: 0 auto; line-height: 1.6; }
+  h1 {
+    font-family: vars.$font-family-secondary;
+    font-size: 2.8rem;
+    color: vars.$color-vibrant-fuchsia;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+    color: vars.$color-text-light;
+  }
+
+  .description {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: vars.$line-height-base;
+    color: vars.$color-text-dark;
+  }
 }
 
 .image-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: vars.$spacing-lg;
 }
 
-// Stile per le anteprime cliccabili
 .image-wrapper {
   position: relative;
   border-radius: vars.$border-radius-lg;
   overflow: hidden;
   box-shadow: vars.$card-shadow;
   cursor: pointer;
-  
+
   img {
     width: 100%;
     height: 250px;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform vars.$transition-speed-normal vars.$transition-ease;
   }
 
   .overlay {
@@ -70,24 +81,19 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    color: white;
+    color: vars.$color-white;
     @include mixins.flex-center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity vars.$transition-speed-normal vars.$transition-ease;
     font-size: 3rem;
   }
 
   &:hover {
-    img {
-      transform: scale(1.05);
-    }
-    .overlay {
-      opacity: 1;
-    }
+    img { transform: scale(1.05); }
+    .overlay { opacity: 1; }
   }
 }
 
-// Stili per la galleria a schermo intero
 .fullscreen-gallery {
   position: fixed;
   top: 0;
@@ -97,7 +103,7 @@
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 2000;
   @include mixins.flex-center;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.3s vars.$transition-ease;
 
   img {
     max-width: 90vw;
@@ -107,44 +113,68 @@
   }
 }
 
-// Stile per i pulsanti della galleria (chiusura e navigazione)
 .close-btn, .nav-btn {
   position: absolute;
-  color: white;
+  color: vars.$color-white;
   background-color: rgba(0, 0, 0, 0.4);
-  
+  border-radius: vars.$border-radius-md;
+  padding: vars.$spacing-xs;
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.6);
   }
 }
 
-.close-btn {
-  top: 20px;
-  right: 20px;
-}
+.close-btn { top: vars.$spacing-lg; right: vars.$spacing-lg; }
 
 .nav-btn {
   top: 50%;
   transform: translateY(-50%);
-  
-  &.prev {
-    left: 20px;
-  }
-  &.next {
-    right: 20px;
-  }
+
+  &.prev { left: vars.$spacing-lg; }
+  &.next { right: vars.$spacing-lg; }
 }
 
-// Stati di caricamento o galleria vuota
 .loading-state, .empty-gallery {
   @include mixins.flex-center;
   flex-direction: column;
-  padding: 4rem;
+  padding: vars.$spacing-xxl;
   text-align: center;
   min-height: 300px;
-  color: #6c757d;
+  color: vars.$color-text-light;
 
   mat-spinner {
-    margin-bottom: 1rem;
+    margin-bottom: vars.$spacing-md;
   }
 }
+
+/*  Responsive --- */
+@include vars.respond-to(xxl) {
+  .image-gallery { gap: vars.$spacing-xxl; }
+}
+
+@include vars.respond-to(xl) {
+  .image-gallery { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+}
+
+@include vars.respond-to(lg) {
+  .image-gallery { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .image-wrapper img { height: 220px; }
+}
+
+@include vars.respond-to(md) {
+  .detail-container { padding: vars.$spacing-lg; }
+  .image-gallery { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .image-wrapper img { height: 200px; }
+}
+
+@include vars.respond-to(sm) {
+  .image-gallery { grid-template-columns: 1fr; gap: vars.$spacing-lg; }
+  .image-wrapper img { height: 180px; }
+}
+
+@include vars.respond-to(xs) {
+  .image-gallery { grid-template-columns: 1fr; gap: vars.$spacing-md; }
+  .image-wrapper img { height: 160px; }
+}
+

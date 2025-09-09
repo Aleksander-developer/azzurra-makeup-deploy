@@ -1,8 +1,8 @@
 @use '../../../styles/variables' as vars;
 @use '../../../styles/mixins' as mixins;
+@use 'sass:color';
 
 .cookie-banner {
-  // Posizionamento e aspetto di base
   position: fixed;
   bottom: 0;
   left: 0;
@@ -15,16 +15,9 @@
   z-index: 1000;
   box-shadow: 0 -2px 10px vars.$color-shadow-medium;
 
-  // Usa il mixin per l'allineamento
   @include mixins.flex-center;
   flex-direction: column;
   gap: vars.$spacing-md;
-
-  @media (min-width: vars.$breakpoint-md) {
-    @include mixins.flex-between-center;
-    flex-direction: row;
-    padding: vars.$spacing-lg vars.$spacing-xxl;
-  }
 
   p {
     margin: 0;
@@ -35,6 +28,7 @@
     a {
       color: vars.$color-accent;
       text-decoration: underline;
+
       &:hover {
         text-decoration: none;
       }
@@ -42,11 +36,61 @@
   }
 
   button {
-    // Usa il mixin per lo stile del pulsante
     @include mixins.beauty-button;
-    
-    // Override delle variabili se necessario
     background-color: vars.$color-accent;
     color: vars.$color-white;
+    font-weight: 600;
+  }
+
+  /* --- Responsive Breakpoints con mixin --- */
+  @include vars.respond-to(xs) {
+    padding: vars.$spacing-sm vars.$spacing-xs;
+    gap: vars.$spacing-sm;
+
+    p { font-size: 0.8rem; }
+    button { font-size: 0.8rem; padding: 0.4rem 0.8rem; }
+  }
+
+  @include vars.respond-to(sm) {
+    padding: vars.$spacing-md vars.$spacing-sm;
+    gap: vars.$spacing-sm;
+
+    p { font-size: 0.85rem; }
+    button { font-size: 0.85rem; padding: 0.5rem 1rem; }
+  }
+
+  @include vars.respond-to(md) {
+    @include mixins.flex-between-center;
+    flex-direction: row;
+    padding: vars.$spacing-lg vars.$spacing-xxl;
+    gap: vars.$spacing-lg;
+
+    p { font-size: vars.$font-size-base; text-align: left; }
+    button { font-size: vars.$font-size-base; padding: vars.$spacing-sm vars.$spacing-md; }
+  }
+
+  @include vars.respond-to(lg) {
+    padding: vars.$spacing-lg vars.$spacing-xxl;
+
+    p { font-size: 1rem; }
+    button { font-size: 1rem; padding: vars.$spacing-sm vars.$spacing-lg; }
+  }
+
+  @include vars.respond-to(xl) {
+    padding: vars.$spacing-xl vars.$spacing-xxl;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    p { font-size: 1.05rem; }
+    button { font-size: 1.05rem; padding: vars.$spacing-md vars.$spacing-xxl; }
+  }
+
+  @include vars.respond-to(xxl) {
+    padding: vars.$spacing-xxl vars.$spacing-xxl;
+    max-width: 1600px;
+    margin: 0 auto;
+
+    p { font-size: 1.1rem; }
+    button { font-size: 1.1rem; padding: vars.$spacing-md vars.$spacing-xxl; }
   }
 }

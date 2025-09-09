@@ -1,3 +1,5 @@
+// src/app/admin/admin-routing.module.ts
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PortfolioManagementComponent } from './portfolio-management/portfolio-management.component';

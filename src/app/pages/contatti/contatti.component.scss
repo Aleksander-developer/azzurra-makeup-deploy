@@ -1,41 +1,38 @@
 @use '../../../styles/variables' as vars;
 @use '../../../styles/mixins' as mixins;
+@use 'sass:color';
 
 
-// Contenitore generale della pagina per il padding dalla navbar
+/*Contenitore generale della pagina per il padding dalla navbar */
 .contatti-page {
   padding-top: 64px;
 }
 
 .contatti-container {
   max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
+  margin: vars.$spacing-xxl auto;
+  padding: vars.$spacing-xl;
   background: vars.$color-white;
   border-radius: vars.$border-radius-xl;
   box-shadow: 0 8px 30px rgba(vars.$color-vibrant-fuchsia, 0.1);
 }
 
+
 .header-section {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: vars.$spacing-xxl;
 
   .page-title {
     @include mixins.elegant-heading;
     font-size: 2.8rem;
     color: vars.$color-vibrant-fuchsia;
-    gap: 1rem;
-    
-    // --- MODIFICHE QUI ---
-    display: flex;                 // 1. Rende il contenitore un flexbox
-    align-items: center;           // 2. Allinea verticalmente l'icona e il testo
-    justify-content: center;       // 3. Allinea orizzontalmente
-    // --- FINE MODIFICHE ---
+    gap: vars.$spacing-md;
+    @include mixins.flex-center;
 
     .title-icon {
-      font-size: 2.8rem; // Assicura che l'icona abbia la stessa dimensione del testo
-      width: 2.8rem;     // Adatta la larghezza
-      height: 2.8rem;    // Adatta l'altezza
+      font-size: 2.8rem;
+      width: 2.8rem;
+      height: 2.8rem;
     }
   }
 
@@ -47,60 +44,61 @@
   }
 }
 
-// Griglia a due colonne per il contenuto
+
 .content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: vars.$spacing-xxl;
   align-items: start;
 }
 
-// --- Stili per il Form ---
+
 .form-wrapper {
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: vars.$spacing-md;
   }
 
   button[type="submit"] {
     @include mixins.beauty-button(vars.$color-vibrant-fuchsia, vars.$color-white);
     font-size: 1rem;
     height: 50px;
+
     .button-loading-content {
       @include mixins.flex-center;
-      gap: 10px;
+      gap: vars.$spacing-sm;
     }
   }
 }
 
-// --- Stili per le Info di Contatto Diretto ---
+
 .info-wrapper {
   .direct-contact-info {
     text-align: left;
     background-color: rgba(vars.$color-light-pink-bg, 0.5);
-    padding: 2rem;
+    padding: vars.$spacing-xl;
     border-radius: vars.$border-radius-lg;
-    
+
     h2 {
       font-family: vars.$font-family-secondary;
       font-size: 1.8rem;
       color: vars.$color-dark-purple-text;
-      margin-bottom: 1.5rem;
+      margin-bottom: vars.$spacing-lg;
     }
 
     .contact-methods {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: vars.$spacing-lg;
     }
 
     .contact-method-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: vars.$spacing-md;
       text-decoration: none;
-      padding: 1rem;
+      padding: vars.$spacing-md;
       border-radius: vars.$border-radius-md;
       transition: all 0.3s ease;
 
@@ -121,11 +119,12 @@
       .contact-text {
         display: flex;
         flex-direction: column;
-        
+
         .contact-title {
           font-weight: 600;
           color: vars.$color-text-dark;
         }
+
         .contact-detail {
           font-size: 0.9rem;
           color: vars.$color-text-light;
@@ -135,33 +134,74 @@
   }
 }
 
-// --- Messaggi di Successo/Errore ---
+
 .success-message, .error-message-ui {
   @include mixins.flex-center;
-  gap: 8px;
-  padding: 1rem;
+  gap: vars.$spacing-xs;
+  padding: vars.$spacing-sm;
   border-radius: vars.$border-radius-md;
   font-weight: 500;
 }
+
 .success-message {
   background-color: rgba(vars.$success-color, 0.1);
   color: vars.$success-color;
 }
+
 .error-message-ui {
   background-color: rgba(vars.$error-color, 0.1);
   color: vars.$error-color;
 }
 
-/* --- Responsive --- */
-@media (max-width: vars.$breakpoint-lg) {
-  .content-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+
+/* Breakpoint xxl */
+@include vars.respond-to(xxl) {
+  .content-grid { gap: vars.$spacing-xl; }
+}
+
+/* Breakpoint xl */
+@include vars.respond-to(xl) {
+  .contatti-container { padding: vars.$spacing-lg; }
+  .header-section .page-title { font-size: 2.5rem; .title-icon { font-size: 2.5rem; } }
+  .header-section .page-subtitle { font-size: 1rem; }
+  .form-wrapper button[type="submit"] { font-size: 0.95rem; height: 48px; }
+}
+
+/* Breakpoint lg */
+@include vars.respond-to(lg) {
+  .content-grid { grid-template-columns: 1fr; gap: vars.$spacing-lg; }
+  .info-wrapper .direct-contact-info { text-align: center; 
+    .contact-method-item { justify-content: center; } 
   }
-  .info-wrapper .direct-contact-info {
-    text-align: center;
-    .contact-method-item {
-      justify-content: center;
-    }
+}
+
+/* Breakpoint md */
+@include vars.respond-to(md) {
+  .contatti-container { padding: vars.$spacing-md; margin-top: vars.$spacing-md; }
+  .header-section .page-title { font-size: 2.2rem; .title-icon { font-size: 2.2rem; } }
+  .header-section .page-subtitle { font-size: 0.95rem; }
+  .form-wrapper button[type="submit"] { font-size: 0.9rem; height: 46px; }
+  .content-grid { gap: vars.$spacing-md; }
+}
+
+/* Breakpoint sm */
+@include vars.respond-to(sm) {
+  .header-section .page-title { font-size: 2rem; .title-icon { font-size: 2rem; } }
+  .header-section .page-subtitle { font-size: 0.9rem; }
+  .info-wrapper .direct-contact-info .contact-method-item {
+    mat-icon, .whatsapp-icon { font-size: 28px; width: 28px; height: 28px; }
+  }
+  .form-wrapper .contact-form input,
+  .form-wrapper .contact-form textarea {
+    width: 100%;
+  }
+}
+
+/* Breakpoint xs */
+@include vars.respond-to(xs) {
+  .header-section .page-title { font-size: 1.8rem; .title-icon { font-size: 1.8rem; } }
+  .header-section .page-subtitle { font-size: 0.85rem; }
+  .info-wrapper .direct-contact-info .contact-method-item {
+    mat-icon, .whatsapp-icon { font-size: 24px; width: 24px; height: 24px; }
   }
 }

@@ -1,4 +1,4 @@
-// src/app/pages/home/home.component.html
+// src/app/pages/home/home.component.ts
 
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -34,9 +34,8 @@ import { takeWhile } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   heroImages: string[] = [
-    'https://res.cloudinary.com/ddqilzddj/image/upload/v1752847726/logo_dhzlmi.png',
-    'https://res.cloudinary.com/ddqilzddj/image/upload/v1752775011/azzurra-makeup/portfolio/ednmu907ominu29wgj0u.jpg',
-    'https://res.cloudinary.com/ddqilzddj/image/upload/v1752944812/SnapInsta.to_468394954_18472014007046517_2476016588489560134_n_lji6e5.jpg',
+    'https://res.cloudinary.com/ddqilzddj/image/upload/v1757273101/IMG_8670_ro2ycf.jpg',
+    'https://res.cloudinary.com/ddqilzddj/image/upload/v1757278446/IMG_8009_jocbi8.jpg'
   ];
   currentHeroImage: string = '';
   currentIndex: number = 0;
@@ -61,7 +60,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   startCarousel(): void {
     this.stopCarousel();
-    this.carouselInterval = interval(5000)
+    this.carouselInterval = interval(3000)
       .pipe(takeWhile(() => this.isComponentAlive))
       .subscribe(() => this.nextImage());
   }

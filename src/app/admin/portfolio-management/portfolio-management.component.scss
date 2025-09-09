@@ -1,9 +1,6 @@
-// src/app/admin/portfolio-management.component.scss
-
 @use '../../../styles/variables' as vars;
 @use '../../../styles/mixins' as mixins;
 
-// Layout principale per tenere conto della navbar fissa
 .admin-page {
   padding-top: 64px;
 }
@@ -13,7 +10,6 @@
   background-color: vars.$color-background-light;
 }
 
-// Stili per l'header
 .admin-header {
   @include mixins.flex-between-center;
   margin-bottom: 2rem;
@@ -31,16 +27,15 @@
   }
 }
 
-// Stili per la tabella
 .table-container {
   background-color: vars.$color-white;
   border-radius: vars.$border-radius-lg;
   overflow: hidden;
   box-shadow: vars.$card-shadow;
+
   table.mat-table { width: 100%; }
 }
 
-// Stili per il form
 .form-section {
   max-width: 800px;
   margin: 0 auto;
@@ -63,9 +58,7 @@ mat-card-content form {
   gap: 1rem;
 }
 
-mat-form-field {
-  width: 100%;
-}
+mat-form-field { width: 100%; }
 
 .form-actions {
   display: flex;
@@ -74,7 +67,6 @@ mat-form-field {
   margin-top: 1rem;
 }
 
-// Stili per la gestione delle immagini nel form
 .image-management {
   h3 { margin-bottom: 1rem; }
 }
@@ -103,20 +95,16 @@ mat-form-field {
 
   .remove-btn, .fullscreen-btn {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: rgba(vars.$color-black, 0.5);
+    color: vars.$color-white;
     width: 28px;
     height: 28px;
     line-height: 28px;
-    
+
     .mat-icon { font-size: 18px; }
   }
 
-  .remove-btn {
-    top: 4px;
-    right: 4px;
-  }
-
+  .remove-btn { top: 4px; right: 4px; }
   .fullscreen-btn {
     bottom: 4px;
     right: 4px;
@@ -125,20 +113,15 @@ mat-form-field {
   }
 
   &:hover {
-    .fullscreen-btn {
-      opacity: 1;
-    }
-    img {
-      transform: scale(1.05);
-    }
+    .fullscreen-btn { opacity: 1; }
+    img { transform: scale(1.05); }
   }
 }
 
-// Stili per la galleria fullscreen
 .fullscreen-gallery {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(vars.$color-black, 0.9);
   z-index: 2000;
   @include mixins.flex-center;
   animation: fadeIn 0.3s ease;
@@ -152,16 +135,17 @@ mat-form-field {
 
 .close-btn, .nav-btn {
   position: absolute;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.3);
-  &:hover { background-color: rgba(0, 0, 0, 0.5); }
+  color: vars.$color-white;
+  background-color: rgba(vars.$color-black, 0.3);
+
+  &:hover { background-color: rgba(vars.$color-black, 0.5); }
 }
+
 .close-btn { top: 20px; right: 20px; }
 .nav-btn { top: 50%; transform: translateY(-50%); }
 .nav-btn.prev { left: 20px; }
 .nav-btn.next { right: 20px; }
 
-// Stati vuoti / caricamento
 .loading-state, .empty-state {
   display: flex;
   flex-direction: column;
@@ -173,17 +157,17 @@ mat-form-field {
   background-color: vars.$color-white;
   border-radius: vars.$border-radius-lg;
   box-shadow: vars.$card-shadow;
-  mat-spinner {
-    margin-bottom: 1.5rem;
-  }
-  p {
-    font-size: 1.1rem;
-    margin: 0;
-  }
+
+  mat-spinner { margin-bottom: 1.5rem; }
+
+  p { font-size: 1.1rem; margin: 0; }
 }
 
-// Responsività
-@media (max-width: vars.$breakpoint-md) {
+/* --- Breakpoints --- */
+@include vars.respond-to(xs) { .admin-container { padding: 0.5rem; } }
+@include vars.respond-to(sm) { .admin-container { padding: 1rem; } }
+
+@include vars.respond-to(md) {
   .admin-container { padding: 1rem; }
   .admin-header {
     flex-direction: column;
@@ -194,6 +178,22 @@ mat-form-field {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.5rem;
+      h1 { font-size: 1.8rem; }
     }
   }
+}
+
+@include vars.respond-to(lg) {
+  .admin-container { padding: 1.5rem; }
+  .admin-header .header-title h1 { font-size: 2rem; }
+}
+
+@include vars.respond-to(xl) {
+  .admin-container { padding: 2rem; }
+  .form-section { max-width: 900px; }
+}
+
+@include vars.respond-to(xxl) {
+  .admin-container { padding: 3rem; }
+  .form-section { max-width: 1100px; }
 }
