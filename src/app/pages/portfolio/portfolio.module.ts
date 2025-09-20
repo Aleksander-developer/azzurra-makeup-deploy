@@ -21,3 +21,4 @@ import { PortfolioDetailComponent } from './portfolio-detail/portfolio-detail.co
   ]
 })
 export class PortfolioModule { }
+

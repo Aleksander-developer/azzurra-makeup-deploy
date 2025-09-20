@@ -1,41 +1,50 @@
 <!-- src/app/pages/login/login.component.html -->
-
 <section class="login-container">
   <h1 class="page-title">
-    <mat-icon class="title-icon">lock</mat-icon> <span i18n="@@loginAreaRiservataTitle">Area Riservata</span>
+    <mat-icon class="title-icon">lock</mat-icon>
+    <span i18n="@@loginAreaRiservataTitle">Area Riservata</span>
   </h1>
-  <p class="page-subtitle" i18n="@@loginAreaRiservataSubtitle">Accedi per gestire il tuo portfolio e i contenuti del sito.</p>
+  <p class="page-subtitle" i18n="@@loginAreaRiservataSubtitle">
+    Solo l’amministratore può accedere per gestire gli album.
+  </p>
 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-    <!-- Campo Email -->
+    <!-- Email fissa admin -->
     <mat-form-field appearance="outline">
-      <mat-label i18n="@@loginEmailLabel">Email</mat-label>
-      <input matInput type="email" formControlName="email" i18n-placeholder="@@loginEmailPlaceholder" placeholder="Inserisci la tua email" required>
-      <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-        <span *ngIf="loginForm.get('email')?.errors?.['required']" i18n="@@loginEmailRequired">L'email è obbligatoria.</span>
-        <span *ngIf="loginForm.get('email')?.errors?.['email']" i18n="@@loginEmailInvalid">Inserisci un'email valida.</span>
-      </mat-error>
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" readonly />
     </mat-form-field>
 
-    <!-- Campo Password -->
+    <!-- Password -->
     <mat-form-field appearance="outline">
       <mat-label i18n="@@loginPasswordLabel">Password</mat-label>
-      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" i18n-placeholder="@@loginPasswordPlaceholder" placeholder="Inserisci la tua password" required>
-      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button"
-              i18n-aria-label="@@loginTogglePasswordVisibilityAria" aria-label="Nascondi o mostra password">
-        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <input
+        matInput
+        [type]="hidePassword ? 'password' : 'text'"
+        formControlName="password"
+        i18n-placeholder="@@loginPasswordPlaceholder"
+        placeholder="Inserisci la password"
+        required
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hidePassword = !hidePassword"
+        type="button"
+        i18n-aria-label="@@loginTogglePasswordVisibilityAria"
+        aria-label="Nascondi o mostra password"
+      >
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
-      <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" i18n="@@loginPasswordRequired">
-        La password è obbligatoria.
+      <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <span i18n="@@loginPasswordRequired">La password è obbligatoria.</span>
       </mat-error>
     </mat-form-field>
 
-    <!-- Messaggio di errore o successo dall'API -->
+    <!-- Messaggi -->
     <div *ngIf="errorMessage" class="error-message-ui">
-      <mat-icon>error_outline</mat-icon> <span i18n="@@loginErrorMessageApi">{{ errorMessage }}</span>
-    </div>
-    <div *ngIf="successMessage" class="success-message">
-      <mat-icon>check_circle_outline</mat-icon> <span i18n="@@loginSuccessMessageApi">{{ successMessage }}</span>
+      <mat-icon>error_outline</mat-icon>
+      <span>{{ errorMessage }}</span>
     </div>
 
     <!-- Bottone di Login -->
@@ -47,10 +56,4 @@
       </span>
     </button>
   </form>
-
-  <!-- Sezione info con link per la registrazione -->
-  <div class="info-section">
-    <p i18n="@@loginInfoSectionText">Se hai problemi ad accedere, contatta l'amministratore.</p>
-    <p i18n="@@loginRegisterLink">Non hai ancora un account? <a routerLink="/register">Registrati ora</a>.</p>
-  </div>
 </section>

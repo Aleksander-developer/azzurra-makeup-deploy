@@ -1,12 +1,9 @@
-// src/app/pages/portfolio/portfolio-detail.component.ts
+// src/app/portfolio/portfolio-detail/portfolio-detail.component.ts
 
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import { PortfolioItem } from '../portfolio-item.model';
-import { PortfolioService } from '../../../services/portfolio.service';
+import { Observable, switchMap } from 'rxjs';
+import { AlbumApiService, Album } from '../../../services/album-api.service';
 
 @Component({
   selector: 'app-portfolio-detail',
@@ -14,56 +11,27 @@ import { PortfolioService } from '../../../services/portfolio.service';
   styleUrls: ['./portfolio-detail.component.scss']
 })
 export class PortfolioDetailComponent implements OnInit {
-
-  public portfolioItem$!: Observable<PortfolioItem>;
-
-  // NUOVO: Proprietà per la galleria fullscreen
+  album$!: Observable<Album>;
   isGalleryVisible = false;
   currentImageIndex = 0;
 
-  constructor(
-    private route: ActivatedRoute,
-    private portfolioService: PortfolioService,
-    @Inject(PLATFORM_ID) private platformId: Object // Inietta PLATFORM_ID per la gestione del body
-  ) { }
+  constructor(private route: ActivatedRoute, private api: AlbumApiService) {}
 
   ngOnInit(): void {
-    this.portfolioItem$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        const id = params.get('id');
-        if (!id) {
-          throw new Error('ID dell\'album non trovato nell\'URL.');
-        }
-        return this.portfolioService.getPortfolioItemById(id);
-      })
+    this.album$ = this.route.paramMap.pipe(
+      switchMap(params => this.api.getAlbumById(params.get('id') || ''))
     );
   }
 
-  // NUOVO: Metodi per gestire la galleria fullscreen
-  openGallery(index: number): void {
-    this.currentImageIndex = index;
+  openGallery(i: number): void {
+    this.currentImageIndex = i;
     this.isGalleryVisible = true;
-    // Blocca lo scroll del body quando la galleria è aperta
-    if (isPlatformBrowser(this.platformId)) {
-      document.body.style.overflow = 'hidden';
-    }
   }
-
-  closeGallery(): void {
-    this.isGalleryVisible = false;
-    // Ripristina lo scroll del body
-    if (isPlatformBrowser(this.platformId)) {
-      document.body.style.overflow = 'auto';
-    }
-  }
-
-  navigateGallery(direction: 'next' | 'prev', event: Event, lastIndex: number): void {
-    event.stopPropagation(); // Evita che il click sui pulsanti chiuda la galleria
-    
-    if (direction === 'next' && this.currentImageIndex < lastIndex) {
-      this.currentImageIndex++;
-    } else if (direction === 'prev' && this.currentImageIndex > 0) {
-      this.currentImageIndex--;
-    }
+  closeGallery(): void { this.isGalleryVisible = false; }
+  navigateGallery(dir: 'prev' | 'next', evt: Event, max: number): void {
+    evt.stopPropagation();
+    if (dir === 'prev' && this.currentImageIndex > 0) this.currentImageIndex--;
+    if (dir === 'next' && this.currentImageIndex < max) this.currentImageIndex++;
   }
 }
+

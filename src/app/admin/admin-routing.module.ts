@@ -1,23 +1,19 @@
-// src/app/admin/admin-routing.module.ts
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PortfolioManagementComponent } from './portfolio-management/portfolio-management.component';
+import { AuthGuard } from '../guards/auth.guard';
+import { AlbumFormComponent } from './album-form/album-form.component';
 
 const routes: Routes = [
   {
-    path: 'portfolio', // This will correspond to the URL /admin/portfolio
-    component: PortfolioManagementComponent
+    path: 'album-form',
+    component: AlbumFormComponent,
+    canActivate: [AuthGuard]
   },
-  {
-    path: '', // Redirects /admin to /admin/portfolio by default
-    redirectTo: 'portfolio',
-    pathMatch: 'full'
-  }
+  { path: '', redirectTo: 'album-form', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

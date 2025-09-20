@@ -1,35 +1,35 @@
+ <!-- src/app/pages/portfolio/portfolio.component.html -->
 <div class="portfolio-container">
-  <h1>Il Mio Portfolio</h1>
+  <h1 i18n="@@portfolio.title">Il Mio Portfolio</h1>
 
-  <ng-container *ngIf="portfolioItems$ | async as items; else loading">
-    
+  <ng-container *ngIf="albums$ | async as items; else loading">
     <div class="portfolio-grid" *ngIf="items.length > 0; else noItems">
-      
       <div class="portfolio-card" *ngFor="let item of items">
-        
-        <img [src]="item.coverImageUrl || (item.images && item.images.length > 0 ? item.images[0].src : 'assets/placeholder.png')"
-             [alt]="item.title"
-             class="card-img"
-             onerror="this.src='assets/placeholder.png'">
-        
+        <img
+          [src]="item.cover || (item.photos.length > 0 ? item.photos[0] : 'assets/placeholder.png')"
+          [alt]="item.title"
+          class="card-img"
+          onerror="this.src='assets/placeholder.png'"
+        />
+
         <div class="card-body">
           <h3 class="card-title">{{ item.title }}</h3>
-          <p class="card-subtitle">{{ item.subtitle }}</p>
-          
-          <a *ngIf="item._id" [routerLink]="['/portfolio', item._id]" class="btn-view">Visualizza</a>
+          <p class="card-subtitle">{{ item.description }}</p>
+
+          <a *ngIf="item.id" [routerLink]="['/portfolio', item.id]" class="btn-view" i18n="@@portfolio.view">
+            Visualizza
+          </a>
         </div>
       </div>
-
     </div>
-    
-    <ng-template #noItems>
-      <p>Nessun album da mostrare al momento.</p>
-    </ng-template>
 
+    <ng-template #noItems>
+      <p i18n="@@portfolio.noItems">Nessun album da mostrare al momento.</p>
+    </ng-template>
   </ng-container>
 
   <ng-template #loading>
-    <p>Caricamento degli album...</p>
+    <p i18n="@@portfolio.loading">Caricamento degli album...</p>
   </ng-template>
-
 </div>
+

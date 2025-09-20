@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -15,54 +14,38 @@ export class LoginComponent implements OnInit {
   hidePassword = true;
   isLoading = false;
   errorMessage: string | null = null;
-  successMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router,
-    private snackBar: MatSnackBar
-  ) { }
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      email: [{ value: this.auth['ADMIN_EMAIL'], disabled: true }], // campo fisso
+      password: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
+    if (this.loginForm.invalid) return;
     this.isLoading = true;
     this.errorMessage = null;
-    this.successMessage = null;
 
-    if (this.loginForm.invalid) {
-      this.loginForm.markAllAsTouched();
-      this.isLoading = false;
-      this.errorMessage = 'Per favore, compila tutti i campi richiesti.';
-      return;
-    }
+    const email = this.auth['ADMIN_EMAIL']; // sempre l’admin
+    const password = this.loginForm.get('password')?.value;
 
-    const { email, password } = this.loginForm.value;
-
-    this.authService.login(email, password).subscribe({
-      next: (response) => {
+    this.auth.login(email, password).subscribe({
+      next: () => {
         this.isLoading = false;
-        this.successMessage = 'Accesso effettuato con successo!';
-        // Reindirizza l'utente alla pagina del portfolio manager
-        this.router.navigate(['/admin']); // MODIFICATO: Reindirizza alla rotta base di admin
+        this.router.navigate(['/admin/album-form']); // rotta protetta
       },
-      error: (error) => {
+      error: (err) => {
         this.isLoading = false;
-        if (error.message === 'Credenziali non valide.') {
-          this.errorMessage = 'Email o password non valide.';
-        } else if (error.message === 'Il tuo account è stato disabilitato.') {
-          this.errorMessage = 'Il tuo account è stato disabilitato.';
-        } else {
-          this.errorMessage = error.message || 'Si è verificato un errore durante l\'accesso. Riprova.';
-        }
-        console.error('Errore di login:', error);
+        this.errorMessage = err.message || 'Credenziali non valide.';
       }
     });
   }
 }
+

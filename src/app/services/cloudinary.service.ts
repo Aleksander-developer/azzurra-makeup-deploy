@@ -41,3 +41,4 @@ export class CloudinaryService {
     return response.secure_url;
   }
 }
+

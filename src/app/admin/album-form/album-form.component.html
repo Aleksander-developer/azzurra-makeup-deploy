@@ -1,0 +1,110 @@
+<!-- // src/app/admin/album-form/album-form.component.html -->
+<div id="admin" class="admin-panel">
+  <h2 i18n="@@albumForm.title">Gestione Album</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label i18n="@@albumForm.titleLbl">Titolo</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label i18n="@@albumForm.desc">Descrizione</mat-label>
+      <textarea matInput formControlName="description" rows="3"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label i18n="@@albumForm.cover">URL Copertina (Cloudinary)</mat-label>
+      <input
+        matInput
+        formControlName="cover"
+        placeholder="https://res.cloudinary.com/..."
+      />
+    </mat-form-field>
+
+    <fieldset>
+      <legend i18n="@@albumForm.photos">Foto (URL Cloudinary)</legend>
+      <div formArrayName="photos">
+        <div class="photo-row" *ngFor="let ctrl of photos.controls; index as i">
+          <mat-form-field appearance="outline" class="full">
+            <mat-label>Photo {{ i + 1 }}</mat-label>
+            <input
+              matInput
+              [formControlName]="i"
+              placeholder="https://res.cloudinary.com/..."
+            />
+          </mat-form-field>
+          <button
+            mat-icon-button
+            type="button"
+            (click)="removePhoto(i)"
+            *ngIf="photos.length > 1"
+            aria-label="remove"
+          >
+            🗑️
+          </button>
+        </div>
+      </div>
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="addPhoto()"
+        i18n="@@albumForm.addPhoto"
+      >
+        Aggiungi foto
+      </button>
+    </fieldset>
+
+    <div class="actions">
+      <!-- i18n nativo, niente $localize -->
+      <button mat-raised-button color="primary" type="submit">
+        <span *ngIf="editingId; else saveBtn" i18n="@@update">Aggiorna</span>
+        <ng-template #saveBtn>
+          <span i18n="@@save">Salva</span>
+        </ng-template>
+      </button>
+
+      <button
+        mat-button
+        type="button"
+        (click)="resetForm()"
+        *ngIf="editingId"
+        i18n="@@cancel"
+      >
+        Annulla
+      </button>
+    </div>
+  </form>
+
+  <hr />
+
+  <h3 i18n="@@album.list">Album salvati</h3>
+  <div class="grid album-list">
+    <div class="card" *ngFor="let album of albums$ | async">
+      <img [src]="album.cover" [alt]="album.title" />
+      <h3>{{ album.title }}</h3>
+      <p>{{ album.description }}</p>
+      <div class="album-actions">
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="editAlbum(album)"
+          i18n="@@edit"
+        >
+          ✏️ Modifica
+        </button>
+        <button
+          mat-stroked-button
+          color="warn"
+          (click)="deleteAlbum(album.id)"
+          i18n="@@delete"
+        >
+          🗑️ Elimina
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -17,7 +17,6 @@ const routes: Routes = [
   { path: 'contatti', loadChildren: () => import('./pages/contatti/contatti.module').then(m => m.ContattiModule) },
   { path: 'servizi', loadChildren: () => import('./pages/servizi/servizi.module').then(m => m.ServiziModule) },
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
-  { path: 'register', loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule) },
 {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),

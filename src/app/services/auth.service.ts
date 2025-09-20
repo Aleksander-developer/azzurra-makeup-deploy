@@ -1,69 +1,51 @@
 // src/app/services/auth.service.ts
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 
-@Injectable({
-  providedIn: 'root'
-})
+const ADMIN_EMAIL = 'azzurraangius95@gmail.com';
+const ADMIN_PASSWORD = 'superpassword';
+const STORAGE_KEY = 'auth.token';
+
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = environment.apiUrl;
-  private tokenKey = 'token';
-  private loggedIn$: BehaviorSubject<boolean>;
-  public isLoggedIn$: Observable<boolean>;
+  readonly ADMIN_EMAIL = ADMIN_EMAIL;
   private isBrowser: boolean;
+  private isLoggedInSubject: BehaviorSubject<boolean>;
 
-  constructor(
-    private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-    this.loggedIn$ = new BehaviorSubject<boolean>(this.hasToken());
-    this.isLoggedIn$ = this.loggedIn$.asObservable();
+  isLoggedIn$;
+
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+    this.isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
+    this.isLoggedIn$ = this.isLoggedInSubject.asObservable();
   }
 
-  private hasToken(): boolean {
-    if (!this.isBrowser) return false;
-    return !!localStorage.getItem(this.tokenKey);
-  }
-
-  login(email: string, password: string): Observable<{ token: string }> {
-    return this.http.post<{ token: string }>(`${this.apiUrl}/auth/login`, { email, password }).pipe(
-      tap(response => {
-        if (response.token && this.isBrowser) {
-          localStorage.setItem(this.tokenKey, response.token);
-          this.loggedIn$.next(true);
-        }
-      })
-    );
-  }
-
-  register(email: string, password: string): Observable<{ token: string }> {
-    return this.http.post<{ token: string }>(`${this.apiUrl}/auth/register`, { email, password }).pipe(
-      tap(response => {
-        if (response.token && this.isBrowser) {
-          localStorage.setItem(this.tokenKey, response.token);
-          this.loggedIn$.next(true);
-        }
-      })
-    );
+  login(email: string, password: string): Observable<boolean> {
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+      if (this.isBrowser) {
+        localStorage.setItem(STORAGE_KEY, 'fake-jwt-token');
+      }
+      this.isLoggedInSubject.next(true);
+      return of(true);
+    }
+    return throwError(() => new Error('Credenziali non valide.'));
   }
 
   logout(): void {
     if (this.isBrowser) {
-      localStorage.removeItem(this.tokenKey);
+      localStorage.removeItem(STORAGE_KEY);
     }
-    this.loggedIn$.next(false);
+    this.isLoggedInSubject.next(false);
   }
 
-  isLoggedInSync(): boolean {
-    return this.loggedIn$.getValue();
+  isAuthenticated(): boolean {
+    return this.hasToken();
   }
 
-  getToken(): string | null {
-    if (!this.isBrowser) return null;
-    return localStorage.getItem(this.tokenKey);
+  private hasToken(): boolean {
+    if (!this.isBrowser) return false;
+    return !!localStorage.getItem(STORAGE_KEY);
   }
 }
+

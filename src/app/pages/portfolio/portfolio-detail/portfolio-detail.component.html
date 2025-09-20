@@ -1,24 +1,23 @@
-<!--  src/app/pages/portfolio/portfolio-detail.html -->
-
+<!-- src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html -->
 <div class="detail-page">
-  <div class="detail-container" *ngIf="portfolioItem$ | async as item; else loadingOrError">
+  <div class="detail-container" *ngIf="album$ | async as item; else loadingOrError">
 
     <header class="album-header">
       <a routerLink="/portfolio" class="back-link">
         <mat-icon>arrow_back</mat-icon>
-        <span>Torna al Portfolio</span>
+        <span i18n="@@portfolio.back">Torna al Portfolio</span>
       </a>
       <h1>{{ item.title }}</h1>
-      <p class="subtitle" *ngIf="item.subtitle">{{ item.subtitle }}</p>
-      <p class="category">{{ item.category }}</p>
       <p class="description" *ngIf="item.description">{{ item.description }}</p>
     </header>
 
-    <div class="image-gallery" *ngIf="item.images && item.images.length > 0; else noImages">
-      <div class="image-wrapper" 
-           *ngFor="let image of item.images; let i = index"
-           (click)="openGallery(i)">
-        <img [src]="image.src" [alt]="image.alt || item.title" onerror="this.src='assets/placeholder.png'">
+    <div class="image-gallery" *ngIf="item.photos && item.photos.length > 0; else noImages">
+      <div
+        class="image-wrapper"
+        *ngFor="let photo of item.photos; let i = index"
+        (click)="openGallery(i)"
+      >
+        <img [src]="photo" [alt]="item.title" onerror="this.src='assets/placeholder.png'" />
         <div class="overlay">
           <mat-icon>zoom_in</mat-icon>
         </div>
@@ -26,30 +25,38 @@
     </div>
 
     <ng-template #noImages>
-      <p class="empty-gallery">Questo album non contiene ancora immagini.</p>
+      <p class="empty-gallery" i18n="@@portfolio.noImages">Questo album non contiene ancora immagini.</p>
     </ng-template>
   </div>
 
-  <div class="fullscreen-gallery" *ngIf="isGalleryVisible && (portfolioItem$ | async) as item" (click)="closeGallery()">
+  <div
+    class="fullscreen-gallery"
+    *ngIf="isGalleryVisible && (album$ | async) as item"
+    (click)="closeGallery()"
+  >
     <button mat-icon-button class="close-btn" aria-label="Chiudi galleria">
       <mat-icon>close</mat-icon>
     </button>
-    
-    <button mat-icon-button class="nav-btn prev" 
-            *ngIf="currentImageIndex > 0" 
-            (click)="navigateGallery('prev', $event, item.images.length - 1)" 
-            aria-label="Immagine precedente">
+
+    <button
+      mat-icon-button
+      class="nav-btn prev"
+      *ngIf="currentImageIndex > 0"
+      (click)="navigateGallery('prev', $event, item.photos.length - 1)"
+      aria-label="Immagine precedente"
+    >
       <mat-icon>chevron_left</mat-icon>
     </button>
-    
-    <img [src]="item.images[currentImageIndex].src" 
-         [alt]="item.images[currentImageIndex].alt || item.title" 
-         (click)="$event.stopPropagation()">
 
-    <button mat-icon-button class="nav-btn next" 
-            *ngIf="currentImageIndex < item.images.length - 1" 
-            (click)="navigateGallery('next', $event, item.images.length - 1)" 
-            aria-label="Immagine successiva">
+    <img [src]="item.photos[currentImageIndex]" [alt]="item.title" (click)="$event.stopPropagation()" />
+
+    <button
+      mat-icon-button
+      class="nav-btn next"
+      *ngIf="currentImageIndex < item.photos.length - 1"
+      (click)="navigateGallery('next', $event, item.photos.length - 1)"
+      aria-label="Immagine successiva"
+    >
       <mat-icon>chevron_right</mat-icon>
     </button>
   </div>
@@ -58,7 +65,7 @@
 <ng-template #loadingOrError>
   <div class="loading-state">
     <mat-spinner [diameter]="50"></mat-spinner>
-    <p>Caricamento dell'album in corso...</p>
+    <p i18n="@@portfolio.loading">Caricamento dell'album in corso...</p>
   </div>
 </ng-template>
 

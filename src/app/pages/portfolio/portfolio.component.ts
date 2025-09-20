@@ -1,23 +1,21 @@
 // src/app/pages/portfolio/portfolio.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import { PortfolioItem } from './portfolio-item.model';
 import { Observable } from 'rxjs';
-import { PortfolioService } from '../../services/portfolio.service';
+import { AlbumApiService, Album } from '../../services/album-api.service';
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.scss'] // Corretto da styleUrl a styleUrls
+  styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit {
+  albums$!: Observable<Album[]>;
 
-  // Usiamo un Observable per gestire i dati in modo reattivo con la pipe async
-  public portfolioItems$!: Observable<PortfolioItem[]>;
-
-  constructor(private portfolioService: PortfolioService) { }
+  constructor(private api: AlbumApiService) {}
 
   ngOnInit(): void {
-    this.portfolioItems$ = this.portfolioService.getPortfolioItems();
+    this.albums$ = this.api.getAlbums();
   }
 }
+

@@ -4,16 +4,14 @@ import { NgModule, Pipe } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { PortfolioManagementComponent } from './portfolio-management/portfolio-management.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
-import { FileToUrlPipe } from '../pipes/file-to-url.pipe';
+import { AlbumFormComponent } from './album-form/album-form.component';
 
 
 @NgModule({
   declarations: [
-    PortfolioManagementComponent,
-    FileToUrlPipe
+    AlbumFormComponent
   ],
   imports: [
     CommonModule,
@@ -23,3 +21,4 @@ import { FileToUrlPipe } from '../pipes/file-to-url.pipe';
   ]
 })
 export class AdminModule { }
+

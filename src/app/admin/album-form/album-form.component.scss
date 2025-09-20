@@ -1,0 +1,89 @@
+// src/app/admin/album-form/album-form.component.scss
+@use '../../../styles/variables' as vars;
+@use '../../../styles/mixins' as mixins;
+@use 'sass:color';
+
+.admin-panel {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: vars.$border-radius-lg;
+  background: #fafafa;
+  box-shadow: vars.$card-shadow;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.full {
+  width: 100%;
+}
+
+fieldset {
+  margin-top: 1rem;
+  border: 1px dashed #ccc;
+  padding: 1rem;
+  border-radius: vars.$border-radius-md;
+}
+
+.photo-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.album-list {
+  margin-top: 2rem;
+}
+
+.card {
+  border-radius: vars.$border-radius-lg;
+  overflow: hidden;
+  box-shadow: vars.$card-shadow;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  h3 {
+    margin: 0.75rem 1rem 0.25rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 0 1rem 1rem;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .album-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    gap: 0.5rem;
+  }
+}
+
