@@ -1,10 +1,10 @@
+// src/app/page-not-found/page-not-found.component.ts
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-page-not-found',
   templateUrl: './page-not-found.component.html',
-  styleUrl: './page-not-found.component.scss'
+  styleUrls: ['./page-not-found.component.scss']
 })
-export class PageNotFoundComponent {
+export class PageNotFoundComponent {}
 
-}

@@ -1,5 +1,6 @@
 // src/app/portfolio/portfolio-detail/portfolio-detail.component.ts
 
+// src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
@@ -23,11 +24,20 @@ export class PortfolioDetailComponent implements OnInit {
     );
   }
 
+  /** Combina cover + photos */
+  getFullGallery(album: Album): string[] {
+    return album.cover ? [album.cover, ...(album.photos || [])] : (album.photos || []);
+  }
+
   openGallery(i: number): void {
     this.currentImageIndex = i;
     this.isGalleryVisible = true;
   }
-  closeGallery(): void { this.isGalleryVisible = false; }
+
+  closeGallery(): void {
+    this.isGalleryVisible = false;
+  }
+
   navigateGallery(dir: 'prev' | 'next', evt: Event, max: number): void {
     evt.stopPropagation();
     if (dir === 'prev' && this.currentImageIndex > 0) this.currentImageIndex--;

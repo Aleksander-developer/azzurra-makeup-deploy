@@ -1,0 +1,96 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+@use 'sass:color';
+
+.not-found-page {
+  padding-top: 80px;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: vars.$color-light-pink-bg;
+}
+
+.not-found-container {
+  text-align: center;
+  padding: vars.$spacing-xxl vars.$spacing-xl;
+  background: vars.$color-white;
+  border-radius: vars.$border-radius-xl;
+  box-shadow: vars.$card-shadow;
+  max-width: 700px;
+  width: 100%;
+
+  .illustration {
+    margin-bottom: vars.$spacing-xl;
+
+    .svg-404 {
+      width: 100%;
+      height: 180px;
+
+      .big-text {
+        font-size: 8rem;
+        font-family: vars.$font-family-secondary;
+        fill: vars.$color-vibrant-fuchsia;
+        opacity: 0.8;
+      }
+
+      .dot {
+        fill: vars.$color-accent;
+      }
+    }
+  }
+
+  h1 {
+    @include mixins.elegant-heading;
+    font-size: 2.5rem;
+    color: vars.$color-dark-purple-text;
+    margin-bottom: vars.$spacing-md;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: vars.$color-text-light;
+    margin-bottom: vars.$spacing-xl;
+  }
+
+  .btn-home {
+    @include mixins.beauty-button(vars.$color-vibrant-fuchsia, vars.$color-white);
+    padding: vars.$spacing-sm vars.$spacing-lg;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+}
+
+/* --- Responsive --- */
+@include vars.respond-to(lg) {
+  .not-found-container {
+    padding: vars.$spacing-xl;
+
+    h1 { font-size: 2.2rem; }
+    p { font-size: 1rem; }
+  }
+}
+
+@include vars.respond-to(md) {
+  .not-found-container {
+    padding: vars.$spacing-lg;
+
+    .svg-404 .big-text {
+      font-size: 6rem;
+    }
+  }
+}
+
+@include vars.respond-to(sm) {
+  .not-found-container {
+    padding: vars.$spacing-md;
+
+    .svg-404 .big-text {
+      font-size: 4rem;
+    }
+
+    h1 { font-size: 1.8rem; }
+    p { font-size: 0.95rem; }
+  }
+}
+

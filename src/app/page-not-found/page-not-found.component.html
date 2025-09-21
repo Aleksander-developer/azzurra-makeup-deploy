@@ -1,3 +1,24 @@
-<!-- // page-not-found.component.html -->
+<div class="not-found-page">
+  <div class="not-found-container">
+    
+    <!-- Illustrazione 404 -->
+    <div class="illustration">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" class="svg-404">
+        <text x="50%" y="50%" text-anchor="middle" class="big-text">404</text>
+        <circle cx="350" cy="200" r="10" class="dot"></circle>
+      </svg>
+    </div>
 
-<p>page-not-found works!</p>
+    <!-- Testo -->
+    <h1 i18n="@@notFound.title">Pagina non trovata</h1>
+    <p i18n="@@notFound.desc">
+      Ops! La pagina che cerchi non esiste o è stata spostata.
+    </p>
+
+    <!-- Pulsante -->
+    <a routerLink="/home" class="btn-home" i18n="@@notFound.home">
+      Torna alla Home
+    </a>
+  </div>
+</div>
+

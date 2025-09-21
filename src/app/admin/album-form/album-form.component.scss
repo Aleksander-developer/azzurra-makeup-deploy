@@ -45,6 +45,9 @@ fieldset {
 
 .album-list {
   margin-top: 2rem;
+  display: grid;
+  gap: vars.$spacing-lg;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .card {
@@ -53,37 +56,78 @@ fieldset {
   box-shadow: vars.$card-shadow;
   background: #fff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: vars.$spacing-md;
 
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
   }
 
-  img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-  }
-
   h3 {
-    margin: 0.75rem 1rem 0.25rem;
-    font-size: 1.125rem;
+    margin: 0 0 vars.$spacing-sm 0;
+    font-size: 1.2rem;
     font-weight: 600;
+    color: vars.$color-vibrant-fuchsia;
   }
 
   p {
-    margin: 0 1rem 1rem;
-    color: #555;
+    margin: 0 0 vars.$spacing-md 0;
+    color: vars.$color-text-dark;
     font-size: 0.95rem;
     line-height: 1.4;
+  }
+
+  .preview-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vars.$spacing-sm;
+    margin-bottom: vars.$spacing-md;
+
+    .preview-img {
+      position: relative;
+      flex: 0 1 calc(33.333% - vars.$spacing-sm);
+      border-radius: vars.$border-radius-md;
+      overflow: hidden;
+      box-shadow: vars.$card-shadow;
+
+      img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .tag {
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+        background: vars.$color-accent;
+        color: vars.$color-white;
+        font-size: 0.7rem;
+        padding: 2px 6px;
+        border-radius: vars.$border-radius-sm;
+      }
+    }
   }
 
   .album-actions {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 1rem 1rem;
+    padding-top: vars.$spacing-sm;
     gap: 0.5rem;
+  }
+}
+
+/* --- Responsive --- */
+@include vars.respond-to(sm) {
+  .preview-gallery .preview-img {
+    flex: 0 1 calc(50% - vars.$spacing-sm);
+  }
+}
+
+@include vars.respond-to(xs) {
+  .preview-gallery .preview-img {
+    flex: 0 1 100%;
   }
 }
 

@@ -11,10 +11,10 @@
       <p class="description" *ngIf="item.description">{{ item.description }}</p>
     </header>
 
-    <div class="image-gallery" *ngIf="item.photos && item.photos.length > 0; else noImages">
+    <div class="image-gallery" *ngIf="getFullGallery(item).length > 0; else noImages">
       <div
         class="image-wrapper"
-        *ngFor="let photo of item.photos; let i = index"
+        *ngFor="let photo of getFullGallery(item); let i = index"
         (click)="openGallery(i)"
       >
         <img [src]="photo" [alt]="item.title" onerror="this.src='assets/placeholder.png'" />
@@ -25,7 +25,9 @@
     </div>
 
     <ng-template #noImages>
-      <p class="empty-gallery" i18n="@@portfolio.noImages">Questo album non contiene ancora immagini.</p>
+      <p class="empty-gallery" i18n="@@portfolio.noImages">
+        Questo album non contiene ancora immagini.
+      </p>
     </ng-template>
   </div>
 
@@ -42,19 +44,23 @@
       mat-icon-button
       class="nav-btn prev"
       *ngIf="currentImageIndex > 0"
-      (click)="navigateGallery('prev', $event, item.photos.length - 1)"
+      (click)="navigateGallery('prev', $event, getFullGallery(item).length - 1)"
       aria-label="Immagine precedente"
     >
       <mat-icon>chevron_left</mat-icon>
     </button>
 
-    <img [src]="item.photos[currentImageIndex]" [alt]="item.title" (click)="$event.stopPropagation()" />
+    <img
+      [src]="getFullGallery(item)[currentImageIndex]"
+      [alt]="item.title"
+      (click)="$event.stopPropagation()"
+    />
 
     <button
       mat-icon-button
       class="nav-btn next"
-      *ngIf="currentImageIndex < item.photos.length - 1"
-      (click)="navigateGallery('next', $event, item.photos.length - 1)"
+      *ngIf="currentImageIndex < getFullGallery(item).length - 1"
+      (click)="navigateGallery('next', $event, getFullGallery(item).length - 1)"
       aria-label="Immagine successiva"
     >
       <mat-icon>chevron_right</mat-icon>

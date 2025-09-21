@@ -1,3 +1,4 @@
+// src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.scss
 @use '../../../../styles/variables' as vars;
 @use '../../../../styles/mixins' as mixins;
 
@@ -17,6 +18,7 @@
   margin-bottom: vars.$spacing-xxl;
 
   h1 {
+    @include mixins.elegant-heading;
     font-size: 2.5rem;
     color: vars.$color-vibrant-fuchsia;
   }
@@ -26,6 +28,7 @@
     margin: 0 auto;
     color: vars.$color-text-dark;
     line-height: 1.6;
+    font-size: 1.1rem;
   }
 }
 
@@ -39,6 +42,7 @@
     overflow: hidden;
     box-shadow: vars.$card-shadow;
     cursor: pointer;
+    position: relative;
 
     img {
       width: 100%;
@@ -50,29 +54,52 @@
     &:hover img {
       transform: scale(1.05);
     }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+
+      mat-icon {
+        color: #fff;
+        font-size: 2rem;
+      }
+    }
+
+    &:hover .overlay {
+      opacity: 1;
+    }
   }
 }
 
 .fullscreen-gallery {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2000;
+  padding: vars.$spacing-md;
 
   img {
     max-width: 90vw;
     max-height: 90vh;
     object-fit: contain;
+    border-radius: vars.$border-radius-md;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   }
 
   .close-btn,
   .nav-btn {
     position: absolute;
     color: #fff;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: vars.$border-radius-md;
   }
 
@@ -87,6 +114,64 @@
 
   .nav-btn.next {
     right: vars.$spacing-md;
+  }
+}
+
+/* --- Responsive con tutti i breakpoint --- */
+
+/* XXL */
+@include vars.respond-to(xxl) {
+  .album-header h1 { font-size: 3rem; }
+  .album-header .description { font-size: 1.3rem; }
+  .image-gallery .image-wrapper img { height: 280px; }
+}
+
+/* XL */
+@include vars.respond-to(xl) {
+  .album-header h1 { font-size: 2.8rem; }
+  .album-header .description { font-size: 1.2rem; }
+  .image-gallery .image-wrapper img { height: 260px; }
+}
+
+/* LG */
+@include vars.respond-to(lg) {
+  .detail-container { padding: vars.$spacing-lg; }
+  .album-header h1 { font-size: 2.5rem; }
+  .image-gallery { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .image-gallery .image-wrapper img { height: 220px; }
+}
+
+/* MD */
+@include vars.respond-to(md) {
+  .detail-container { padding: vars.$spacing-md; }
+  .album-header h1 { font-size: 2.2rem; }
+  .album-header .description { font-size: 1.05rem; }
+  .image-gallery { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .image-gallery .image-wrapper img { height: 180px; }
+  .fullscreen-gallery img { max-width: 95vw; max-height: 80vh; }
+}
+
+/* SM */
+@include vars.respond-to(sm) {
+  .album-header h1 { font-size: 2rem; }
+  .album-header .description { font-size: 1rem; padding: 0 vars.$spacing-sm; }
+  .image-gallery { grid-template-columns: 1fr; }
+  .image-gallery .image-wrapper img { height: 220px; }
+  .fullscreen-gallery {
+    padding: vars.$spacing-sm;
+    img { max-width: 100%; max-height: 75vh; }
+  }
+}
+
+/* XS */
+@include vars.respond-to(xs) {
+  .album-header h1 { font-size: 1.8rem; }
+  .album-header .description { font-size: 0.95rem; }
+  .image-gallery .image-wrapper img { height: 200px; }
+  .fullscreen-gallery .close-btn,
+  .fullscreen-gallery .nav-btn {
+    font-size: 1.2rem;
+    padding: 0.25rem;
   }
 }
 

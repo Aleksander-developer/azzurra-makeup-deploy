@@ -1,4 +1,4 @@
-<!-- // src/app/admin/album-form/album-form.component.html -->
+<!-- src/app/admin/album-form/album-form.component.html -->
 <div id="admin" class="admin-panel">
   <h2 i18n="@@albumForm.title">Gestione Album</h2>
 
@@ -58,7 +58,6 @@
     </fieldset>
 
     <div class="actions">
-      <!-- i18n nativo, niente $localize -->
       <button mat-raised-button color="primary" type="submit">
         <span *ngIf="editingId; else saveBtn" i18n="@@update">Aggiorna</span>
         <ng-template #saveBtn>
@@ -83,9 +82,22 @@
   <h3 i18n="@@album.list">Album salvati</h3>
   <div class="grid album-list">
     <div class="card" *ngFor="let album of albums$ | async">
-      <img [src]="album.cover" [alt]="album.title" />
       <h3>{{ album.title }}</h3>
       <p>{{ album.description }}</p>
+
+      <div class="preview-gallery">
+        <!-- Cover come prima immagine -->
+        <div class="preview-img">
+          <img [src]="album.cover" [alt]="album.title + ' cover'" />
+          <span class="tag" i18n="@@albumForm.coverTag">Cover</span>
+        </div>
+
+        <!-- Foto aggiuntive -->
+        <div class="preview-img" *ngFor="let photo of album.photos">
+          <img [src]="photo" [alt]="album.title" />
+        </div>
+      </div>
+
       <div class="album-actions">
         <button
           mat-stroked-button
