@@ -3,11 +3,15 @@
 @use '../../../styles/mixins' as mixins;
 @use 'sass:color';
 
+/* Wrapper per compensare la navbar fissa (stile come contatti-page) */
+.portfolio-page {
+  padding-top: 64px; // altezza navbar
+}
+
 .portfolio-container {
   padding: vars.$spacing-xxl vars.$spacing-xl;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: calc(100px + vars.$spacing-xxl);
 
   h1 {
     @include mixins.elegant-heading;

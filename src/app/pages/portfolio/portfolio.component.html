@@ -1,50 +1,52 @@
 <!-- src/app/pages/portfolio/portfolio.component.html -->
-<div class="portfolio-container">
-  <h1 i18n="@@portfolio.title">Il Mio Portfolio</h1>
+<div class="portfolio-page">
+  <div class="portfolio-container">
+    <h1 i18n="@@portfolio.title">Il Mio Portfolio</h1>
 
-  <ng-container *ngIf="albums$ | async as items; else loading">
-    <div class="portfolio-grid" *ngIf="items.length > 0; else noItems">
-      <div class="portfolio-card" *ngFor="let item of items">
-        <div class="preview-gallery">
-          <!-- Cover -->
-          <div class="preview-img">
-            <img
-              [src]="item.cover || 'assets/placeholder.png'"
-              [alt]="item.title + ' cover'"
-              onerror="this.src='assets/placeholder.png'"
-            />
-            <span class="tag" i18n="@@albumForm.coverTag">Cover</span>
+    <ng-container *ngIf="albums$ | async as items; else loading">
+      <div class="portfolio-grid" *ngIf="items.length > 0; else noItems">
+        <div class="portfolio-card" *ngFor="let item of items">
+          <div class="preview-gallery">
+            <!-- Cover -->
+            <div class="preview-img">
+              <img
+                [src]="item.cover || 'assets/placeholder.png'"
+                [alt]="item.title + ' cover'"
+                onerror="this.src='assets/placeholder.png'"
+              />
+              <span class="tag" i18n="@@albumForm.coverTag">Cover</span>
+            </div>
+
+            <!-- Foto aggiuntive -->
+            <div class="preview-img" *ngFor="let photo of item.photos">
+              <img [src]="photo" [alt]="item.title" onerror="this.src='assets/placeholder.png'" />
+            </div>
           </div>
 
-          <!-- Foto aggiuntive -->
-          <div class="preview-img" *ngFor="let photo of item.photos">
-            <img [src]="photo" [alt]="item.title" onerror="this.src='assets/placeholder.png'" />
+          <div class="card-body">
+            <h3 class="card-title">{{ item.title }}</h3>
+            <p class="card-subtitle">{{ item.description }}</p>
+
+            <a
+              *ngIf="item.id"
+              [routerLink]="['/portfolio', item.id]"
+              class="btn-view"
+              i18n="@@portfolio.view"
+            >
+              Visualizza
+            </a>
           </div>
-        </div>
-
-        <div class="card-body">
-          <h3 class="card-title">{{ item.title }}</h3>
-          <p class="card-subtitle">{{ item.description }}</p>
-
-          <a
-            *ngIf="item.id"
-            [routerLink]="['/portfolio', item.id]"
-            class="btn-view"
-            i18n="@@portfolio.view"
-          >
-            Visualizza
-          </a>
         </div>
       </div>
-    </div>
 
-    <ng-template #noItems>
-      <p i18n="@@portfolio.noItems">Nessun album da mostrare al momento.</p>
+      <ng-template #noItems>
+        <p i18n="@@portfolio.noItems">Nessun album da mostrare al momento.</p>
+      </ng-template>
+    </ng-container>
+
+    <ng-template #loading>
+      <p i18n="@@portfolio.loading">Caricamento degli album...</p>
     </ng-template>
-  </ng-container>
-
-  <ng-template #loading>
-    <p i18n="@@portfolio.loading">Caricamento degli album...</p>
-  </ng-template>
+  </div>
 </div>
 
