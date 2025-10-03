@@ -175,6 +175,20 @@
   }
 }
 
+/* --- Evidenziare testo speciale --- */
+.highlighted-text {
+  font-weight: 700;
+  color: vars.$color-vibrant-fuchsia;
+  background: linear-gradient(
+    to right,
+    rgba(vars.$color-vibrant-fuchsia, 0.15),
+    rgba(vars.$color-accent, 0.15)
+  );
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* --- Animated Block --- */
 .animated-block {
   background: rgba(vars.$color-white, 0.85);
   border-radius: vars.$border-radius-lg;
@@ -321,11 +335,11 @@
   }
 }
 
-/* Regole per 'sm' (che sovrascrivono 'md' dove necessario) */
+/* Regole per 'sm' */
 @include vars.respond-to(sm) {
   .hero-section {
     .hero-image-container {
-      height: 300px; /* Riduzione altezza per 'sm' */
+      height: 300px;
     }
     .hero-text-content {
       .hero-title {
@@ -338,11 +352,11 @@
   }
 }
 
-/* Regole per 'xs' (che sovrascrivono 'sm' dove necessario) */
+/* Regole per 'xs' */
 @include vars.respond-to(xs) {
   .hero-section {
     .hero-image-container {
-      height: 250px; /* Riduzione altezza per 'xs' */
+      height: 250px;
     }
     .hero-text-content {
       .hero-title {
@@ -354,3 +368,4 @@
     }
   }
 }
+

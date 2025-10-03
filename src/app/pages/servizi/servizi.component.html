@@ -10,29 +10,32 @@
       Offro una vasta gamma di servizi di make-up e hair styling per ogni occasione.
     </p>
 
+    <!-- Card in evidenza: trucco sposa -->
     <div class="service-highlight-card">
       <div class="highlight-image-container">
-        <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1757267773/IMG_0465_p2vf1o.jpg" i18n-alt="@@serviziHighlightImageAlt" alt="Trucco Sposa in evidenza" class="highlight-image" onerror="this.src='assets/placeholder.png';">
+        <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1757267773/IMG_0465_p2vf1o.jpg"
+             i18n-alt="@@serviziHighlightImageAlt"
+             alt="Trucco Sposa in evidenza"
+             class="highlight-image"
+             onerror="this.src='assets/placeholder.png';">
       </div>
       <div class="highlight-content">
         <h2 class="highlight-title" i18n="@@serviziHighlightTitle">Trucco Sposa Personalizzato</h2>
         <p class="highlight-description" i18n="@@serviziHighlightDescription">
-          Il giorno del tuo matrimonio è un momento unico. Con un trucco personalizzato, ti sentirai radiosa e sicura di te, con un look che esalta la tua bellezza e dura impeccabile per tutta la giornata.
+          Il giorno del tuo matrimonio è un momento unico. Con un trucco personalizzato, ti sentirai radiosa e sicura di te, esalterò la tua bellezza con una durata impeccabile per tutta la giornata.
         </p>
-        <button mat-raised-button color="accent" routerLink="/trucco-sposa" i18n-attr.aria-label="@@serviziHighlightButtonAria" aria-label="Scopri i pacchetti trucco sposa">
+        <button mat-raised-button color="accent" routerLink="/trucco-sposa"
+                i18n-attr.aria-label="@@serviziHighlightButtonAria"
+                aria-label="Scopri i pacchetti trucco sposa">
           <span i18n="@@serviziHighlightButton">Scopri i Pacchetti Sposa</span>
           <mat-icon>arrow_forward</mat-icon>
         </button>
       </div>
     </div>
 
+    <!-- Altri servizi senza immagini -->
     <div class="other-services-grid">
-      <mat-card class="service-card" *ngFor="let service of services; let i = index" [ngClass]="{'image-right': i % 2 !== 0}">
-        
-        <div class="service-card-image-container">
-          <img [src]="service.image" [alt]="service.imageAltKey" class="service-image" onerror="this.src='assets/placeholder.png';">
-        </div>
-
+      <mat-card class="service-card" *ngFor="let service of services; let i = index">
         <div class="service-card-content-wrapper">
           <mat-card-header>
             <mat-card-title>{{ service.titleKey }}</mat-card-title>
@@ -42,7 +45,8 @@
             <p>{{ service.descriptionKey }}</p>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-stroked-button color="primary" routerLink="/contatti" [attr.aria-label]="service.buttonAriaKey">
+            <button mat-stroked-button color="primary" routerLink="/contatti"
+                    [attr.aria-label]="service.buttonAriaKey">
               <span i18n="@@serviziCeremonyButton">Richiedi Informazioni</span>
             </button>
           </mat-card-actions>
@@ -51,3 +55,4 @@
     </div>
   </section>
 </div>
+

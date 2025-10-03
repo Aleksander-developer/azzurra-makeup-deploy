@@ -3,7 +3,7 @@
 @use 'sass:color';
 
 .servizi-page {
-  padding-top: 64px; 
+  padding-top: 64px;
 }
 
 .servizi-container {
@@ -64,72 +64,83 @@
   }
 }
 
-/* --- Griglia Altri Servizi --- */
+/* --- Griglia Altri Servizi (solo testo) --- */
 .other-services-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: vars.$spacing-xxl;
 }
 
+/* Card di base */
 .service-card {
-  display: flex;
-  align-items: center;
-  gap: vars.$spacing-lg;
-  background-color: vars.$color-white;
-  box-shadow: vars.$card-shadow;
-  border-radius: vars.$border-radius-lg;
+  @include mixins.card-style(vars.$spacing-xl, vars.$color-shadow-light);
+  text-align: left;
+  position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Effetto glow al bordo */
+  border: 2px solid transparent;
+  background-image: linear-gradient(vars.$color-white, vars.$color-white),
+    linear-gradient(135deg, vars.$color-vibrant-fuchsia, vars.$color-accent);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(vars.$color-vibrant-fuchsia, 0.1);
+    box-shadow: 0 8px 25px rgba(vars.$color-vibrant-fuchsia, 0.2),
+      0 0 20px vars.$shadow-glow-color;
   }
 
-  &.image-right {
-    flex-direction: row-reverse;
-  }
-}
-
-.service-card-image-container {
-  flex: 1 1 45%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-
-  .service-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-
-  &:hover .service-image {
-    transform: scale(1.05);
-  }
-}
-
-.service-card-content-wrapper {
-  flex: 1 1 55%;
-  padding: vars.$spacing-xl;
-  text-align: left;
-
-  mat-card-title { 
-    font-size: 1.8rem; 
+  mat-card-title {
+    @include mixins.responsive-text(1.4rem, 1.8rem);
+    font-weight: 700;
     color: vars.$color-dark-purple-text;
+    margin-bottom: vars.$spacing-xs;
+    position: relative;
+
+    /* sottolineatura animata */
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 3px;
+      margin-top: vars.$spacing-xs;
+      background: vars.$color-vibrant-fuchsia;
+      transition: width 0.3s vars.$transition-ease;
+    }
   }
-  mat-card-subtitle { margin-bottom: vars.$spacing-md; }
-  mat-card-actions { padding: vars.$spacing-sm 0 0 0; }
+
+  &:hover mat-card-title::after {
+    width: 50%;
+  }
+
+  mat-card-subtitle {
+    font-size: 1.1rem;
+    color: vars.$color-dark-pink-text;
+    margin-bottom: vars.$spacing-md;
+  }
+
+  mat-card-content p {
+    font-size: 1rem;
+    line-height: vars.$line-height-lg;
+    color: vars.$color-text-dark;
+  }
+
+  mat-card-actions {
+    margin-top: vars.$spacing-md;
+
+    button {
+      @include mixins.beauty-button(vars.$color-vibrant-fuchsia, vars.$color-white);
+    }
+  }
 }
 
 /* --- Responsive --- */
-@include vars.respond-to(xxl) { }
-@include vars.respond-to(xl) { }
-
 @include vars.respond-to(lg) {
   .service-highlight-card, .service-card {
     flex-direction: column !important;
+    text-align: center;
 
-    .highlight-content, .service-card-content-wrapper {
+    .highlight-content {
       text-align: center;
     }
   }
@@ -139,20 +150,17 @@
   .servizi-container { padding: vars.$spacing-lg; }
   .page-title { font-size: 2.5rem; }
   .page-subtitle { font-size: 1.1rem; }
-  .service-card-content-wrapper, .highlight-content { padding: vars.$spacing-lg; }
 }
 
 @include vars.respond-to(sm) {
   .servizi-container { padding: vars.$spacing-md; }
   .page-title { font-size: 2.2rem; }
   .page-subtitle { font-size: 1rem; }
-  .service-card-content-wrapper, .highlight-content { padding: vars.$spacing-md; }
 }
 
 @include vars.respond-to(xs) {
   .servizi-container { padding: vars.$spacing-sm; }
   .page-title { font-size: 2rem; }
   .page-subtitle { font-size: 0.95rem; }
-  .service-card-content-wrapper, .highlight-content { padding: vars.$spacing-sm; }
 }
 

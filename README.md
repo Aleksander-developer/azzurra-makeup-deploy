@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+Dev mode (Angular "classico")
+npm run start
+
+Dev mode con SSR (consigliato visto che hai Universal); # dev con SSR e collegato al backend
+npm run start:ssr:dev
+
+# produzione
+npm run start:ssr:prod
+
+
+ng extract-i18n --output-path src/locale

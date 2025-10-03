@@ -48,7 +48,7 @@
         <source>Aggiorna</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">62</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/album-form/album-form.component.ts</context>
@@ -59,35 +59,46 @@
         <source>Salva</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cancel" datatype="html">
         <source> Annulla </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
-          <context context-type="linenumber">75,77</context>
+          <context context-type="linenumber">74,76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="album.list" datatype="html">
         <source>Album salvati</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
-          <context context-type="linenumber">83</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="albumForm.coverTag" datatype="html">
+        <source>Cover</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="edit" datatype="html">
         <source> ✏️ Modifica </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
-          <context context-type="linenumber">95,97</context>
+          <context context-type="linenumber">107,109</context>
         </context-group>
       </trans-unit>
       <trans-unit id="delete" datatype="html">
         <source> 🗑️ Elimina </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
-          <context context-type="linenumber">103,105</context>
+          <context context-type="linenumber">115,117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="album.saved" datatype="html">
@@ -316,6 +327,27 @@
           <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="notFound.title" datatype="html">
+        <source>Pagina non trovata</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notFound.desc" datatype="html">
+        <source> Ops! La pagina che cerchi non esiste o è stata spostata. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notFound.home" datatype="html">
+        <source> Torna alla Home </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="chiSonoTitle" datatype="html">
         <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;title-icon&quot;&gt;"/>face_retouching_natural<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> Chi Sono </source>
         <context-group purpose="location">
@@ -331,7 +363,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="chiSonoVisionHeading" datatype="html">
-        <source>La Mia Visione e Filosofia</source>
+        <source>Il mio obiettivo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
           <context context-type="linenumber">19</context>
@@ -352,7 +384,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="chiSonoVisionParagraph3" datatype="html">
-        <source> Che tu stia cercando un trucco naturale per il giorno o un look più audace per un evento speciale, il mio obiettivo è farti risplendere, esaltando la tua bellezza intrinseca con professionalità e creatività. </source>
+        <source> Esaltando la tua bellezza con professionalità e creatività. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
           <context context-type="linenumber">26,28</context>
@@ -618,115 +650,115 @@
         </context-group>
       </trans-unit>
       <trans-unit id="homeDescriptionSpecialized" datatype="html">
-        <source>Sono una Make-up Artist specializzata in trucco sposa e cerimonia, con una profonda passione per l&apos;arte del make-up che mi spinge a ricercare costantemente le ultime tendenze e tecniche.</source>
+        <source> Sono una Make-up Artist specializzata in trucco <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;highlighted-text&quot;&gt;"/>beauty &amp; sposa<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>, con una profonda passione per l&apos;arte del make-up che mi spinge a ricercare costantemente le ultime tendenze e tecniche. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">41,45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeDescriptionHairstyle" datatype="html">
-        <source>Offro anche servizi di Hair Stylist per completare il tuo look, garantendo un&apos;armonia perfetta tra trucco e acconciatura.</source>
+        <source>Sono una Hair Stylist, garantendo così un&apos;armonia perfetta tra trucco e acconciatura.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeLookingForServiceQuestion" datatype="html">
         <source>Stai cercando un servizio di make-up e hair styling che ti faccia sentire unica e radiosa?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeServiceDescriptionPart1" datatype="html">
-        <source> Con la mia esperienza e la mia attenzione ai dettagli, trasformo i tuoi desideri in realtà, valorizzando la tua bellezza naturale e creando un look che ti rispecchi appieno. </source>
+        <source> Con la mia esperienza e la mia attenzione ai dettagli, trasformo i tuoi desideri in realtà, valorizzando la tua bellezza naturale e creando un look che ti rispecchi a pieno. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">46,48</context>
+          <context context-type="linenumber">50,52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeServiceDescriptionPart2" datatype="html">
         <source> Che sia per il giorno del tuo matrimonio, un evento speciale o un servizio fotografico, ti garantisco un&apos;esperienza personalizzata e un risultato impeccabile. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">49,51</context>
+          <context context-type="linenumber">53,55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeNoStressPrivacy" datatype="html">
         <source> Niente stress, solo bellezza e privacy. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">52,54</context>
+          <context context-type="linenumber">56,58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeGoalBeautiful" datatype="html">
         <source> Il mio obiettivo è farti sentire bella, sicura di te e a tuo agio, in ogni occasione. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">55,57</context>
+          <context context-type="linenumber">59,61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeGuaranteesTitle" datatype="html">
         <source>Le mie Garanzie per Te</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeGuaranteeQualityProductsTitle" datatype="html">
         <source>Prodotti di Qualità Superiore</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">69</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeGuaranteeQualityProductsDescription" datatype="html">
         <source>Utilizzo solo prodotti professionali delle migliori marche, per garantire durata e resa impeccabile, rispettando la tua pelle.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeGuaranteePunctualityTitle" datatype="html">
         <source>Puntualità e Organizzazione</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeGuaranteePunctualityDescription" datatype="html">
         <source>La tua tranquillità è la mia priorità. Sono sempre puntuale e organizzo ogni dettaglio per un servizio senza intoppi.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">71</context>
+          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeGuaranteePersonalizedLookTitle" datatype="html">
         <source>Look Personalizzato</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">75</context>
+          <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeGuaranteePersonalizedLookDescription" datatype="html">
         <source>Ogni volto è unico. Insieme creeremo il look perfetto che esalti la tua bellezza naturale e si adatti al tuo stile.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">76</context>
+          <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeGuaranteeDedicatedAssistanceTitle" datatype="html">
         <source>Assistenza Dedicata</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">80</context>
+          <context context-type="linenumber">84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="homeGuaranteeDedicatedAssistanceDescription" datatype="html">
         <source>Dalla prima consulenza al giorno dell&apos;evento, sarò al tuo fianco per ogni esigenza, offrendo supporto e consigli professionali.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">85</context>
         </context-group>
       </trans-unit>
       <trans-unit id="loginAreaRiservataTitle" datatype="html">
@@ -793,42 +825,42 @@
         </context-group>
       </trans-unit>
       <trans-unit id="portfolio.noImages" datatype="html">
-        <source>Questo album non contiene ancora immagini.</source>
+        <source> Questo album non contiene ancora immagini. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">28,30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="portfolio.loading" datatype="html">
         <source>Caricamento dell&apos;album in corso...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">74</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="portfolio.title" datatype="html">
         <source>Il Mio Portfolio</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="portfolio.view" datatype="html">
         <source> Visualizza </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">19,21</context>
+          <context context-type="linenumber">35,37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="portfolio.noItems" datatype="html">
         <source>Nessun album da mostrare al momento.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="serviziTitle" datatype="html">
@@ -849,35 +881,35 @@
         <source>Trucco Sposa in evidenza</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="serviziHighlightTitle" datatype="html">
         <source>Trucco Sposa Personalizzato</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="serviziHighlightDescription" datatype="html">
-        <source> Il giorno del tuo matrimonio è un momento unico. Con un trucco personalizzato, ti sentirai radiosa e sicura di te, con un look che esalta la tua bellezza e dura impeccabile per tutta la giornata. </source>
+        <source> Il giorno del tuo matrimonio è un momento unico. Con un trucco personalizzato, ti sentirai radiosa e sicura di te, esalterò la tua bellezza con una durata impeccabile per tutta la giornata. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
-          <context context-type="linenumber">19,21</context>
+          <context context-type="linenumber">24,26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="serviziHighlightButton" datatype="html">
         <source>Scopri i Pacchetti Sposa</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="serviziCeremonyButton" datatype="html">
         <source>Richiedi Informazioni</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="truccoSposaTitle" datatype="html">
