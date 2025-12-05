@@ -1,0 +1,75 @@
+
+<section class="biglietto-visita-page">
+  <h1 i18n="@@bigliettoVisitaTitle">Biglietto da Visita</h1>
+
+  <div class="card-preview">
+
+    <!-- ===========================================================
+         FRONTE — con nuovo logo <app-logo>
+    =========================================================== -->
+    <div #fronte class="card card-front">
+
+      <div class="logo-circle double-luxury">
+        <!-- 🔥 NUOVO LOGO -->
+        <img src="/assets/logo-azzurra.png" alt="Logo Azzurra" class="logo-small" />
+      </div>
+
+      <h2 class="name">Azzurra Angius</h2>
+      <p class="role">Makeup Artist &amp; Hair Stylist</p>
+      <p class="slogan">“I pennelli la mia arte, il viso la mia tela.”</p>
+    </div>
+
+    <!-- ===========================================================
+         RETRO — invariato
+    =========================================================== -->
+    <div #retro class="card card-back">
+      <h3 class="contacts-title">Contatti</h3>
+
+      <div class="info-list">
+        <p><mat-icon>phone</mat-icon> +39 346 960 4243</p>
+
+        <p>
+          <mat-icon>email</mat-icon>
+          <a href="mailto:azzurraangius95&#64;gmail.com">azzurraangius95&#64;gmail.com</a>
+        </p>
+
+        <p><mat-icon>language</mat-icon> www.azzurraangius.it</p>
+
+        <p><mat-icon>place</mat-icon> Roma, Italia</p>
+
+        <p class="ig-row">
+          <mat-icon>camera_alt</mat-icon>
+          <a href="https://www.instagram.com/azzurra_angiusmua?utm_source=qr"
+             target="_blank" rel="noopener">
+            &#64;azzurra_angiusmua
+          </a>
+        </p>
+      </div>
+
+      <div class="qr-website">
+        <canvas class="qr-code" #qrWebsite></canvas>
+        <p class="scan-text">Visita il sito</p>
+      </div>
+
+      <div class="qr-instagram">
+        <canvas class="qr-code" #qrInstagram></canvas>
+        <p class="scan-text">Instagram</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="downloadAsPNG()">
+      <mat-icon>image</mat-icon> Scarica PNG
+    </button>
+
+    <button mat-raised-button color="accent" (click)="downloadAsJPEG()">
+      <mat-icon>photo</mat-icon> Scarica JPEG
+    </button>
+
+    <button mat-raised-button color="warn" (click)="downloadAsSVG()">
+      <mat-icon>layers</mat-icon> Scarica SVG
+    </button>
+  </div>
+</section>
+

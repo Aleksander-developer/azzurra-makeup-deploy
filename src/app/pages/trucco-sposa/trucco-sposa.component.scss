@@ -5,14 +5,14 @@
 .trucco-sposa-container {
   padding: vars.$spacing-xxl vars.$spacing-xl;
   max-width: 1200px;
-  margin: 0 auto; // Rimosso il margin-top
+  margin: 0 auto;
   background-color: rgba(vars.$color-background-light, 0.95);
   border-radius: vars.$border-radius-lg;
   box-shadow: vars.$card-shadow;
   color: vars.$color-text-dark;
   font-family: vars.$font-family-primary;
   text-align: center;
-  padding-top: calc(100px + vars.$spacing-xxl); // Aggiunto padding-top dinamico
+  padding-top: calc(100px + vars.$spacing-xxl);
 }
 
 .page-title {
@@ -81,25 +81,43 @@
   }
 }
 
-/* --- Pacchetto Standard --- */
+/* --- Card per pacchetti (GOLD e HAIR & MAKEUP) --- */
 .package-card {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   gap: vars.$spacing-xl;
-  background-color: vars.$color-white;
-  border: 1px solid rgba(vars.$color-secondary, 0.3);
-  border-radius: vars.$border-radius-lg;
-  padding: vars.$spacing-xl;
+
+  /* 👇 stesso background rosa sfumato dell’All Inclusive */
+  background: linear-gradient(135deg, vars.$color-light-pink-bg, color.scale(vars.$color-light-pink-bg, $lightness: 5%));
+  border: 1px solid rgba(vars.$color-vibrant-fuchsia, 0.3);
+
+  border-radius: vars.$border-radius-xl;
+  padding: vars.$spacing-xxl;
   box-shadow: vars.$card-shadow;
   text-align: left;
+  margin-top: vars.$spacing-xxl;
 
   .package-content { flex: 1; padding-left: vars.$spacing-lg; }
-  .package-title { font-family: vars.$font-family-secondary; font-size: 2.2rem; color: vars.$color-dark-purple-text; margin-bottom: vars.$spacing-md; }
-  .package-description { font-size: 1.1rem; line-height: vars.$line-height-base; color: vars.$color-text-dark; margin-bottom: vars.$spacing-lg; }
-  .package-features { list-style: none; padding: 0; margin-bottom: vars.$spacing-xl;
-    li { display: flex; align-items: center; margin-bottom: vars.$spacing-xs; font-size: 1rem; color: vars.$color-text-dark;
-      mat-icon { color: vars.$color-secondary; margin-right: vars.$spacing-xs; font-size: 18px; }
+  .package-title {
+    font-family: vars.$font-family-secondary;
+    font-size: 2.2rem;
+    color: vars.$color-vibrant-fuchsia;
+    margin-bottom: vars.$spacing-md;
+    text-shadow: 0 0 10px rgba(vars.$color-vibrant-fuchsia, 0.4);
+  }
+  .package-description {
+    font-size: 1.1rem;
+    line-height: vars.$line-height-base;
+    color: vars.$color-dark-purple-text;
+    margin-bottom: vars.$spacing-lg;
+  }
+  .package-features {
+    list-style: none; padding: 0; margin-bottom: vars.$spacing-xl;
+    li {
+      display: flex; align-items: center; margin-bottom: vars.$spacing-xs;
+      font-size: 1rem; color: vars.$color-text-dark;
+      mat-icon { color: vars.$color-vibrant-fuchsia; margin-right: vars.$spacing-xs; font-size: 18px; }
     }
   }
   .package-image-container {
@@ -107,18 +125,23 @@
     flex-shrink: 0;
     width: 45%;
     max-width: 500px;
-    border-radius: vars.$border-radius-lg;
+    border-radius: vars.$border-radius-xl;
     overflow: hidden;
     box-shadow: vars.$card-shadow;
   }
   .package-image { width: 100%; height: auto; display: block; }
-  button { font-size: 1.1rem; padding: vars.$spacing-sm vars.$spacing-lg; border-radius: vars.$border-radius-md; transition: all vars.$transition-speed-normal vars.$transition-ease;
+
+  button {
+    font-size: 1.1rem;
+    padding: vars.$spacing-sm vars.$spacing-lg;
+    border-radius: vars.$border-radius-xl;
+    transition: all vars.$transition-speed-normal vars.$transition-ease;
     mat-icon { margin-left: vars.$spacing-xs; font-size: 20px; }
-    &:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(vars.$color-primary, 0.3); }
+    &:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(vars.$color-vibrant-fuchsia, 0.4); }
   }
 }
 
-/* --- Call to Action --- */
+/* --- CTA --- */
 .cta-section {
   background: linear-gradient(45deg, vars.$color-primary, color.scale(vars.$color-primary, $lightness: -10%));
   color: vars.$color-text-dark;
@@ -133,13 +156,22 @@
 
   h2 { font-family: vars.$font-family-secondary; font-size: 2.5rem; margin-bottom: vars.$spacing-md; color: vars.$color-dark-pink-text; }
   p { font-size: 1.3rem; margin-bottom: vars.$spacing-xl; color: vars.$color-text-dark; }
-  button { font-size: 1.3rem; padding: 1rem 3rem; border-radius: vars.$border-radius-xl; background-color: vars.$color-vibrant-fuchsia; color: vars.$color-white; border: 2px solid vars.$color-vibrant-fuchsia;
+  button {
+    font-size: 1.3rem;
+    padding: 1rem 3rem;
+    border-radius: vars.$border-radius-xl;
+    background-color: vars.$color-vibrant-fuchsia;
+    color: vars.$color-white;
+    border: 2px solid vars.$color-vibrant-fuchsia;
     transition: all vars.$transition-speed-normal vars.$transition-ease;
-    &:hover { background-color: color.scale(vars.$color-vibrant-fuchsia, $lightness: 10%); color: vars.$color-white; box-shadow: 0 0 20px rgba(vars.$color-vibrant-fuchsia, 0.5); }
+    &:hover {
+      background-color: color.scale(vars.$color-vibrant-fuchsia, $lightness: 10%);
+      box-shadow: 0 0 20px rgba(vars.$color-vibrant-fuchsia, 0.5);
+    }
   }
 }
 
-/* --- Stili Carosello e Badge (Aggiunti) --- */
+/* --- Badge --- */
 .image-badge {
   position: absolute;
   top: vars.$spacing-sm;
@@ -154,36 +186,27 @@
   z-index: 10;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(vars.$color-white, 0.2);
-
-  &.before {
-    background-color: rgba(vars.$color-secondary, 0.7);
-  }
-
-  &.after {
-    background-color: rgba(vars.$color-vibrant-fuchsia, 0.7);
-  }
+  &.before { background-color: rgba(vars.$color-secondary, 0.7); }
+  &.after  { background-color: rgba(vars.$color-vibrant-fuchsia, 0.7); }
 }
 
 /* --- Responsive --- */
 @include vars.respond-to(xxl) { }
-@include vars.respond-to(xl) { }
+@include vars.respond-to(xl)  { }
 
 @include vars.respond-to(lg) {
-  .trucco-sposa-container { 
-    padding: vars.$spacing-lg vars.$spacing-md; 
-    margin-top: 0; // Rimuovi il margin-top
-    padding-top: calc(100px + vars.$spacing-lg); // Aggiungi padding dinamico specifico per il breakpoint
+  .trucco-sposa-container {
+    padding: vars.$spacing-lg vars.$spacing-md;
+    padding-top: calc(100px + vars.$spacing-lg);
   }
-  .page-title {
-    @include mixins.responsive-text(1.8rem, 3rem, 320px, 992px);
-    font-family: vars.$font-family-secondary;
-  }
+  .page-title { @include mixins.responsive-text(1.8rem, 3rem, 320px, 992px); font-family: vars.$font-family-secondary; }
   .highlight-title { font-size: 2.2rem; }
   .package-title { font-size: 1.8rem; }
   .highlight-description, .package-description { font-size: 1rem; }
-  .package-highlight-card, .package-card { flex-direction: column; gap: vars.$spacing-lg;
+  .package-highlight-card, .package-card {
+    flex-direction: column;
+    gap: vars.$spacing-lg;
     .highlight-content, .package-content { padding-left: 0; padding-right: 0; text-align: center; }
     .highlight-image-container, .package-image-container { width: 80%; max-width: 500px; margin-top: vars.$spacing-lg; }
   }
@@ -191,13 +214,13 @@
 }
 
 @include vars.respond-to(md) {
-  .trucco-sposa-container { 
-    padding: vars.$spacing-md vars.$spacing-sm; 
-    margin-top: 0; // Rimuovi il margin-top
-    padding-top: calc(100px + vars.$spacing-md); // Aggiungi padding dinamico specifico per il breakpoint
+  .trucco-sposa-container {
+    padding: vars.$spacing-md vars.$spacing-sm;
+    padding-top: calc(100px + vars.$spacing-md);
   }
   .page-subtitle { font-size: 0.95rem; margin-bottom: vars.$spacing-lg; }
-  .package-highlight-card, .package-card { padding: vars.$spacing-lg vars.$spacing-md; gap: vars.$spacing-md;
+  .package-highlight-card, .package-card {
+    padding: vars.$spacing-lg vars.$spacing-md; gap: vars.$spacing-md;
     .highlight-title { font-size: 1.8rem; } .package-title { font-size: 1.6rem; }
     .highlight-description, .package-description { font-size: 0.9rem; }
     .highlight-features li, .package-features li { font-size: 0.9rem; mat-icon { font-size: 18px; } }
@@ -214,13 +237,14 @@
 }
 
 @include vars.respond-to(sm) {
-  .trucco-sposa-container { 
-    padding: vars.$spacing-md vars.$spacing-xs; 
-    margin: 0 auto; // Rimosso il margin-top
-    padding-top: calc(100px + vars.$spacing-md); // Aggiungi padding dinamico specifico per il breakpoint
+  .trucco-sposa-container {
+    padding: vars.$spacing-md vars.$spacing-xs;
+    margin: 0 auto;
+    padding-top: calc(100px + vars.$spacing-md);
   }
   .page-title { font-size: 1.8rem; } .page-subtitle { font-size: 0.85rem; }
-  .package-highlight-card, .package-card { padding: vars.$spacing-md vars.$spacing-xs; gap: vars.$spacing-sm;
+  .package-highlight-card, .package-card {
+    padding: vars.$spacing-md vars.$spacing-xs; gap: vars.$spacing-sm;
     .highlight-title { font-size: 1.5rem; } .package-title { font-size: 1.3rem; }
     .highlight-description, .package-description { font-size: 0.85rem; }
     .highlight-features li, .package-features li { font-size: 0.8rem; mat-icon { font-size: 16px; } }
@@ -228,15 +252,13 @@
     button { font-size: 0.9rem; padding: vars.$spacing-xs vars.$spacing-sm; }
   }
   .cta-section { padding: vars.$spacing-md vars.$spacing-xs; h2 { font-size: 1.5rem; } p { font-size: 0.85rem; } button { font-size: 0.9rem; padding: 0.7rem 1.5rem; } }
-  .image-badge {
-    font-size: 0.8rem;
-  }
+  .image-badge { font-size: 0.8rem; }
 }
 
 @include vars.respond-to(xs) {
-  .trucco-sposa-container { 
+  .trucco-sposa-container {
     padding: vars.$spacing-sm vars.$spacing-xs;
-    padding-top: calc(100px + vars.$spacing-sm); // Aggiungi padding dinamico specifico per il breakpoint
+    padding-top: calc(100px + vars.$spacing-sm);
   }
   .page-title { font-size: 1.5rem; } .page-subtitle { font-size: 0.8rem; }
   .package-highlight-card, .package-card { gap: vars.$spacing-xs; padding: vars.$spacing-sm; }
@@ -246,3 +268,4 @@
   button { font-size: 0.8rem; padding: vars.$spacing-xs vars.$spacing-sm; }
   .cta-section { h2 { font-size: 1.3rem; } p { font-size: 0.75rem; } button { font-size: 0.8rem; padding: 0.6rem 1.2rem; } }
 }
+

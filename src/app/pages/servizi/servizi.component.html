@@ -1,3 +1,7 @@
+
+
+<!-- src/app/pages/servizi/servizi.component.html -->
+
 <!-- src/app/pages/servizi/servizi.component.html -->
 
 <div class="servizi-page">
@@ -6,11 +10,12 @@
       <mat-icon class="title-icon">palette</mat-icon>
       <span i18n="@@serviziTitle">I Miei Servizi</span>
     </h1>
+
     <p class="page-subtitle" i18n="@@serviziSubtitle">
       Offro una vasta gamma di servizi di make-up e hair styling per ogni occasione.
     </p>
 
-    <!-- Card in evidenza: trucco sposa -->
+    <!-- ⭐ CARD IN EVIDENZA (Sposa) -->
     <div class="service-highlight-card">
       <div class="highlight-image-container">
         <img src="https://res.cloudinary.com/ddqilzddj/image/upload/v1757267773/IMG_0465_p2vf1o.jpg"
@@ -19,11 +24,14 @@
              class="highlight-image"
              onerror="this.src='assets/placeholder.png';">
       </div>
+
       <div class="highlight-content">
         <h2 class="highlight-title" i18n="@@serviziHighlightTitle">Trucco Sposa Personalizzato</h2>
+
         <p class="highlight-description" i18n="@@serviziHighlightDescription">
-          Il giorno del tuo matrimonio è un momento unico. Con un trucco personalizzato, ti sentirai radiosa e sicura di te, esalterò la tua bellezza con una durata impeccabile per tutta la giornata.
+          Il giorno del tuo matrimonio è un momento unico. Con un trucco personalizzato, ti sentirai radiosa e sicura di te.
         </p>
+
         <button mat-raised-button color="accent" routerLink="/trucco-sposa"
                 i18n-attr.aria-label="@@serviziHighlightButtonAria"
                 aria-label="Scopri i pacchetti trucco sposa">
@@ -33,26 +41,48 @@
       </div>
     </div>
 
-    <!-- Altri servizi senza immagini -->
-    <div class="other-services-grid">
-      <mat-card class="service-card" *ngFor="let service of services; let i = index">
-        <div class="service-card-content-wrapper">
-          <mat-card-header>
-            <mat-card-title>{{ service.titleKey }}</mat-card-title>
-            <mat-card-subtitle>{{ service.subtitleKey }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>{{ service.descriptionKey }}</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-stroked-button color="primary" routerLink="/contatti"
-                    [attr.aria-label]="service.buttonAriaKey">
-              <span i18n="@@serviziCeremonyButton">Richiedi Informazioni</span>
-            </button>
-          </mat-card-actions>
+    <!-- ⭐ NUOVE CARD GRANDI CON IMMAGINE A SINISTRA -->
+    <div class="other-services-advanced">
+      <div class="service-highlight-card"
+           *ngFor="let service of services">
+        
+        <div class="highlight-image-container">
+          <img [src]="service.imageUrl"
+               class="highlight-image"
+               alt="{{ service.titleKey }}"
+               onerror="this.src='assets/placeholder.png';">
         </div>
-      </mat-card>
+
+        <div class="highlight-content">
+          <h2 class="highlight-title">{{ service.titleKey }}</h2>
+
+          <p class="highlight-description">{{ service.subtitleKey }}</p>
+
+          <button mat-raised-button color="primary" routerLink="/contatti"
+                  [attr.aria-label]="service.buttonAriaKey">
+            Richiedi Informazioni
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+      </div>
     </div>
+
+    <!-- ⭐ CALL TO ACTION FINALE (come in Chi Sono) -->
+    <div class="cta-section">
+      <h2 i18n="@@serviziCtaHeading">Pronta a Trasformare la Tua Bellezza?</h2>
+      <p i18n="@@serviziCtaDescription">
+        Contattami oggi stesso per una consulenza personalizzata e scopri come posso aiutarti a realizzare il look dei tuoi sogni.
+      </p>
+      <button mat-raised-button
+              color="accent"
+              routerLink="/contatti"
+              i18n-aria-label="@@serviziCtaButtonAria"
+              i18n="@@serviziCtaButton">
+        Prenota la Tua Consulenza
+        <mat-icon>event</mat-icon>
+      </button>
+    </div>
+
   </section>
 </div>
 

@@ -13,6 +13,7 @@ import { ConfirmationDialogComponent } from './dialogs/confirmation-dialog/confi
 // Importa il tuo modulo che gestisce tutto Angular Material
 import { MaterialModule } from '../material/material.module';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { LogoComponent } from '../pages/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     FooterComponent,
     WhyChooseMeComponent,
     ConfirmationDialogComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    LogoComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,7 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     WhyChooseMeComponent,
     ConfirmationDialogComponent,
     ReviewsComponent,
+    LogoComponent,
 
     // Esporta MaterialModule così gli altri moduli non devono importarlo di nuovo
     MaterialModule

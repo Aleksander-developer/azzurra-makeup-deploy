@@ -1,11 +1,12 @@
 // src/app/pages/portfolio/portfolio.component.scss
+
 @use '../../../styles/variables' as vars;
 @use '../../../styles/mixins' as mixins;
 @use 'sass:color';
 
-/* Wrapper per compensare la navbar fissa (stile come contatti-page) */
+/* Wrapper per compensare la navbar fissa */
 .portfolio-page {
-  padding-top: 64px; // altezza navbar
+  padding-top: 64px;
 }
 
 .portfolio-container {
@@ -54,10 +55,13 @@
   display: flex;
   flex-direction: column;
   gap: vars.$spacing-md;
+  cursor: pointer; /* 👈 ora tutta la card è cliccabile */
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: translateY(-3px);
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+    outline: none;
   }
 
   .preview-gallery {
@@ -77,6 +81,7 @@
         height: 120px;
         object-fit: cover;
         display: block;
+        transition: transform 0.3s ease;
       }
 
       .tag {
@@ -122,31 +127,24 @@
   }
 }
 
-/* --- Responsive con tutti i breakpoint --- */
-
-/* XXL */
+/* --- Responsive --- */
 @include vars.respond-to(xxl) {
   .portfolio-container h1 { font-size: 3.2rem; }
   .preview-gallery .preview-img img { height: 150px; }
 }
 
-/* XL */
 @include vars.respond-to(xl) {
   .portfolio-container { padding: vars.$spacing-xl; }
   .portfolio-container h1 { font-size: 2.8rem; }
   .preview-gallery .preview-img img { height: 140px; }
 }
 
-/* LG */
 @include vars.respond-to(lg) {
   .portfolio-container { padding: vars.$spacing-lg; }
   .portfolio-container h1 { font-size: 2.5rem; }
-  .preview-gallery .preview-img {
-    flex: 0 1 calc(50% - vars.$spacing-sm);
-  }
+  .preview-gallery .preview-img { flex: 0 1 calc(50% - vars.$spacing-sm); }
 }
 
-/* MD */
 @include vars.respond-to(md) {
   .portfolio-container h1 { font-size: 2.2rem; }
   .preview-gallery .preview-img {
@@ -155,7 +153,6 @@
   .preview-gallery .preview-img img { height: 120px; }
 }
 
-/* SM */
 @include vars.respond-to(sm) {
   .portfolio-container h1 { font-size: 2rem; }
   .preview-gallery .preview-img {
@@ -164,7 +161,6 @@
   .preview-gallery .preview-img img { height: 200px; }
 }
 
-/* XS */
 @include vars.respond-to(xs) {
   .portfolio-container h1 { font-size: 1.8rem; }
   .card-body h3 { font-size: 1rem; }

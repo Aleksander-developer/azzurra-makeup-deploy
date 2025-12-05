@@ -22,6 +22,18 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [AuthGuard] // <-- PROTECT THIS ROUTE
   },
+  {
+    path: 'biglietto-visita',
+    loadChildren: () =>
+      import('./pages/biglietto-visita/biglietto-visita.module').then(m => m.BigliettoVisitaModule)
+  },
+  {
+    path: 'logo',
+    loadChildren: () =>
+      import('./pages/logo/logo.module').then(m => m.LogoModule)
+  },
+
+
 
   // Rotta per pagina non trovata (deve essere l'ultima)
   { path: '**', component: PageNotFoundComponent }

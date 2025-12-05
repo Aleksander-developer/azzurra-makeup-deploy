@@ -1,718 +1,1201 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="it" target-language="en" datatype="plaintext" original="ng2.template">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="albumForm.title" datatype="html">
-        <source>Gestione Album</source>
-        <target>Album Management</target>
+        <source>Album Management</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="albumForm.titleLbl" datatype="html">
-        <source>Titolo</source>
-        <target>Title</target>
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="albumForm.desc" datatype="html">
-        <source>Descrizione</source>
-        <target>Description</target>
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="albumForm.cover" datatype="html">
-        <source>URL Copertina (Cloudinary)</source>
-        <target>Cover URL (Cloudinary)</target>
+        <source>Cover URL (Cloudinary)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="albumForm.photos" datatype="html">
-        <source>Foto (URL Cloudinary)</source>
-        <target>Photos (Cloudinary URL)</target>
+        <source>Photos (Cloudinary URL)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="albumForm.addPhoto" datatype="html">
-        <source> Aggiungi foto </source>
-        <target> Add photo </target>
+        <source> Add photo </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">55,57</context>
+        </context-group>
       </trans-unit>
-
-      <trans-unit id="update" datatype="html">
-        <source>Aggiorna</source>
-        <target>Update</target>
+      <trans-unit id="updateButton" datatype="html">
+        <source>Update</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="save" datatype="html">
-        <source>Salva</source>
-        <target>Save</target>
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="cancel" datatype="html">
-        <source> Annulla </source>
-        <target> Cancel </target>
+        <source> Cancel </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">74,76</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="album.list" datatype="html">
-        <source>Album salvati</source>
-        <target>Saved albums</target>
+        <source>Saved Albums</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="albumForm.coverTag" datatype="html">
         <source>Cover</source>
-        <target>Cover</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="edit" datatype="html">
-        <source> ✏️ Modifica </source>
-        <target> ✏️ Edit </target>
+        <source> ✏️ Edit </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">120,122</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="delete" datatype="html">
-        <source> 🗑️ Elimina </source>
-        <target> 🗑️ Delete </target>
+        <source> 🗑️ Delete </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.html</context>
+          <context context-type="linenumber">128,130</context>
+        </context-group>
       </trans-unit>
-
+      <trans-unit id="albumUpdatedSuccessfully" datatype="html">
+        <source>Album updated successfully!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.ts</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="album.saved" datatype="html">
-        <source>Album salvato con successo!</source>
-        <target>Album saved successfully!</target>
+        <source>Album saved successfully!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="album.delete.confirm" datatype="html">
-        <source>Vuoi eliminare questo album?</source>
-        <target>Do you want to delete this album?</target>
+        <source>Are you sure you want to delete this album?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/album-form/album-form.component.ts</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="scrollToTopAria" datatype="html">
         <source>Scroll to top</source>
-        <target>Scroll to top</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="cookieConsentMessage" datatype="html">
-        <source>Questo sito utilizza i cookie per migliorare l&apos;esperienza utente. <x id="START_LINK"/>Maggiori informazioni<x id="CLOSE_LINK"/>.</source>
-        <target>This site uses cookies to improve the user experience. <x id="START_LINK"/>Learn more<x id="CLOSE_LINK"/>.</target>
+        <source>This site uses cookies to improve the user experience. <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;/privacy-policy&quot;&gt;"/>More information<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/cookie-consent/cookie-consent.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="cookieConsentButton" datatype="html">
-        <source>Accetta e continua</source>
-        <target>Accept and continue</target>
+        <source>Accept and continue</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/cookie-consent/cookie-consent.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="footerEmailAria" datatype="html">
-        <source>Invia Email</source>
-        <target>Send Email</target>
+        <source>Send Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="footerLinkedinAria" datatype="html">
         <source>LinkedIn</source>
-        <target>LinkedIn</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="footerInstagramAria" datatype="html">
         <source>Instagram</source>
-        <target>Instagram</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="footerFacebookAria" datatype="html">
         <source>Facebook</source>
-        <target>Facebook</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="footerWhatsappAria" datatype="html">
         <source>WhatsApp</source>
-        <target>WhatsApp</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="footerPhoneAria" datatype="html">
-        <source>Chiama</source>
-        <target>Call</target>
+        <source>Call</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="footerCopyright" datatype="html">
-        <source> Copyright © <x id="INTERPOLATION"/> Azzurra Angius Make-up Artist. <x id="START_TAG_SPAN"/> Realizzato da <x id="START_LINK"/>Aleksander Nikolli<x id="CLOSE_LINK"/><x id="CLOSE_TAG_SPAN"/></source>
-        <target> Copyright © <x id="INTERPOLATION"/> Azzurra Angius Make-up Artist. <x id="START_TAG_SPAN"/> Developed by <x id="START_LINK"/>Aleksander Nikolli<x id="CLOSE_LINK"/><x id="CLOSE_TAG_SPAN"/></target>
+        <source> Copyright © <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> Azzurra Angius Make-up Artist. <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;developer-credit&quot;&gt;"/> Developed by <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [href]=&quot;developerWebsiteUrl&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>Aleksander Nikolli<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">39,43</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="navHomeLink" datatype="html">
         <source>Home</source>
-        <target>Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="navSposaLink" datatype="html">
-        <source>Trucco Sposa</source>
-        <target>Bridal Makeup</target>
+        <source>Bridal Makeup</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="navPortfolioLink" datatype="html">
         <source>Portfolio</source>
-        <target>Portfolio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="navAdminLink" datatype="html">
         <source>Admin Portfolio</source>
-        <target>Admin Portfolio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="navServicesLink" datatype="html">
-        <source>Servizi</source>
-        <target>Services</target>
+        <source>Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="navContactsLink" datatype="html">
-        <source>Contatti</source>
-        <target>Contacts</target>
+        <source>Contacts</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="navAboutLink" datatype="html">
-        <source>Chi Sono</source>
-        <target>About Me</target>
+        <source>About Me</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="navLoginLink" datatype="html">
         <source>Login</source>
-        <target>Login</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="navLogoutButton" datatype="html">
         <source>Logout</source>
-        <target>Logout</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="itFlagAlt" datatype="html">
-        <source>Bandiera Italiana</source>
-        <target>Italian Flag</target>
+        <source>Italian Flag</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="enFlagAlt" datatype="html">
         <source>English Flag</source>
-        <target>English Flag</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="navMenuButtonAria" datatype="html">
         <source>Menu</source>
-        <target>Menu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="itFlagAria" datatype="html">
-        <source>Bandiera Italiana</source>
-        <target>Italian Flag</target>
+        <source>Italian Flag</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="enFlagAria" datatype="html">
         <source>English Flag</source>
-        <target>English Flag</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="notFound.title" datatype="html">
-        <source>Pagina non trovata</source>
-        <target>Page not found</target>
+        <source>Page not found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="notFound.desc" datatype="html">
-        <source> Ops! La pagina che cerchi non esiste o è stata spostata. </source>
-        <target>Oops! The page you are looking for does not exist or has been moved.</target>
+        <source> Oops! The page you are looking for does not exist or has been moved. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="notFound.home" datatype="html">
-        <source> Torna alla Home </source>
-        <target> Back to Home </target>
+        <source> Back to Home </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
       </trans-unit>
-
+      <trans-unit id="bigliettoVisitaTitle" datatype="html">
+        <source>Business Card</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/biglietto-visita/biglietto-visita.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="chiSonoTitle" datatype="html">
-        <source><x id="START_TAG_MAT_ICON"/>face_retouching_natural<x id="CLOSE_TAG_MAT_ICON"/> Chi Sono </source>
-        <target><x id="START_TAG_MAT_ICON"/>face_retouching_natural<x id="CLOSE_TAG_MAT_ICON"/> About Me </target>
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;title-icon&quot;&gt;"/>face_retouching_natural<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> About Me </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoSubtitle" datatype="html">
-        <source> Sono una make-up artist e hair stylist con una passione profonda per il mondo della bellezza e della creatività. </source>
-        <target> I am a make-up artist and hair stylist with a deep passion for the world of beauty and creativity. </target>
+        <source> I am a make-up artist and hair stylist with a deep passion for the world of beauty and creativity. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoVisionHeading" datatype="html">
-        <source>Il mio obiettivo</source>
-        <target>My Goal</target>
+        <source>My Goal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoVisionParagraph1" datatype="html">
-        <source> Credo che il make-up sia un&apos;arte che va oltre la semplice applicazione di prodotti: è un mezzo per esprimere la propria personalità, celebrare la propria unicità e aumentare la fiducia in sé stessi. </source>
-        <target> I believe that make-up is an art that goes beyond the simple application of products: it is a way to express your personality, celebrate your uniqueness, and boost self-confidence. </target>
+        <source> I believe that make-up is an art that goes beyond the simple application of products: it is a way to express your personality, celebrate your uniqueness, and boost your self-confidence. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoVisionParagraph2" datatype="html">
-        <source> Il mio approccio è sempre personalizzato: ascolto attentamente le tue esigenze e i tuoi desideri per creare un look che non solo ti valorizzi, ma che ti faccia sentire autenticamente te stessa. </source>
-        <target> My approach is always personalized: I carefully listen to your needs and desires to create a look that not only enhances you, but also makes you feel truly yourself. </target>
+        <source> My approach is always personalized: I listen carefully to your needs and desires to create a look that not only enhances you, but makes you feel authentically yourself. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoVisionParagraph3" datatype="html">
-        <source> Esaltando la tua bellezza con professionalità e creatività. </source>
-        <target> Enhancing your beauty with professionalism and creativity. </target>
+        <source> Enhancing your beauty with professionalism and creativity. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">27,29</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoTrainingHeading" datatype="html">
-        <source>Formazione e Qualifiche</source>
-        <target>Training and Qualifications</target>
+        <source>Training and Qualifications</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoTrainingParagraph1" datatype="html">
-        <source> Ho perfezionato le mie competenze frequentando corsi e workshop con i migliori professionisti del settore, acquisendo tecniche all&apos;avanguardia nel trucco sposa, cerimonia, fotografico e cinematografico. </source>
-        <target> I refined my skills by attending courses and workshops with top professionals in the industry, acquiring cutting-edge techniques in bridal, ceremony, photographic, and cinematic makeup. </target>
+        <source> I have perfected my skills by attending courses and workshops with the best professionals in the industry, acquiring cutting-edge techniques in bridal, ceremonial, photographic, and cinematic makeup. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">39,41</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoTrainingParagraph2" datatype="html">
-        <source> La mia formazione continua è una priorità, per essere sempre aggiornata sulle ultime tendenze e offrire servizi innovativi e di alta qualità. </source>
-        <target> Continuing education is a priority for me, so I can stay up to date with the latest trends and offer innovative, high-quality services. </target>
+        <source> My continuous training is a priority, to always stay updated on the latest trends and offer innovative, high-quality services. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">45,47</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoCtaHeading" datatype="html">
-        <source>Pronta a Trasformare la Tua Bellezza?</source>
-        <target>Ready to Transform Your Beauty?</target>
+        <source>Ready to Transform Your Beauty?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoCtaDescription" datatype="html">
-        <source>Contattami oggi stesso per una consulenza personalizzata e scopri come posso aiutarti a realizzare il look dei tuoi sogni.</source>
-        <target>Contact me today for a personalized consultation and discover how I can help you achieve the look of your dreams.</target>
+        <source>Contact me today for a personalized consultation and discover how I can help you achieve the look of your dreams.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoCtaButton" datatype="html">
-        <source> Prenota la Tua Consulenza <x id="START_TAG_MAT_ICON"/>event<x id="CLOSE_TAG_MAT_ICON"/></source>
-        <target> Book Your Consultation <x id="START_TAG_MAT_ICON"/>event<x id="CLOSE_TAG_MAT_ICON"/></target>
+        <source> Book Your Consultation <x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>event<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.html</context>
+          <context context-type="linenumber">56,58</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoMetaTitle" datatype="html">
-        <source>Chi sono - Azzurra Makeup Artist Roma</source>
-        <target>About Me - Azzurra Makeup Artist Rome</target>
+        <source>About Me - Azzurra Makeup Artist Rome</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="chiSonoMetaDescription" datatype="html">
-        <source>Scopri chi sono, la mia esperienza come make-up artist a Roma e la mia passione per il trucco.</source>
-        <target>Discover who I am, my experience as a make-up artist in Rome, and my passion for makeup.</target>
+        <source>Discover who I am, my experience as a make-up artist in Rome, and my passion for makeup.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/chi-sono/chi-sono.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="contattiTitle" datatype="html">
-        <source>Contatti</source>
-        <target>Contacts</target>
+        <source>Contacts</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiSubtitle" datatype="html">
-        <source> Compila il modulo sottostante o contattami direttamente per qualsiasi domanda o per prenotare una consulenza. </source>
-        <target> Fill out the form below or contact me directly for any questions or to book a consultation. </target>
+        <source> Fill out the form below or contact me directly for any questions or to book a consultation. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormNameLabel" datatype="html">
-        <source>Nome</source>
-        <target>Name</target>
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormNamePlaceholder" datatype="html">
-        <source>Il tuo nome</source>
-        <target>Your name</target>
+        <source>Your name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormNameError" datatype="html">
-        <source> Il nome è obbligatorio e deve avere almeno 2 caratteri. </source>
-        <target> Name is required and must be at least 2 characters long. </target>
+        <source> Name is required and must be at least 2 characters long. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormEmailLabel" datatype="html">
         <source>Email</source>
-        <target>Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormEmailPlaceholder" datatype="html">
-        <source>La tua email</source>
-        <target>Your email</target>
+        <source>Your email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormEmailError" datatype="html">
-        <source> Inserisci un&apos;email valida. </source>
-        <target> Please enter a valid email. </target>
+        <source> Please enter a valid email address. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormPhoneLabel" datatype="html">
-        <source>Cellulare (opzionale)</source>
-        <target>Phone (optional)</target>
+        <source>Phone (optional)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormPhonePlaceholder" datatype="html">
-        <source>Il tuo numero di cellulare</source>
-        <target>Your phone number</target>
+        <source>Your phone number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormPhoneError" datatype="html">
-        <source> Inserisci un numero di cellulare valido. </source>
-        <target> Please enter a valid phone number. </target>
+        <source> Please enter a valid phone number. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">37,39</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormMessageLabel" datatype="html">
-        <source>Messaggio</source>
-        <target>Message</target>
+        <source>Message</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormMessagePlaceholder" datatype="html">
-        <source>Scrivi qui il tuo messaggio...</source>
-        <target>Write your message here...</target>
+        <source>Write your message here...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormMessageError" datatype="html">
-        <source> Il messaggio è obbligatorio e deve avere almeno 10 caratteri. </source>
-        <target> Message is required and must be at least 10 characters long. </target>
+        <source> Message is required and must be at least 10 characters long. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">45,47</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormSuccessMessage" datatype="html">
-        <source>Messaggio inviato con successo!</source>
-        <target>Message sent successfully!</target>
+        <source>Message sent successfully!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormErrorMessage" datatype="html">
-        <source>Errore durante l&apos;invio del messaggio. Riprova.</source>
-        <target>Error while sending the message. Please try again.</target>
+        <source>Error sending message. Please try again.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormButtonSending" datatype="html">
-        <source>Invio...</source>
-        <target>Sending...</target>
+        <source>Sending...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiFormButtonSend" datatype="html">
-        <source>Invia Messaggio</source>
-        <target>Send Message</target>
+        <source>Send Message</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiDirectContactHeading" datatype="html">
-        <source>Contattami Direttamente</source>
-        <target>Contact Me Directly</target>
+        <source>Contact Me Directly</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiDirectContactPhone" datatype="html">
-        <source>Telefono</source>
-        <target>Phone</target>
+        <source>Phone</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiDirectContactEmail" datatype="html">
         <source>Email</source>
-        <target>Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="contattiDirectContactWhatsapp" datatype="html">
         <source>WhatsApp</source>
-        <target>WhatsApp</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contatti/contatti.component.html</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="homeHeroImageAlt" datatype="html">
         <source>Azzurra Angius Make-up Artist</source>
-        <target>Azzurra Angius Make-up Artist</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeNoImagePlaceholder" datatype="html">
-        <source> Immagine non disponibile </source>
-        <target> Image not available </target>
+        <source> Image not available </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">12,14</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homePreviousImageAria" datatype="html">
-        <source>Immagine precedente</source>
-        <target>Previous image</target>
+        <source>Previous image</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeNextImageAria" datatype="html">
-        <source>Immagine successiva</source>
-        <target>Next image</target>
+        <source>Next image</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeHeroTitle" datatype="html">
         <source>Azzurra Angius</source>
-        <target>Azzurra Angius</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeHeroSubtitle" datatype="html">
         <source>MAKE-UP ARTIST</source>
-        <target>MAKE-UP ARTIST</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeBookNowButton" datatype="html">
-        <source> Prenota Ora </source>
-        <target> Book Now </target>
+        <source> Book Now </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">34,36</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeDescriptionSpecialized" datatype="html">
-        <source> Sono una Make-up Artist specializzata in trucco <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;highlighted-text&quot;&gt;"/>beauty &amp; sposa<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>, con una profonda passione per l&apos;arte del make-up che mi spinge a ricercare costantemente le ultime tendenze e tecniche. </source>
-        <target> I am a Make-up Artist specialized in <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;highlighted-text&quot;&gt;"/>beauty &amp; bridal make-up<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>, with a deep passion for the art of make-up that drives me to constantly research the latest trends and techniques. </target>
+        <source> I am a Make-up Artist specialized in <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;highlighted-text&quot;&gt;"/>beauty &amp; bridal<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> makeup, with a deep passion for the art of make-up that constantly drives me to seek out the latest trends and techniques. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">41,45</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeDescriptionHairstyle" datatype="html">
-        <source>Sono una Hair Stylist, garantendo così un&apos;armonia perfetta tra trucco e acconciatura.</source>
-        <target>I am also a Hair Stylist, ensuring perfect harmony between make-up and hairstyle.</target>
+        <source>I am a Hair Stylist, thus ensuring a perfect harmony between makeup and hairstyle.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeLookingForServiceQuestion" datatype="html">
-        <source>Stai cercando un servizio di make-up e hair styling che ti faccia sentire unica e radiosa?</source>
-        <target>Are you looking for a make-up and hair styling service that makes you feel unique and radiant?</target>
+        <source>Are you looking for a make-up and hair styling service that makes you feel unique and radiant?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeServiceDescriptionPart1" datatype="html">
-        <source> Con la mia esperienza e la mia attenzione ai dettagli, trasformo i tuoi desideri in realtà, valorizzando la tua bellezza naturale e creando un look che ti rispecchi a pieno. </source>
-        <target> With my experience and attention to detail, I turn your wishes into reality, enhancing your natural beauty and creating a look that truly reflects you. </target>
+        <source> With my experience and attention to detail, I turn your desires into reality, enhancing your natural beauty and creating a look that fully reflects you. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">50,52</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeServiceDescriptionPart2" datatype="html">
-        <source> Che sia per il giorno del tuo matrimonio, un evento speciale o un servizio fotografico, ti garantisco un&apos;esperienza personalizzata e un risultato impeccabile. </source>
-        <target> Whether it&apos;s for your wedding day, a special event, or a photo shoot, I guarantee you a personalized experience and flawless results. </target>
+        <source> Whether it's for your wedding day, a special event, or a photoshoot, I guarantee a personalized experience and an impeccable result. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">53,55</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeNoStressPrivacy" datatype="html">
-        <source> Niente stress, solo bellezza e privacy. </source>
-        <target> No stress, just beauty and privacy. </target>
+        <source> No stress, just beauty and privacy. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">56,58</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeGoalBeautiful" datatype="html">
-        <source> Il mio obiettivo è farti sentire bella, sicura di te e a tuo agio, in ogni occasione. </source>
-        <target> My goal is to make you feel beautiful, confident, and comfortable on every occasion. </target>
+        <source> My goal is to make you feel beautiful, confident, and at ease, on every occasion. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">59,61</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeGuaranteesTitle" datatype="html">
-        <source>Le mie Garanzie per Te</source>
-        <target>My Guarantees for You</target>
+        <source>My Guarantees for You</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeGuaranteeQualityProductsTitle" datatype="html">
-        <source>Prodotti di Qualità Superiore</source>
-        <target>High-Quality Products</target>
+        <source>Superior Quality Products</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeGuaranteeQualityProductsDescription" datatype="html">
-        <source>Utilizzo solo prodotti professionali delle migliori marche, per garantire durata e resa impeccabile, rispettando la tua pelle.</source>
-        <target>I use only professional products from top brands, ensuring long-lasting and flawless results while respecting your skin.</target>
+        <source>I use only professional products from the best brands to ensure long-lasting and flawless results, respecting your skin.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeGuaranteePunctualityTitle" datatype="html">
-        <source>Puntualità e Organizzazione</source>
-        <target>Punctuality and Organization</target>
+        <source>Punctuality and Organization</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeGuaranteePunctualityDescription" datatype="html">
-        <source>La tua tranquillità è la mia priorità. Sono sempre puntuale e organizzo ogni dettaglio per un servizio senza intoppi.</source>
-        <target>Your peace of mind is my priority. I am always punctual and organize every detail for a smooth service.</target>
+        <source>Your peace of mind is my priority. I am always punctual and organize every detail for a seamless service.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeGuaranteePersonalizedLookTitle" datatype="html">
-        <source>Look Personalizzato</source>
-        <target>Personalized Look</target>
+        <source>Personalized Look</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeGuaranteePersonalizedLookDescription" datatype="html">
-        <source>Ogni volto è unico. Insieme creeremo il look perfetto che esalti la tua bellezza naturale e si adatti al tuo stile.</source>
-        <target>Every face is unique. Together we will create the perfect look that enhances your natural beauty and matches your style.</target>
+        <source>Every face is unique. Together we will create the perfect look that enhances your natural beauty and fits your style.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeGuaranteeDedicatedAssistanceTitle" datatype="html">
-        <source>Assistenza Dedicata</source>
-        <target>Dedicated Assistance</target>
+        <source>Dedicated Assistance</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="homeGuaranteeDedicatedAssistanceDescription" datatype="html">
-        <source>Dalla prima consulenza al giorno dell&apos;evento, sarò al tuo fianco per ogni esigenza, offrendo supporto e consigli professionali.</source>
-        <target>From the first consultation to the day of the event, I will be by your side for any need, providing professional support and advice.</target>
+        <source>From the first consultation to the day of the event, I will be by your side for every need, offering support and professional advice.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="loginAreaRiservataTitle" datatype="html">
-        <source>Area Riservata</source>
-        <target>Restricted Area</target>
+        <source>Admin Area</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="loginAreaRiservataSubtitle" datatype="html">
-        <source> Solo l’amministratore può accedere per gestire gli album. </source>
-        <target> Only the administrator can log in to manage the albums. </target>
+        <source> Only the administrator can log in to manage albums. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="loginPasswordLabel" datatype="html">
         <source>Password</source>
-        <target>Password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="loginPasswordPlaceholder" datatype="html">
-        <source>Inserisci la password</source>
-        <target>Enter your password</target>
+        <source>Enter password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="loginTogglePasswordVisibilityAria" datatype="html">
-        <source>Nascondi o mostra password</source>
-        <target>Hide or show password</target>
+        <source>Hide or show password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="loginPasswordRequired" datatype="html">
-        <source>La password è obbligatoria.</source>
-        <target>Password is required.</target>
+        <source>Password is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="loginButton" datatype="html">
-        <source>Accedi</source>
-        <target>Login</target>
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="loginButtonLoading" datatype="html">
-        <source>Accesso in corso...</source>
-        <target>Logging in...</target>
+        <source>Logging in...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="portfolio.back" datatype="html">
-        <source>Torna al Portfolio</source>
-        <target>Back to Portfolio</target>
+        <source>Back to Portfolio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="portfolio.noImages" datatype="html">
-        <source> Questo album non contiene ancora immagini. </source>
-        <target> This album does not contain any images yet. </target>
+        <source> This album does not contain any images yet. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
       </trans-unit>
-
-      <trans-unit id="portfolio.loading" datatype="html">
-        <source>Caricamento dell&apos;album in corso...</source>
-        <target>Loading album...</target>
+      <trans-unit id="portfolioDetailLoadingAlbum" datatype="html">
+        <source>Loading album...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/portfolio/portfolio-detail/portfolio-detail.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="portfolio.title" datatype="html">
-        <source>Il Mio Portfolio</source>
-        <target>My Portfolio</target>
+        <source>My Portfolio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="portfolio.view" datatype="html">
-        <source> Visualizza </source>
-        <target> View </target>
+        <source> View </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
+          <context context-type="linenumber">47,49</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="portfolio.noItems" datatype="html">
-        <source>Nessun album da mostrare al momento.</source>
-        <target>No albums to display at the moment.</target>
+        <source>No albums to show at the moment.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/portfolio/portfolio.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="serviziTitle" datatype="html">
-        <source>I Miei Servizi</source>
-        <target>My Services</target>
+        <source>My Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="serviziSubtitle" datatype="html">
-        <source> Offro una vasta gamma di servizi di make-up e hair styling per ogni occasione. </source>
-        <target> I offer a wide range of make-up and hairstyling services for every occasion. </target>
+        <source> I offer a wide range of make-up and hair styling services for every occasion. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="serviziHighlightImageAlt" datatype="html">
-        <source>Trucco Sposa in evidenza</source>
-        <target>Featured Bridal Make-up</target>
+        <source>Bridal Makeup Highlight</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="serviziHighlightTitle" datatype="html">
-        <source>Trucco Sposa Personalizzato</source>
-        <target>Personalized Bridal Make-up</target>
+        <source>Personalized Bridal Makeup</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="serviziHighlightDescription" datatype="html">
-        <source> Il giorno del tuo matrimonio è un momento unico. Con un trucco personalizzato, ti sentirai radiosa e sicura di te, esalterò la tua bellezza con una durata impeccabile per tutta la giornata. </source>
-        <target> Your wedding day is a unique moment. With personalized make-up, you will feel radiant and confident, enhancing your beauty with flawless long-lasting results throughout the day. </target>
+        <source> Your wedding day is a unique moment. With personalized makeup, you will feel radiant and confident. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
+          <context context-type="linenumber">31,33</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="serviziHighlightButton" datatype="html">
-        <source>Scopri i Pacchetti Sposa</source>
-        <target>Discover Bridal Packages</target>
+        <source>Discover Bridal Packages</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
       </trans-unit>
-
-      <trans-unit id="serviziCeremonyButton" datatype="html">
-        <source>Richiedi Informazioni</source>
-        <target>Request Information</target>
+      <trans-unit id="serviziCtaHeading" datatype="html">
+        <source>Ready to Transform Your Beauty?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
       </trans-unit>
-
+      <trans-unit id="serviziCtaDescription" datatype="html">
+        <source> Contact me today for a personalized consultation and discover how I can help you achieve the look of your dreams. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
+          <context context-type="linenumber">73,75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="serviziCtaButton" datatype="html">
+        <source> Book Your Consultation <x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>event<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/servizi/servizi.component.html</context>
+          <context context-type="linenumber">80,82</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="truccoSposaTitle" datatype="html">
-        <source>Trucco Sposa</source>
-        <target>Bridal Make-up</target>
+        <source>Bridal Makeup</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="truccoSposaSubtitle" datatype="html">
-        <source> Il tuo giorno speciale merita un look impeccabile. Scopri i miei servizi dedicati alle spose. </source>
-        <target> Your special day deserves a flawless look. Discover my dedicated bridal services. </target>
+        <source> Your special day deserves a flawless look. Discover my services dedicated to brides. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="truccoSposaPackageFollowMeTitle" datatype="html">
-        <source>Pacchetto Seguimi</source>
-        <target>Follow Me Package</target>
+        <source>All Inclusive</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="truccoSposaPackageFollowMeDescription" datatype="html">
-        <source> Un servizio esclusivo per la sposa che desidera essere seguita per tutta la giornata, dalla preparazione al mattino fino al taglio della torta. Cosa offre il pacchetto: </source>
-        <target> An exclusive service for the bride who wishes to be assisted throughout the entire day, from morning preparations to the cake cutting. The package includes: </target>
+        <source> An exclusive service for the bride who wants to be attended to throughout the day, from morning preparation to the cake cutting. What the package offers: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">18,20</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="truccoSposaPackageFollowMeFeature1" datatype="html">
-        <source>Prova trucco sposa a domicilio</source>
-        <target>Bridal make-up trial at home</target>
+        <source>Bridal makeup trial at home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="truccoSposaPackageFollowMeFeature2" datatype="html">
-        <source>Consulenza personalizzata per uno o più look</source>
-        <target>Personalized consultation for one or more looks</target>
+        <source>Personalized consultation for one or more looks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="truccoSposaPackageFollowMeFeature3" datatype="html">
-        <source>Trucco sposa il giorno delle nozze nella location</source>
-        <target>Bridal make-up on the wedding day at the venue</target>
+        <source>Bridal makeup on the wedding day at the location</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="truccoSposaPackageFollowMeFeature4" datatype="html">
-        <source>Servizio di ritocco per tutta la durata dell&apos;evento</source>
-        <target>Touch-up service for the entire event</target>
+        <source>Touch-up service for the entire duration of the event</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="truccoSposaPackageFollowMeFeature5" datatype="html">
-        <source>Prova e trucco per una persona aggiuntiva (es. mamma)</source>
-        <target>Trial and make-up for an additional person (e.g., mother)</target>
+        <source>Trial and makeup for one additional person (e.g., mother)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="truccoSposaPackageFollowMeFeature6" datatype="html">
-        <source>Kit ritocco personalizzato per la sposa</source>
-        <target>Personalized touch-up kit for the bride</target>
+        <source>Personalized touch-up kit for the bride</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
       </trans-unit>
-
+      <trans-unit id="truccoSposaPackageFollowMeFeature7" datatype="html">
+        <source>Corrective makeup for the groom</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="truccoSposaPackageFollowMeButton" datatype="html">
-        <source>Richiedi Info</source>
-        <target>Request Info</target>
+        <source>Request Info</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
       </trans-unit>
-
-      <trans-unit id="truccoSposaPackageStandardTitle" datatype="html">
-        <source>Pacchetto Trucco Sposa &amp; Mamma</source>
-        <target>Bridal &amp; Mother Make-up Package</target>
+      <trans-unit id="beforeBadge" datatype="html">
+        <source>Before</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">130</context>
+        </context-group>
       </trans-unit>
-
-      <trans-unit id="truccoSposaPackageStandardDescription" datatype="html">
-        <source> Il pacchetto ideale per la sposa che desidera un trucco impeccabile e duraturo per il giorno delle nozze, con una prova inclusa. </source>
-        <target> The ideal package for the bride who wants flawless, long-lasting make-up for her wedding day, with a trial included. </target>
+      <trans-unit id="afterBadge" datatype="html">
+        <source>After</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
       </trans-unit>
-
-      <trans-unit id="truccoSposaPackageStandardFeature1" datatype="html">
-        <source>Consulenza personalizzata</source>
-        <target>Personalized consultation</target>
+      <trans-unit id="truccoSposaPackageGoldTitle" datatype="html">
+        <source>Gold</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
       </trans-unit>
-
-      <trans-unit id="truccoSposaPackageStandardFeature2" datatype="html">
-        <source>Una prova trucco</source>
-        <target>One make-up trial</target>
+      <trans-unit id="truccoSposaPackageGoldDescription" datatype="html">
+        <source> A complete package to best enhance the bride with attention to detail and assistance at key moments. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">60,62</context>
+        </context-group>
       </trans-unit>
-
-      <trans-unit id="truccoSposaPackageStandardFeature3" datatype="html">
-        <source>Trucco sposa il giorno delle nozze</source>
-        <target>Bridal make-up on the wedding day</target>
+      <trans-unit id="truccoSposaPackageGoldFeature1" datatype="html">
+        <source>Bridal makeup trial at home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
       </trans-unit>
-
-      <trans-unit id="truccoSposaPackageStandardFeature4" datatype="html">
-        <source>Applicazione ciglia finte (su richiesta)</source>
-        <target>False eyelash application (on request)</target>
+      <trans-unit id="truccoSposaPackageGoldFeature2" datatype="html">
+        <source>Bridal makeup on the wedding day at the location</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
       </trans-unit>
-
-      <trans-unit id="truccoSposaPackageStandardButton" datatype="html">
-        <source>Contattami</source>
-        <target>Contact Me</target>
+      <trans-unit id="truccoSposaPackageGoldFeature3" datatype="html">
+        <source>Makeup for one additional person (e.g., mother)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageGoldFeature4" datatype="html">
+        <source>Personalized touch-up kit for the bride</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageGoldFeature5" datatype="html">
+        <source>Presence during the photoshoot for pre-ceremony touch-ups</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageGoldFeature6" datatype="html">
+        <source>Corrective makeup for the groom</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageGoldButton" datatype="html">
+        <source>Contact Me</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageHairMakeupTitle" datatype="html">
+        <source>Hair &amp; Makeup</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageHairMakeupDescription" datatype="html">
+        <source> A service for those who want a simple yet elegant and sophisticated hairstyle or blow-dry (e.g., sleek low bun, half-updo, blow-dry) along with personalized make-up. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">101,103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageHairMakeupFeature1" datatype="html">
+        <source>Makeup and hairstyle trial</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageHairMakeupFeature2" datatype="html">
+        <source>Makeup and hairstyle at the location on the wedding day</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageHairMakeupFeature3" datatype="html">
+        <source>Makeup for one additional person (e.g., mother)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageHairMakeupFeature4" datatype="html">
+        <source>Personalized touch-up kit for the bride</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageHairMakeupFeature5" datatype="html">
+        <source>Corrective makeup for the groom</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="truccoSposaPackageHairMakeupButton" datatype="html">
+        <source>Contact Me</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trucco-sposa/trucco-sposa.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="confirmationDialogTitle" datatype="html">
-        <source>Conferma Azione</source>
-        <target>Confirm Action</target>
+        <source>Confirm Action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/confirmation-dialog/confirmation-dialog.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="confirmationDialogMessage" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ data.message }}"/></source>
-        <target><x id="INTERPOLATION" equiv-text="{{ data.message }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/confirmation-dialog/confirmation-dialog.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="confirmationDialogCancelButton" datatype="html">
-        <source>Annulla</source>
-        <target>Cancel</target>
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/confirmation-dialog/confirmation-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
       </trans-unit>
-
       <trans-unit id="confirmationDialogConfirmButton" datatype="html">
-        <source>Conferma</source>
-        <target>Confirm</target>
+        <source>Confirm</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/confirmation-dialog/confirmation-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

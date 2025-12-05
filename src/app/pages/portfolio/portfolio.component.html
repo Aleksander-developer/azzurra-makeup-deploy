@@ -1,11 +1,18 @@
 <!-- src/app/pages/portfolio/portfolio.component.html -->
+
 <div class="portfolio-page">
   <div class="portfolio-container">
     <h1 i18n="@@portfolio.title">Il Mio Portfolio</h1>
 
     <ng-container *ngIf="albums$ | async as items; else loading">
       <div class="portfolio-grid" *ngIf="items.length > 0; else noItems">
-        <div class="portfolio-card" *ngFor="let item of items">
+        <div
+          class="portfolio-card"
+          *ngFor="let item of items"
+          (click)="openAlbum(item)"
+          tabindex="0"
+          (keyup.enter)="openAlbum(item)"
+        >
           <div class="preview-gallery">
             <!-- Cover -->
             <div class="preview-img">
@@ -19,7 +26,11 @@
 
             <!-- Foto aggiuntive -->
             <div class="preview-img" *ngFor="let photo of item.photos">
-              <img [src]="photo" [alt]="item.title" onerror="this.src='assets/placeholder.png'" />
+              <img
+                [src]="photo"
+                [alt]="item.title"
+                onerror="this.src='assets/placeholder.png'"
+              />
             </div>
           </div>
 
@@ -31,6 +42,7 @@
               *ngIf="item.id"
               [routerLink]="['/portfolio', item.id]"
               class="btn-view"
+              (click)="$event.stopPropagation()"
               i18n="@@portfolio.view"
             >
               Visualizza
@@ -45,7 +57,7 @@
     </ng-container>
 
     <ng-template #loading>
-      <p i18n="@@portfolio.loading">Caricamento degli album...</p>
+      <p i18n="@@portfolioDetailLoadingAlbum">Caricamento dell'album in corso...</p>
     </ng-template>
   </div>
 </div>

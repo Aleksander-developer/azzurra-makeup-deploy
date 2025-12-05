@@ -1,3 +1,4 @@
+
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
@@ -75,7 +76,7 @@
               ]
             },
             "development": {
-              "localize": ["it", "en"],
+              "localize": false,
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
@@ -176,3 +177,4 @@
     "analytics": false
   }
 }
+

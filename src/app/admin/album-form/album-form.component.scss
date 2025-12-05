@@ -43,6 +43,19 @@ fieldset {
   flex-wrap: wrap;
 }
 
+.hint {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 0.25rem;
+}
+
+.saving-hint {
+  color: #444;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+/* Lista album drag & drop */
 .album-list {
   margin-top: 2rem;
   display: grid;
@@ -51,16 +64,38 @@ fieldset {
 }
 
 .card {
+  position: relative;
   border-radius: vars.$border-radius-lg;
   overflow: hidden;
   box-shadow: vars.$card-shadow;
   background: #fff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   padding: vars.$spacing-md;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
 
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  }
+
+  .drag-handle {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 1.2rem;
+    color: vars.$color-vibrant-fuchsia;
+    cursor: grab;
+    user-select: none;
+  }
+
+  &.cdk-drag-preview {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+    border: 2px dashed vars.$color-vibrant-fuchsia;
+    background: #fff;
   }
 
   h3 {
@@ -118,7 +153,7 @@ fieldset {
   }
 }
 
-/* --- Responsive --- */
+/* Responsive invariato */
 @include vars.respond-to(sm) {
   .preview-gallery .preview-img {
     flex: 0 1 calc(50% - vars.$spacing-sm);

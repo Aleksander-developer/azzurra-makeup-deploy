@@ -1,5 +1,6 @@
+
 @use '../../../styles/variables' as vars;
-@use '../../../styles/mixins' as mixins;
+@use '../../..//styles/mixins' as mixins;
 @use 'sass:color';
 
 .servizi-page {
@@ -30,7 +31,7 @@
   line-height: vars.$line-height-base;
 }
 
-/* --- Card in Evidenza (Trucco Sposa) --- */
+/* ⭐ CARD A DUE COLONNE (immagine a sinistra) */
 .service-highlight-card {
   display: flex;
   align-items: center;
@@ -38,118 +39,128 @@
   background: vars.$color-white;
   border-radius: vars.$border-radius-xl;
   padding: vars.$spacing-xl;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   box-shadow: vars.$card-shadow;
   text-align: left;
+  position: relative;
+  overflow: hidden;
 
+  /* ANIMAZIONE HOVER SULLA CARD */
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(vars.$color-vibrant-fuchsia, 0.25),
+                0 0 25px rgba(vars.$color-accent, 0.25);
+  }
+
+  /* -------- IMMAGINE + OVERLAY -------- */
   .highlight-image-container {
     flex: 1 1 40%;
     border-radius: vars.$border-radius-lg;
     overflow: hidden;
+    position: relative;
   }
 
   .highlight-image {
     width: 100%;
-    height: auto;
     display: block;
+    transform: scale(1);
+    transition: transform 0.5s ease;
   }
 
+  /* OVERLAY GRADIENT LUXURY */
+  .highlight-image-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom right,
+      rgba(vars.$color-vibrant-fuchsia, 0.45),
+      rgba(vars.$color-dark-purple-text, 0.2),
+      rgba(0, 0, 0, 0)
+    );
+    opacity: 0.55;
+    transition: opacity 0.4s ease;
+  }
+
+  /* HOVER EFFETTO PREMIUM */
+  &:hover .highlight-image {
+    transform: scale(1.08);
+  }
+
+  &:hover .highlight-image-container::after {
+    opacity: 0.75;
+  }
+
+  /* -------- TESTO -------- */
   .highlight-content {
     flex: 1 1 60%;
   }
 
   .highlight-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: vars.$color-dark-purple-text;
+    margin-bottom: vars.$spacing-sm;
+  }
+
+  .highlight-description {
+    font-size: 1.1rem;
+    margin-bottom: vars.$spacing-md;
+    color: vars.$color-text-dark;
   }
 }
 
-/* --- Griglia Altri Servizi (solo testo) --- */
-.other-services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+/* ⭐ LE ALTRE CARD USANO LA STESSA STRUTTURA */
+.other-services-advanced {
+  display: flex;
+  flex-direction: column;
   gap: vars.$spacing-xxl;
 }
 
-/* Card di base */
-.service-card {
-  @include mixins.card-style(vars.$spacing-xl, vars.$color-shadow-light);
-  text-align: left;
-  position: relative;
-  overflow: hidden;
+/* ⭐ CALL TO ACTION (copiata dallo stile Chi Sono) */
+.cta-section {
+  @include mixins.card-style(vars.$spacing-xl);
+  background: linear-gradient(135deg, vars.$color-primary, vars.$color-vibrant-fuchsia);
+  color: vars.$color-white;
+  box-shadow: 0 10px 30px rgba(vars.$color-primary, 0.3);
+  margin-top: vars.$spacing-xxl;
 
-  /* Effetto glow al bordo */
-  border: 2px solid transparent;
-  background-image: linear-gradient(vars.$color-white, vars.$color-white),
-    linear-gradient(135deg, vars.$color-vibrant-fuchsia, vars.$color-accent);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-
-  &:hover {
-    box-shadow: 0 8px 25px rgba(vars.$color-vibrant-fuchsia, 0.2),
-      0 0 20px vars.$shadow-glow-color;
+  h2 {
+    font-size: 2.2rem;
+    color: vars.$color-white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
 
-  mat-card-title {
-    @include mixins.responsive-text(1.4rem, 1.8rem);
-    font-weight: 700;
-    color: vars.$color-dark-purple-text;
-    margin-bottom: vars.$spacing-xs;
-    position: relative;
-
-    /* sottolineatura animata */
-    &::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 3px;
-      margin-top: vars.$spacing-xs;
-      background: vars.$color-vibrant-fuchsia;
-      transition: width 0.3s vars.$transition-ease;
-    }
-  }
-
-  &:hover mat-card-title::after {
-    width: 50%;
-  }
-
-  mat-card-subtitle {
+  p {
     font-size: 1.1rem;
-    color: vars.$color-dark-pink-text;
-    margin-bottom: vars.$spacing-md;
+    margin-bottom: vars.$spacing-xl;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  mat-card-content p {
-    font-size: 1rem;
-    line-height: vars.$line-height-lg;
-    color: vars.$color-text-dark;
-  }
-
-  mat-card-actions {
-    margin-top: vars.$spacing-md;
-
-    button {
-      @include mixins.beauty-button(vars.$color-vibrant-fuchsia, vars.$color-white);
-    }
+  button {
+    @include mixins.beauty-button(vars.$color-white, vars.$color-primary);
+    font-size: 1.1rem;
+    padding: 0.8rem 2.5rem;
   }
 }
 
-/* --- Responsive --- */
-@include vars.respond-to(lg) {
-  .service-highlight-card, .service-card {
-    flex-direction: column !important;
+/* Responsività */
+@include vars.respond-to(md) {
+  .servizi-container { padding: vars.$spacing-lg; }
+  .page-title { font-size: 2.5rem; }
+  .page-subtitle { font-size: 1.1rem; }
+
+  .service-highlight-card {
+    flex-direction: column;
     text-align: center;
 
     .highlight-content {
       text-align: center;
     }
   }
-}
-
-@include vars.respond-to(md) {
-  .servizi-container { padding: vars.$spacing-lg; }
-  .page-title { font-size: 2.5rem; }
-  .page-subtitle { font-size: 1.1rem; }
 }
 
 @include vars.respond-to(sm) {

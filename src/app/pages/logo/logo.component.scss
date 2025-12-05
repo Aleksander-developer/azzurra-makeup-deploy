@@ -1,0 +1,37 @@
+
+/* src/app/pages/logo/logo.component.scss */
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-wrapper {
+  display: inline-block;
+  background: transparent !important;
+}
+
+svg {
+  overflow: visible;
+  background: transparent !important;
+}
+
+html, body, :host {
+  background: transparent !important;
+}
+
+.download-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+
+  button {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: #d1a0a0;
+  }
+}
+

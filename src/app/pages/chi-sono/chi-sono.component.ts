@@ -1,3 +1,4 @@
+
 // src/app/pages/chi-sono/chi-sono.component.ts
 import { Component, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { SeoService } from '../../services/seo.service';
@@ -34,3 +35,4 @@ export class ChiSonoComponent implements OnInit {
     this.seoService.updateHreflangTags(this.localeId, pageUrl);
   }
 }
+

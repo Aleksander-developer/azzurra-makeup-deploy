@@ -1,0 +1,284 @@
+
+@use 'src/styles/variables' as *;
+
+/* ===========================================================
+   BIGLIETTO DA VISITA
+=========================================================== */
+
+.biglietto-visita-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xl;
+  padding: $spacing-xxl $spacing-xl;
+
+  background:
+    radial-gradient(
+      circle at 30% 15%,
+      rgba(255, 98, 164, 0.45) 0%,
+      rgba(255, 140, 185, 0.35) 20%,
+      rgba(255, 185, 215, 0.40) 40%,
+      rgba(255, 230, 245, 0.55) 65%,
+      white 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 170, 205, 0.55) 0%,
+      rgba(255, 210, 235, 0.55) 35%,
+      rgba(255, 240, 248, 0.95) 70%,
+      white 100%
+    ) !important;
+
+  font-family: $font-family-primary;
+  color: $color-text-dark;
+
+  h1 {
+    font-family: $font-family-secondary;
+    font-size: 1.8rem;
+    color: #8A0030;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      margin: 0.5rem auto 0;
+      background: $color-accent;
+      border-radius: 3px;
+    }
+  }
+
+  .card-preview {
+    display: flex;
+    gap: $spacing-xl;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ===========================================================
+     CARD
+  =========================================================== */
+
+  .card {
+    width: 85mm;
+    height: 55mm;
+    background: white !important;
+    border-radius: 4mm;
+    padding: 5mm;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    /* ===========================================================
+       FRONTE
+    =========================================================== */
+    &.card-front {
+      text-align: center;
+
+      /* nuovo logo */
+      .logo-circle {
+        width: 26mm;
+        height: 26mm;
+        border-radius: 50%;
+        // background: rgba(245, 113, 173, 0.12);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 4mm;
+        position: relative;
+
+        // &.double-luxury::before {
+        //   content: "";
+        //   position: absolute;
+        //   width: 28mm;
+        //   height: 28mm;
+        //   border-radius: 50%;
+        //   border: 1.4px solid rgba(245, 113, 173, 0.50);
+        //   top: -1mm;
+        //   left: -1mm;
+        // }
+
+        // &.double-luxury::after {
+        //   content: "";
+        //   position: absolute;
+        //   width: 22mm;
+        //   height: 22mm;
+        //   border-radius: 50%;
+        //   border: 1.2px solid rgba(208, 93, 164, 0.30);
+        // }
+      }
+
+      /* Testi */
+      .name {
+        font-family: $font-family-secondary;
+        font-size: 6mm;
+        font-weight: 600;
+        color: #8A0030;
+        margin-top: 1mm;
+      }
+
+      .role {
+        margin-top: 1.5mm;
+        font-size: 3.6mm;
+        font-family: $font-family-secondary;
+        font-weight: 500;
+        font-style: italic;
+        color: #8A0030;
+        font-weight: 800;
+      }
+
+      .slogan {
+        margin-top: 0mm;
+        font-size: 4mm;
+        font-style: italic;
+        font-family: $font-family-secondary;
+        color: #8A0030;
+        opacity: 0.9;
+        letter-spacing: 0.3px;
+        font-weight: 800;
+      }
+    }
+
+    /* ===========================================================
+       RETRO
+    =========================================================== */
+    &.card-back {
+      background: white !important;
+      border: 0.3mm solid $color-gray-light;
+      align-items: flex-start;
+
+      .contacts-title {
+        font-family: $font-family-secondary;
+        text-align: center;
+        font-size: 6.2mm;
+        color: #8A0030;
+        margin: 1mm auto 2.5mm;
+        width: 100%;
+      }
+
+      .info-list {
+        margin-left: 2mm;
+        margin-right: 23mm;
+        display: flex;
+        flex-direction: column;
+        gap: 1.1mm;
+        margin-top: 1mm;
+
+        p {
+          display: flex;
+          align-items: center;
+          gap: 2mm;
+          font-size: 3.1mm;
+          color: #8A0030;
+          margin: 0;
+
+          mat-icon {
+            font-size: 3.6mm;
+            color: #8A0030;
+          }
+
+          a {
+            color: #8A0030;
+            text-decoration: none;
+
+            &:hover {
+              color: #8A0030;
+            }
+          }
+        }
+
+        .ig-row {
+          margin-top: 0.5mm;
+        }
+      }
+
+      .qr-code {
+        width: 14mm;
+        height: 14mm;
+        background: white;
+        border-radius: 1mm;
+        padding: 0.4mm;
+      }
+
+      .qr-website,
+      .qr-instagram {
+        position: absolute;
+        right: 3.5mm;
+        text-align: center;
+      }
+
+      .qr-website {
+        top: 4mm;
+      }
+
+      .qr-instagram {
+        bottom: 3.5mm;
+      }
+
+      .scan-text {
+        font-size: 2.3mm;
+        color: #8A0030;
+      }
+    }
+  }
+
+  /* ACTION BUTTONS */
+  .actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+
+.logo-circle img.logo-small {
+  width: 120%;
+  height: 120%;
+  object-fit: contain;
+  display: block;
+  transform: scale(0.75); // puoi regolarlo
+}
+
+
+/* ===========================================================
+   FIX CENTRATURA <app-logo> NEL CERCHIO
+=========================================================== */
+
+/* ===========================================================
+   LOGO versione per biglietto da visita
+=========================================================== */
+
+// .logo-circle app-logo.logo-small {
+//   width: 60%;
+//   height: 60%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   overflow: visible;
+
+//   top: 3mm;
+// }
+
+
+// .logo-circle app-logo.logo-small .logo-wrapper {
+  
+//   position: relative;
+//   width: 60%;
+//   height: 60%;
+//   // transform: scale(0.28); 
+//   // transform: scale(0.28) translateY(10%);
+//   // transform-origin: center center;
+// }
+
+// .logo-circle app-logo.logo-small svg {
+//   transform: none !important;
+//   overflow: visible;
+// }
+
+
+

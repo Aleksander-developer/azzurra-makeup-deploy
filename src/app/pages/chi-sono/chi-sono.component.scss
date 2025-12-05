@@ -1,3 +1,4 @@
+
 @use '../../../styles/variables' as vars;
 @use '../../../styles/mixins' as mixins;
 @use 'sass:color';
@@ -208,3 +209,4 @@
   .page-subtitle { font-size: 0.9rem; }
   .about-me-section .about-me-image-container { max-width: 200px; }
 }
+

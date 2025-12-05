@@ -59,7 +59,7 @@
 
     <div class="actions">
       <button mat-raised-button color="primary" type="submit">
-        <span *ngIf="editingId; else saveBtn" i18n="@@update">Aggiorna</span>
+        <span *ngIf="editingId; else saveBtn" i18n="@@updateButton">Aggiorna</span>
         <ng-template #saveBtn>
           <span i18n="@@save">Salva</span>
         </ng-template>
@@ -80,19 +80,32 @@
   <hr />
 
   <h3 i18n="@@album.list">Album salvati</h3>
-  <div class="grid album-list">
-    <div class="card" *ngFor="let album of albums$ | async">
+  <p class="hint">💡 Trascina gli album per modificare l’ordine di visualizzazione.</p>
+  <p *ngIf="savingOrder" class="saving-hint">💾 Sto salvando l’ordine…</p>
+
+  <!-- Drag & Drop container -->
+  <div
+    cdkDropList
+    class="grid album-list"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div
+      class="card"
+      *ngFor="let album of albums; let i = index"
+      cdkDrag
+      [cdkDragData]="album"
+    >
+      <div class="drag-handle" cdkDragHandle>☰</div>
+
       <h3>{{ album.title }}</h3>
       <p>{{ album.description }}</p>
 
       <div class="preview-gallery">
-        <!-- Cover come prima immagine -->
         <div class="preview-img">
           <img [src]="album.cover" [alt]="album.title + ' cover'" />
           <span class="tag" i18n="@@albumForm.coverTag">Cover</span>
         </div>
 
-        <!-- Foto aggiuntive -->
         <div class="preview-img" *ngFor="let photo of album.photos">
           <img [src]="photo" [alt]="album.title" />
         </div>
